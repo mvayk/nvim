@@ -1,8 +1,5 @@
---> TODO fix everything and organize this mess and understand what is happening
-
 local cmp = require("cmp")
 local mason = require("mason")
-local rblxlsp = require("luau-lsp")
 local lspconfig = require("lspconfig")
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -50,8 +47,6 @@ cmp.setup.cmdline(":", {
     }),
 })
 
-rblxlsp.setup()
-
 mason.setup({
     ui = {
         icons = {
@@ -72,20 +67,3 @@ require("mason-lspconfig").setup_handlers {
     lspconfig.clangd.setup { capabilities = capabilities },
     lspconfig.pyre.setup { capabilities = capabilities },
 }
-
-rblxlsp.setup {
-  server = {
-    settings = {
-      -- https://github.com/folke/neoconf.nvim/blob/main/schemas/luau_lsp.json
-      ["luau-lsp"] = {
-        completion = {
-          imports = {
-            enabled = true, -- enable auto imports
-          },
-        },
-      },
-    },
-  },
-}
-
-rblxlsp.config {}

@@ -14,13 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     --> Aesthetic
+    {'nvim-lualine/lualine.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
+    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+    {'rcarriga/nvim-notify'},
+    {'goolord/alpha-nvim'},
+
+    --> Themes
     {'folke/tokyonight.nvim', lazy = false},
     {'ellisonleao/gruvbox.nvim'},
     {'bluz71/vim-nightfly-colors'},
-    {'nvim-lualine/lualine.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
-    {'goolord/alpha-nvim'},
-    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-    {'rcarriga/nvim-notify'},
     {'catppuccin/nvim', name = 'catpuccin'},
     {'rebelot/kanagawa.nvim'},
     {'rose-pine/neovim', name = 'rose-pine'},
@@ -30,19 +32,11 @@ require("lazy").setup({
 
     --> Functional
     {'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = {'nvim-lua/plenary.nvim'}},
-    {'Exafunction/codeium.vim', dependencies = {"nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp"}},
-    { "folke/noice.nvim",
-      event = "VeryLazy",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-        }
-    },
+    -- {'Exafunction/codeium.vim', dependencies = {"nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp"}},
     {
       "folke/todo-comments.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
     },
-    {'andweeb/presence.nvim'},
 
     --> LSP / Codecompletion
     {"lopi-py/luau-lsp.nvim", dependencies = {"nvim-lua/plenary.nvim"}},
