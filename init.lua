@@ -54,4 +54,4 @@ local function transparency()
     end
 end
 
-vim.cmd([[colorscheme murphy]])
+vim.cmd([[colorscheme catppuccin-mocha]])
