@@ -20,13 +20,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
         vim.keymap.set("n", "j", "gj", opts)
         vim.keymap.set("n", "k", "gk", opts)
-        vim.keymap.set("n", "h", "g^", opts)
-        vim.keymap.set("n", "l", "g$", opts)
 
         vim.keymap.set("v", "j", "gj", opts)
         vim.keymap.set("v", "k", "gk", opts)
-        vim.keymap.set("v", "h", "g^", opts)
-        vim.keymap.set("v", "l", "g$", opts)
     end,
 })
 vim.opt.nu = true
