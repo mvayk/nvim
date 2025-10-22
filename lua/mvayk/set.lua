@@ -3,10 +3,30 @@ vim.o.background = "dark"
 
 -- remove auto commentting  feature
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
-  end,
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.nolist = true
+        local opts = { buffer = true, noremap = true, silent = true }
+
+        vim.keymap.set("n", "j", "gj", opts)
+        vim.keymap.set("n", "k", "gk", opts)
+        vim.keymap.set("n", "h", "g^", opts)
+        vim.keymap.set("n", "l", "g$", opts)
+
+        vim.keymap.set("v", "j", "gj", opts)
+        vim.keymap.set("v", "k", "gk", opts)
+        vim.keymap.set("v", "h", "g^", opts)
+        vim.keymap.set("v", "l", "g$", opts)
+    end,
 })
 
 vim.opt.nu = true

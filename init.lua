@@ -54,4 +54,5 @@ local function transparency()
     end
 end
 
-vim.cmd([[colorscheme catppuccin-mocha]])
+vim.cmd([[colorscheme carbonfox]])
+transparency()
