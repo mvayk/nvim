@@ -54,5 +54,4 @@ local function transparency()
     end
 end
 
-vim.cmd([[colorscheme carbonfox]])
-transparency()
+vim.cmd([[colorscheme afterglow]])

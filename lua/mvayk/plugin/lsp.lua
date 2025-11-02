@@ -6,7 +6,7 @@ if enabled then
         { "williamboman/mason-lspconfig.nvim" },
         -- { "neovim/nvim-lspconfig" },
         { "ray-x/lsp_signature.nvim" },
-        { "nvim-treesitter/nvim-treesitter" },
+        --> { "nvim-treesitter/nvim-treesitter" },
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-buffer" },
         -- { "stevearc/conform.nvim" },
@@ -17,7 +17,7 @@ if enabled then
         { "hrsh7th/cmp-emoji" },
         { "onsails/lspkind.nvim" },
         { "hrsh7th/cmp-calc" },
-        { "ray-x/cmp-treesitter" },
+        --> { "ray-x/cmp-treesitter" },
         --> { "f3fora/cmp-spell" },
         { "petertriho/cmp-git" },
         { "L3MON4D3/LuaSnip" },
@@ -40,10 +40,10 @@ if enabled then
                         exclude = { "luau_lsp" }
                     },
                 })
-
                 local signature_config = {event="InsertEnter"}
                 require("lsp_signature").setup(signature_config)
 
+                --[[
                 require("nvim-treesitter.configs").setup({
                     ensure_installed = {
                         "lua",
@@ -55,6 +55,7 @@ if enabled then
                         enable = true,
                     },
                 })
+                ]]
 
                 require("luau-lsp").setup({
                     platform = {
