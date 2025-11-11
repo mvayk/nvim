@@ -54,4 +54,4 @@ local function transparency()
     end
 end
 
-vim.cmd([[colorscheme afterglow]])
+vim.cmd([[colorscheme rose-pine-main]])

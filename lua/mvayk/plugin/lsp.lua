@@ -6,7 +6,7 @@ if enabled then
         { "williamboman/mason-lspconfig.nvim" },
         -- { "neovim/nvim-lspconfig" },
         { "ray-x/lsp_signature.nvim" },
-        --> { "nvim-treesitter/nvim-treesitter" },
+        { "nvim-treesitter/nvim-treesitter" },
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-buffer" },
         -- { "stevearc/conform.nvim" },
@@ -43,7 +43,6 @@ if enabled then
                 local signature_config = {event="InsertEnter"}
                 require("lsp_signature").setup(signature_config)
 
-                --[[
                 require("nvim-treesitter.configs").setup({
                     ensure_installed = {
                         "lua",
@@ -55,7 +54,6 @@ if enabled then
                         enable = true,
                     },
                 })
-                ]]
 
                 require("luau-lsp").setup({
                     platform = {
@@ -81,7 +79,7 @@ if enabled then
 
 
                 --> lsp servers
-                local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                --local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                 --> completion menu
                 vim.api.nvim_set_hl(0, "CmpBorder", { link = "NormalFloat" })
