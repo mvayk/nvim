@@ -54,4 +54,5 @@ local function transparency()
     end
 end
 
-vim.cmd([[colorscheme rose-pine-main]])
+vim.cmd([[colorscheme carbonfox]])
+transparency()

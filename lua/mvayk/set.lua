@@ -47,7 +47,7 @@ vim.opt.termguicolors = true
 vim.o.exrc = true
 vim.o.cursorline = false
 vim.o.cursorcolumn = false
-vim.opt["guicursor"] = "i:block"
+--// vim.opt["guicursor"] = "i:block"
 vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
 
