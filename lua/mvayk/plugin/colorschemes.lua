@@ -9,7 +9,6 @@ return {
     "yorumicolors/yorumi.nvim",
     "scottmckendry/cyberdream.nvim",
     "sainnhe/gruvbox-material",
-    "rose-pine/neovim",
     "aktersnurra/no-clown-fiesta.nvim",
     "rafi/awesome-vim-colorschemes",
     "zenbones-theme/zenbones.nvim",
@@ -30,9 +29,15 @@ return {
     "luisiacc/gruvbox-baby",
     "ellisonleao/gruvbox.nvim",
     "catppuccin/nvim", name = "catppuccin", priority = 1000,
+    "rose-pine/neovim",
     config = function()
-        require("catppuccin").setup({
-            flavour = "auto",
-        })
+        require("rose-pine").setup {
+            styles = {
+                bold = true,
+                italic = false,
+                transparency = true,
+                disable_background = true,
+            }
+        }
     end
 }

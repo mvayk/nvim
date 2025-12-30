@@ -34,7 +34,7 @@ if enabled then
             config = function()
                 require("mason").setup()
                 require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls" },
+                    ensure_installed = { "lua_ls", "clangd" },
                     automatic_installation = true,
                     automatic_enable = {
                         exclude = { "luau_lsp" }
@@ -70,7 +70,7 @@ if enabled then
                     underline = true,    -- underline errors/warnings
                     update_in_insert = false,
                     float = {
-                        border = "rounded", -- <-- make the diagnostic popup rounded
+                        border = "single", -- <-- make the diagnostic popup single
                         source = "always",  -- show source
                         header = "",        -- optional header
                         prefix = "",        -- optional prefix
@@ -118,14 +118,14 @@ if enabled then
                     },
                     window = {
                         completion = cmp.config.window.bordered({
-                            border = "rounded",
+                            border = "single",
                             winhighlight = "Normal:NormalFloat,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                             max_width = 50,
                             scrollbar = false,
                             col_offset = 0,
                         }),
                         documentation = cmp.config.window.bordered({
-                            border = "rounded",
+                            border = "single",
                             winhighlight = "Normal:NormalFloat,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                             scrollbar = false,
                             max_width = 60,
