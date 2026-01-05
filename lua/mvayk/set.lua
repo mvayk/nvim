@@ -9,19 +9,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- Restore cursor style on exit/suspend
-vim.api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
-  callback = function()
-    vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
-  callback = function()
-    vim.opt.guicursor = "a:hor20-blinkon0"
-  end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()

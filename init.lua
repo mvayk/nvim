@@ -45,9 +45,9 @@ local function transparency()
         "CmpBorder"
     }
 
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#44475a", fg = "#ffffff", bold = true })
-    vim.api.nvim_set_hl(0, "CmpSel", { bg = "#44475a", fg = "#ffffff", bold = true })
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2e2e2e" })
+    -- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#44475a", fg = "#ffffff", bold = true })
+    -- vim.api.nvim_set_hl(0, "CmpSel", { bg = "#44475a", fg = "#ffffff", bold = true })
+    -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2e2e2e" })
 
     for _, group in ipairs(border_groups) do
         vim.api.nvim_set_hl(0, group, { fg = "#ffffff", bg = "NONE", ctermbg = "NONE" })
