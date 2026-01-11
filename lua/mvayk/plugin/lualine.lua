@@ -1,6 +1,6 @@
 local enabled = true
 
-local theme = "block"
+local theme = "evil"
 
 if enabled then
     if theme == "default" then

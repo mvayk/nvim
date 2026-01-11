@@ -54,5 +54,9 @@ local function transparency()
     end
 end
 
-vim.cmd([[colorscheme rose-pine]])
-transparency()
+--// use terminal colors
+vim.o.termguicolors = false
+vim.o.background = 'dark'  -- or 'light'
+
+--//vim.cmd([[colorscheme citruszest]])
+--//transparency()

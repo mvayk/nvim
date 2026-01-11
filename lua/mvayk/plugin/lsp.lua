@@ -34,7 +34,7 @@ if enabled then
             config = function()
                 require("mason").setup()
                 require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls", "clangd" },
+                    ensure_installed = { "lua_ls", "clangd", "ast_grep"},
                     automatic_installation = true,
                     automatic_enable = {
                         exclude = { "luau_lsp" }
@@ -48,6 +48,7 @@ if enabled then
                         "lua",
                         "c",
                         "cpp",
+                        "python",
                         "rust",
                     },
                     highlight = {
