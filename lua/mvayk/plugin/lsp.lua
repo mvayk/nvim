@@ -69,8 +69,9 @@ if enabled then
                 vim.diagnostic.config({
                     virtual_text = true, -- inline text
                     signs = true,        -- show signs
-                    underline = true,    -- underline errors/warnings
-                    update_in_insert = false,
+                    underline = false,    -- underline errors/warnings
+                    update_in_insert = true,
+                    severity_sort = true,       -- show worst errors first
                     float = {
                         border = "none", -- <-- make the diagnostic popup single
                         source = "always",  -- show source

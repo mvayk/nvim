@@ -71,8 +71,7 @@ if enabled then
 
                 require('lualine').setup {
                     options = {
-                        --theme = "auto",
-                        theme = "base16",
+                        theme = "auto",
                         component_separators = '',
                         section_separators = { left = '', right = '' },
                     },
