@@ -5,7 +5,7 @@ if enabled then
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
         -- { "neovim/nvim-lspconfig" },
-        { "ray-x/lsp_signature.nvim" },
+        --{ "ray-x/lsp_signature.nvim" },
         { "nvim-treesitter/nvim-treesitter" },
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-buffer" },
@@ -41,8 +41,8 @@ if enabled then
                         exclude = { "luau_lsp" }
                     },
                 })
-                local signature_config = {event="InsertEnter"}
-                require("lsp_signature").setup(signature_config)
+                -- local signature_config = {event="InsertEnter"}
+                -- require("lsp_signature").setup(signature_config)
 
                 require("nvim-treesitter.configs").setup({
                     ensure_installed = {

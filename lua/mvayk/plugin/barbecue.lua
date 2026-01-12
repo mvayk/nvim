@@ -7,6 +7,13 @@ return {
         "nvim-tree/nvim-web-devicons", -- optional dependency
     },
     opts = {
-        -- configurations go here
     },
+
+    config = function()
+        require("barbecue").setup({
+            theme = {
+                normal = { bg = "NONE" },
+            },
+        })
+    end
 }
