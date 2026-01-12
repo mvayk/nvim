@@ -1,4 +1,4 @@
-local enabled = false
+local enabled = true
 
 if enabled then
     return {
@@ -14,15 +14,16 @@ if enabled then
         ---@module "neo-tree"
         ---@type neotree.Config?
         opts = {
-            -- fill any relevant options here
         },
         config = function()
             vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neo-tree" })
 
             require("neo-tree").setup({
-                auto_open = false,
-                open_on_setup = false, --> idk how to fix
                 -- fill any relevant options here
+                filesystem = {
+                    hijack_netrw_behavior = "disabled",  -- ← crucial: let other plugins (Oil) handle dirs
+                    -- rest of filesystem options...
+                },
 
                 window = {
                     position = "right",
