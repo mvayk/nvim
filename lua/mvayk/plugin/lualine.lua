@@ -1,6 +1,6 @@
 local enabled = true
 
-local theme = "evil"
+local theme = "block"
 
 if enabled then
     if theme == "default" then
@@ -71,7 +71,8 @@ if enabled then
 
                 require('lualine').setup {
                     options = {
-                        theme = "auto",
+                        --theme = "auto",
+                        theme = "base16",
                         component_separators = '',
                         section_separators = { left = '', right = '' },
                     },

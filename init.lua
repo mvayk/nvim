@@ -18,6 +18,14 @@ require("lazy").setup({
     import = "mvayk.plugin",
 })
 
+local function other_transparency()
+    -- Main editor background (this is what you want transparent)
+    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+
+    -- Non-current window background (if you use splits)
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+end
+
 local function transparency()
     local transparent_groups = {
         "Normal", "NormalNC", "NormalFloat", "StatusLine", "StatusLineNC",
@@ -54,9 +62,15 @@ local function transparency()
     end
 end
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+      other_transparency()
+  end,
+})
+
 --// use terminal colors
 vim.o.termguicolors = false
-vim.o.background = 'dark'  -- or 'light'
+--vim.o.background = 'dark'  -- or 'light'
 
---//vim.cmd([[colorscheme citruszest]])
---//transparency()
+vim.cmd([[colorscheme retrobox]])

@@ -9,15 +9,16 @@ if enabled then
         { "nvim-treesitter/nvim-treesitter" },
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-buffer" },
-        -- { "stevearc/conform.nvim" },
-        -- { "nvimdev/lspsaga.nvim" },
+        { "stevearc/conform.nvim" },
+        { "nvimdev/lspsaga.nvim" },
+        { "hedyhli/outline.nvim" },
         { "hrsh7th/cmp-path" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-cmdline" },
         { "hrsh7th/cmp-emoji" },
         { "onsails/lspkind.nvim" },
         { "hrsh7th/cmp-calc" },
-        --> { "ray-x/cmp-treesitter" },
+        { "ray-x/cmp-treesitter" },
         --> { "f3fora/cmp-spell" },
         { "petertriho/cmp-git" },
         { "L3MON4D3/LuaSnip" },
@@ -71,7 +72,7 @@ if enabled then
                     underline = true,    -- underline errors/warnings
                     update_in_insert = false,
                     float = {
-                        border = "single", -- <-- make the diagnostic popup single
+                        border = "none", -- <-- make the diagnostic popup single
                         source = "always",  -- show source
                         header = "",        -- optional header
                         prefix = "",        -- optional prefix
@@ -119,14 +120,14 @@ if enabled then
                     },
                     window = {
                         completion = cmp.config.window.bordered({
-                            border = "single",
+                            border = "none",
                             winhighlight = "Normal:NormalFloat,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                             max_width = 50,
                             scrollbar = false,
                             col_offset = 0,
                         }),
                         documentation = cmp.config.window.bordered({
-                            border = "single",
+                            border = "none",
                             winhighlight = "Normal:NormalFloat,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                             scrollbar = false,
                             max_width = 60,
