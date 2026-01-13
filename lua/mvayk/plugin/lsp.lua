@@ -2,6 +2,7 @@ local enabled = false
 
 if enabled then
     return {
+        --
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
         -- { "neovim/nvim-lspconfig" },

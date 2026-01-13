@@ -5,7 +5,7 @@ return {
     lazy = false,     -- important for picker/explorer availability
     opts = {
         dashboard = {
-            enabled = true,
+            enabled = false,
         },
         picker = {
             enabled = true,
