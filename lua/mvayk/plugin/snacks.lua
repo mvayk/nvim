@@ -7,17 +7,28 @@ return {
         dashboard = {
             enabled = false,
         },
+        explorer = {
+            enabled = true,
+            replace_netrw = true,
+            trash = true,
+        },
         picker = {
             enabled = true,
-            -- Optional: customize sources, layouts, etc.
             sources = {
                 explorer = {
-                    hidden = true,          -- show hidden files by default
-                    tree = true,            -- tree view
-                    follow_file = true,     -- follow current file
+                    tree = false,
+                    follow_file = true,
                     git_status = true,
+                    hidden = "false",
+                    layout = {
+                        layout = {
+                            width = 0.3,
+                            height = 0.9,
+                            position = "right",
+                        },
+                    },
                 },
-                files = { hidden = true },  -- for regular file picker
+                files = { hidden = false },  -- for regular file picker
                 win = {
                     backdrop = false,
                 },
@@ -28,17 +39,13 @@ return {
                     layout = {
                         box = "vertical",
                         backdrop = false,
-                        width = 0.8,
+                        width = 0.3,
                         height = 0.9,
                         border = "none",
                         -- ... more tweaks if needed
                     },
                 },
             },
-        },
-        explorer = {
-            enabled = true,
-            replace_netrw = true,
         },
     },
     keys = {
