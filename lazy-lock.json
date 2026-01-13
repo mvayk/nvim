@@ -40,6 +40,7 @@
   "mellifluous.nvim": { "branch": "main", "commit": "4ce6258b31420aa4fd64b35b7f7cf42dffef7403" },
   "monochrome.nvim": { "branch": "main", "commit": "2de78d9688ea4a177bcd9be554ab9192337d35ff" },
   "nebulous.nvim": { "branch": "main", "commit": "9599c2da4d234b78506ce30c6544595fac25e9ca" },
+  "neogit": { "branch": "master", "commit": "d8bf9102692250193b855acd9025a826f1af2729" },
   "neovim": { "branch": "main", "commit": "cf2a288696b03d0934da713d66c6d71557b5c997" },
   "night-owl.nvim": { "branch": "main", "commit": "86ed124c2f7e118670649701288e024444bf91e5" },
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
