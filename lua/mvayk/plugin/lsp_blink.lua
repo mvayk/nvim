@@ -1,4 +1,4 @@
--- big thanks to baby girl claude
+# big thanks to big baby girl claude
 local enabled = true
 
 if enabled then
@@ -10,6 +10,15 @@ if enabled then
         { "nvimdev/lspsaga.nvim" },
         { "hedyhli/outline.nvim" },
         { "lopi-py/luau-lsp.nvim" },
+
+        -- Blink.compat for nvim-cmp sources
+        {
+            "saghen/blink.compat",
+            version = "2.*", -- Use v2.* for blink.cmp v1.*
+            lazy = true,
+            opts = {},
+        },
+
         -- Blink.cmp and its dependencies
         {
             "saghen/blink.cmp",
@@ -19,10 +28,8 @@ if enabled then
                 "moyiz/blink-emoji.nvim", -- Emoji source
                 "Kaiser-Yang/blink-cmp-git", -- Git source
                 "saghen/blink.compat", -- nvim-cmp compatibility layer
-                -- nvim-cmp sources that need compatibility layer
-                "hrsh7th/cmp-calc",
+                "hrsh7th/cmp-calc", -- Calculator source via compat
             },
-            opts_extend = { "sources.default" },
             opts = {
                 keymap = {
                     preset = "default",
@@ -36,12 +43,13 @@ if enabled then
                     ["<C-e>"] = { "hide", "fallback" },
                     ["<CR>"] = { "accept", "fallback" },
                 },
+
                 appearance = {
-                    use_nvim_cmp_as_default = true, -- Use nvim-cmp-like appearance
+                    use_nvim_cmp_as_default = false, -- Use nvim-cmp-like appearance
                     nerd_font_variant = "mono",
                 },
+
                 completion = {
-                    keyword_range = "prefix", -- Show completions from the start
                     trigger = {
                         show_on_keyword = true,
                         show_on_trigger_character = true,
@@ -77,30 +85,14 @@ if enabled then
                         },
                     },
                 },
+
                 sources = {
-                    -- Built-in sources (lsp, path, snippets, buffer) don't need to be defined
+                    -- Add all sources to default list
+                    -- Built-in: lsp, path, snippets, buffer
+                    -- Custom: emoji, calc, git
                     default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "git" },
+
                     providers = {
-                        lsp = {
-                            name = "LSP",
-                            enabled = true,
-                            module = "blink.cmp.sources.lsp",
-                        },
-                        path = {
-                            name = "Path",
-                            module = "blink.cmp.sources.path",
-                            score_offset = 3,
-                        },
-                        snippets = {
-                            name = "Snippets",
-                            module = "blink.cmp.sources.snippets",
-                            score_offset = -1,
-                        },
-                        buffer = {
-                            name = "Buffer",
-                            module = "blink.cmp.sources.buffer",
-                            score_offset = -3,
-                        },
                         emoji = {
                             name = "Emoji",
                             module = "blink-emoji",
@@ -109,33 +101,31 @@ if enabled then
                                 insert = true, -- Insert emoji instead of name
                             },
                         },
+
+                        -- nvim-cmp source via blink.compat
                         calc = {
                             name = "Calc",
                             module = "blink.compat.source",
                             score_offset = -4,
                         },
+
                         git = {
                             name = "Git",
                             module = "blink-cmp-git",
                             score_offset = -10,
                         },
                     },
-                    -- Enable nvim-cmp compatibility for calc source
-                    compat = { "calc" },
                 },
+
                 signature = {
                     enabled = true,
                     window = {
                         border = "none",
                     },
                 },
-                fuzzy = {
-                    -- Use Rust implementation for better performance
-                    -- Falls back to Lua if Rust binary isn't available
-                    implementation = "prefer_rust_with_warning",
-                },
             },
         },
+
         {
             "neovim/nvim-lspconfig",
             dependencies = {
@@ -196,15 +186,21 @@ if enabled then
                     },
                 })
 
+                -- Get blink.cmp capabilities for LSP servers
                 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+                -- Setup LSP servers using the new vim.lsp.config API (nvim 0.11+)
                 local mason_lspconfig = require("mason-lspconfig")
                 local installed_servers = mason_lspconfig.get_installed_servers()
+
                 for _, server_name in ipairs(installed_servers) do
                     if server_name ~= "luau_lsp" then -- Skip luau_lsp as it's configured separately
+                        -- Use the new vim.lsp.config API
                         vim.lsp.config[server_name] = {
                             capabilities = capabilities,
                         }
+
+                        -- Enable the LSP server
                         vim.lsp.enable(server_name)
                     end
                 end

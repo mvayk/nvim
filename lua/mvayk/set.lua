@@ -51,17 +51,17 @@ vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
--- vim.o.list = true
--- vim.opt.listchars = {
+vim.o.list = true
+vim.opt.listchars = {
 --     space = "⋅",
 --     -- eol = "↴",
 --     -- tab = "▎_",
---     -- -- tab = ">.",
+          tab = ">.",
 --     -- trail = "•",
 --     -- extends = "❯",
 --     -- precedes = "❮",
 --     -- nbsp = "",
--- }
+}
 -- vim.opt.fillchars = {
 --     fold = " ",
 --     foldsep = " ",
