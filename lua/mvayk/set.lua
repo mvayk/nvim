@@ -53,14 +53,14 @@ vim.opt["guicursor"] = "i:block"
 
 vim.o.list = true
 vim.opt.listchars = {
---     space = "⋅",
---     -- eol = "↴",
---     -- tab = "▎_",
-          tab = ">.",
---     -- trail = "•",
---     -- extends = "❯",
---     -- precedes = "❮",
---     -- nbsp = "",
+    space = "⋅",
+    eol = "↴",
+    tab = "▎_",
+    tab = "󰄾 ",
+    trail = "•",
+    extends = "❯",
+    precedes = "❮",
+    nbsp = "",
 }
 -- vim.opt.fillchars = {
 --     fold = " ",
