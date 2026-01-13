@@ -35,6 +35,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.undofile = true
 vim.opt.signcolumn = "yes:3"
+-- :bd!
 vim.opt.expandtab = true
 vim.opt.swapfile = false
 vim.opt.autoindent = true
@@ -52,16 +53,16 @@ vim.opt["guicursor"] = "i:block"
 -- vim.opt.spelllang = { "en_us" }
 
 vim.o.list = true
-vim.opt.listchars = {
-    space = "⋅",
-    eol = "↴",
-    tab = "▎_",
-    tab = "󰄾 ",
-    trail = "•",
-    extends = "❯",
-    precedes = "❮",
-    nbsp = "",
-}
+-- vim.opt.listchars = {
+--     space = "⋅",
+--     eol = "↴",
+--     tab = "▎_",
+--     tab = "󰄾 ",
+--     trail = "•",
+--     extends = "❯",
+--     precedes = "❮",
+--     nbsp = "",
+-- }
 -- vim.opt.fillchars = {
 --     fold = " ",
 --     foldsep = " ",
@@ -76,8 +77,6 @@ vim.opt.fillchars:append({
   foldclose = "",       -- chevron right for closed fold (Nerd Font)
   foldsep   = " ",       -- ← THIS removes the vertical | lines between levels
 })
-
-vim.keymap.set('n', '<CR>', 'za')
 
 vim.opt.foldcolumn     = "1"      -- ufo needs this >0, but statuscol handles the display
 vim.opt.foldlevel      = 99       -- start with all folds open (ufo needs high value)

@@ -27,3 +27,6 @@ map('i', '<C-_>', '<C-o>u', {desc='Undo'})                      -- C-_
 map('i', '<M-_>', '<C-o><C-r>', {desc='Redo'})                  -- M-_
 
 map('i', '<C-y>', '<C-r>"', {desc='Yank last delete'})          -- C-y
+
+map('n', '<CR>', 'za')
+map('n', 'mq', ':bd!<CR>', { silent = true } )

@@ -16,14 +16,14 @@ return {
             enabled = true,
             sources = {
                 explorer = {
-                    tree = false,
-                    follow_file = true,
+                    tree = true,
+                    follow_file = false,
                     git_status = true,
                     hidden = "false",
                     layout = {
                         layout = {
                             width = 0.3,
-                            height = 0.9,
+                            height = 1,
                             position = "right",
                         },
                     },
