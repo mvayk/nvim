@@ -21,6 +21,19 @@ if enabled then
             require("neo-tree").setup({
                 -- fill any relevant options here
                 filesystem = {
+                    filtered_items = {
+                        visible = true,          -- ← this is the key: makes hidden files visible (but dimmed)
+                        hide_dotfiles = false,   -- show files starting with .
+                        hide_gitignored = false, -- also show gitignored files (change to true if you want to hide them)
+                        show_hidden_count = true, -- shows "(X hidden)" at bottom if any
+                        hide_by_name = {         -- force-hide specific ones if needed
+                            ".git",
+                        },
+                        never_show = {           -- never ever show these
+                            ".DS_Store",
+                            "thumbs.db",
+                        },
+                    },
                     hijack_netrw_behavior = "disabled",  -- ← crucial: let other plugins (Oil) handle dirs
                     -- rest of filesystem options...
                 },

@@ -34,7 +34,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.undofile = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 vim.opt.expandtab = true
 vim.opt.swapfile = false
 vim.opt.autoindent = true
@@ -48,8 +48,8 @@ vim.o.exrc = true
 vim.o.cursorline = false
 vim.o.cursorcolumn = false
 vim.opt["guicursor"] = "i:block"
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us" }
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us" }
 
 --> lsp hover diagnostics thing <--
 vim.o.updatetime = 250  -- faster CursorHold

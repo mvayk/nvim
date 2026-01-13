@@ -19,11 +19,9 @@ require("lazy").setup({
 })
 
 local function other_transparency()
-    -- Main editor background (this is what you want transparent)
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
-
-    -- Non-current window background (if you use splits)
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
 end
 
 local function transparency()

@@ -68,8 +68,15 @@ if enabled then
 
                 vim.diagnostic.config({
                     virtual_text = true, -- inline text
-                    signs = true,        -- show signs
-                    underline = false,    -- underline errors/warnings
+                    signs = {
+                        text = {
+                            [vim.diagnostic.severity.ERROR] = "",
+                            [vim.diagnostic.severity.WARN]  = "",
+                            [vim.diagnostic.severity.INFO]  = "",
+                            [vim.diagnostic.severity.HINT]  = "",
+                        },
+                    },
+                    underline = true,    -- underline errors/warnings
                     update_in_insert = true,
                     severity_sort = true,       -- show worst errors first
                     float = {
@@ -79,7 +86,6 @@ if enabled then
                         prefix = "",        -- optional prefix
                     },
                 })
-
 
                 --> lsp servers
                 --local capabilities = require("cmp_nvim_lsp").default_capabilities()
