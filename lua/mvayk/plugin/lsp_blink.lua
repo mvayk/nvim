@@ -43,7 +43,6 @@ if enabled then
                     ["<C-e>"] = { "hide", "fallback" },
                     ["<CR>"] = { "accept", "fallback" },
                 },
-                
                 appearance = {
                     use_nvim_cmp_as_default = true, -- Use nvim-cmp-like appearance
                     nerd_font_variant = "mono",
@@ -53,6 +52,7 @@ if enabled then
                     trigger = {
                         show_on_keyword = true,
                         show_on_trigger_character = true,
+                        show_on_insert_on_trigger_character = false,
                     },
                     list = {
                         max_items = 200,
@@ -68,7 +68,7 @@ if enabled then
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         -- Add delay to prevent fast event context errors
-                        auto_show_delay_ms = 150,
+                        auto_show_delay_ms = 100,
                         draw = {
                             columns = {
                                 { "kind_icon" },
@@ -78,7 +78,7 @@ if enabled then
                     },
                     documentation = {
                         auto_show = true,
-                        auto_show_delay_ms = 150,
+                        auto_show_delay_ms = 100,
                         window = {
                             border = "none",
                             winblend = 0,
@@ -92,7 +92,8 @@ if enabled then
                     -- Add all sources to default list
                     -- Built-in: lsp, path, snippets, buffer
                     -- Custom: emoji, calc, git
-                    default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "git" },
+                    --default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "git" },
+                    default = { "lsp", "path", "snippets", "buffer", "emoji", "git"};
 
                     providers = {
                         emoji = {
@@ -102,13 +103,6 @@ if enabled then
                             opts = {
                                 insert = true, -- Insert emoji instead of name
                             },
-                        },
-
-                        -- nvim-cmp source via blink.compat
-                        calc = {
-                            name = "Calc",
-                            module = "blink.compat.source",
-                            score_offset = -4,
                         },
 
                         git = {
