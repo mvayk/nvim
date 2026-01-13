@@ -73,4 +73,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
-vim.cmd([[colorscheme carbonfox]])
+vim.cmd([[colorscheme ayu]])
