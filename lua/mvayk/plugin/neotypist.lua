@@ -1,3 +1,5 @@
+local enabled = false
+if enabled then
 return {
     "JohnnyJumper/neotypist.nvim",
     opts = {
@@ -38,3 +40,6 @@ return {
         })
     end
 }
+else
+    return { }
+end

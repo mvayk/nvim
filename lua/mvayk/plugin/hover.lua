@@ -15,7 +15,7 @@ return {
                 require("hover.providers.lsp")
             end,
             preview_opts = {
-                border = "rounded"
+                border = "none"
             },
 
             preview_window = false,

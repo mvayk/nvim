@@ -45,7 +45,7 @@ if enabled then
                 },
 
                 appearance = {
-                    use_nvim_cmp_as_default = false, -- Use nvim-cmp-like appearance
+                    use_nvim_cmp_as_default = true, -- Use nvim-cmp-like appearance
                     nerd_font_variant = "mono",
                 },
 
@@ -67,6 +67,8 @@ if enabled then
                         border = "none",
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        -- Add delay to prevent fast event context errors
+                        auto_show_delay_ms = 100,
                         draw = {
                             columns = {
                                 { "kind_icon" },
@@ -76,7 +78,7 @@ if enabled then
                     },
                     documentation = {
                         auto_show = true,
-                        auto_show_delay_ms = 0,
+                        auto_show_delay_ms = 100,
                         window = {
                             border = "none",
                             winblend = 0,
@@ -169,10 +171,10 @@ if enabled then
                     virtual_text = true,
                     signs = {
                         text = {
-                            [vim.diagnostic.severity.ERROR] = "",
-                            [vim.diagnostic.severity.WARN]  = "",
-                            [vim.diagnostic.severity.INFO]  = "",
-                            [vim.diagnostic.severity.HINT]  = "",
+                            [vim.diagnostic.severity.ERROR] = "",
+                            [vim.diagnostic.severity.WARN]  = "",
+                            [vim.diagnostic.severity.INFO]  = "",
+                            [vim.diagnostic.severity.HINT]  = "",
                         },
                     },
                     underline = true,

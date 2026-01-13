@@ -1,3 +1,5 @@
+local enabled = false
+if enabled == true then
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -16,3 +18,6 @@ return {
         },
     },
 }
+else
+    return { }
+end
