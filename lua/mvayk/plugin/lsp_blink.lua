@@ -1,117 +1,216 @@
-local enabled = false
+-- big thanks to baby girl claude
+local enabled = true
 
 if enabled then
     return {
-        -- Package manager dependencies
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
         { "nvim-treesitter/nvim-treesitter" },
-        { "L3MON4D3/LuaSnip" },
-        { "rafamadriz/friendly-snippets" },
-        { "lopi-py/luau-lsp.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-
-        -- Blink autocomplete and its sources
+        { "stevearc/conform.nvim" },
+        { "nvimdev/lspsaga.nvim" },
+        { "hedyhli/outline.nvim" },
+        { "lopi-py/luau-lsp.nvim" },
+        -- Blink.cmp and its dependencies
         {
             "saghen/blink.cmp",
-            version = "1.*",
+            version = "1.*", -- Use stable release
             dependencies = {
-                "L3MON4D3/LuaSnip",
-                "rafamadriz/friendly-snippets",
+                "rafamadriz/friendly-snippets", -- Snippet collection
+                "moyiz/blink-emoji.nvim", -- Emoji source
+                "Kaiser-Yang/blink-cmp-git", -- Git source
+                "saghen/blink.compat", -- nvim-cmp compatibility layer
+                -- nvim-cmp sources that need compatibility layer
+                "hrsh7th/cmp-calc",
+            },
+            opts_extend = { "sources.default" },
+            opts = {
+                keymap = {
+                    preset = "default",
+                    -- Custom keymaps matching your original configuration
+                    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+                    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+                    ["<C-j>"] = { "select_next", "fallback" },
+                    ["<C-k>"] = { "select_prev", "fallback" },
+                    ["<Tab>"] = { "select_next", "fallback" },
+                    ["<S-Tab>"] = { "select_prev", "fallback" },
+                    ["<C-e>"] = { "hide", "fallback" },
+                    ["<CR>"] = { "accept", "fallback" },
+                },
+                appearance = {
+                    use_nvim_cmp_as_default = true, -- Use nvim-cmp-like appearance
+                    nerd_font_variant = "mono",
+                },
+                completion = {
+                    keyword_range = "prefix", -- Show completions from the start
+                    trigger = {
+                        show_on_keyword = true,
+                        show_on_trigger_character = true,
+                    },
+                    list = {
+                        max_items = 200,
+                    },
+                    accept = {
+                        auto_brackets = {
+                            enabled = true,
+                        },
+                    },
+                    menu = {
+                        max_height = 10,
+                        border = "none",
+                        winblend = 0,
+                        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        draw = {
+                            columns = {
+                                { "kind_icon" },
+                                { "label", "label_description", gap = 1 },
+                            },
+                        },
+                    },
+                    documentation = {
+                        auto_show = true,
+                        auto_show_delay_ms = 0,
+                        window = {
+                            border = "none",
+                            winblend = 0,
+                            winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                            max_width = 60,
+                        },
+                    },
+                },
+                sources = {
+                    -- Built-in sources (lsp, path, snippets, buffer) don't need to be defined
+                    default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "git" },
+                    providers = {
+                        lsp = {
+                            name = "LSP",
+                            enabled = true,
+                            module = "blink.cmp.sources.lsp",
+                        },
+                        path = {
+                            name = "Path",
+                            module = "blink.cmp.sources.path",
+                            score_offset = 3,
+                        },
+                        snippets = {
+                            name = "Snippets",
+                            module = "blink.cmp.sources.snippets",
+                            score_offset = -1,
+                        },
+                        buffer = {
+                            name = "Buffer",
+                            module = "blink.cmp.sources.buffer",
+                            score_offset = -3,
+                        },
+                        emoji = {
+                            name = "Emoji",
+                            module = "blink-emoji",
+                            score_offset = -5,
+                            opts = {
+                                insert = true, -- Insert emoji instead of name
+                            },
+                        },
+                        calc = {
+                            name = "Calc",
+                            module = "blink.compat.source",
+                            score_offset = -4,
+                        },
+                        git = {
+                            name = "Git",
+                            module = "blink-cmp-git",
+                            score_offset = -10,
+                        },
+                    },
+                    -- Enable nvim-cmp compatibility for calc source
+                    compat = { "calc" },
+                },
+                signature = {
+                    enabled = true,
+                    window = {
+                        border = "none",
+                    },
+                },
+                fuzzy = {
+                    -- Use Rust implementation for better performance
+                    -- Falls back to Lua if Rust binary isn't available
+                    implementation = "prefer_rust_with_warning",
+                },
             },
         },
-
-        -- LSP configuration
         {
             "neovim/nvim-lspconfig",
             dependencies = {
                 "williamboman/mason.nvim",
                 "williamboman/mason-lspconfig.nvim",
                 "saghen/blink.cmp",
-                "L3MON4D3/LuaSnip",
-                "rafamadriz/friendly-snippets",
             },
             config = function()
-                -- Mason setup
                 require("mason").setup()
                 require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls", "clangd", "rust_analyzer" },
+                    ensure_installed = { "lua_ls", "clangd", "ast_grep" },
                     automatic_installation = true,
+                    automatic_enable = {
+                        exclude = { "luau_lsp" }
+                    },
                 })
 
-                -- Autocomplete capabilities
-                local capabilities = vim.lsp.protocol.make_client_capabilities()
-                capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+                require("nvim-treesitter.configs").setup({
+                    ensure_installed = {
+                        "lua",
+                        "c",
+                        "cpp",
+                        "python",
+                        "rust",
+                    },
+                    highlight = {
+                        enable = true,
+                    },
+                })
 
-                -- LSP setups
-                require("lspconfig").lua_ls.setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
+                require("luau-lsp").setup({
+                    platform = {
+                        type = "roblox"
+                    },
+                    types = {
+                        roblox_security_level = "PluginSecurity"
+                    },
+                })
+
+                vim.diagnostic.config({
+                    virtual_text = true,
+                    signs = {
+                        text = {
+                            [vim.diagnostic.severity.ERROR] = "",
+                            [vim.diagnostic.severity.WARN]  = "",
+                            [vim.diagnostic.severity.INFO]  = "",
+                            [vim.diagnostic.severity.HINT]  = "",
                         },
                     },
+                    underline = true,
+                    update_in_insert = true,
+                    severity_sort = true,
+                    float = {
+                        border = "none",
+                        source = "always",
+                        header = "",
+                        prefix = "",
+                    },
                 })
 
-                require("lspconfig").rust_analyzer.setup({
-                    capabilities = capabilities,
-                })
+                local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-                require("lspconfig").ast_grep.setup({
-                    capabilities = capabilities,
-                })
-
-                -- Detect Windows for custom clangd path
-                local clangd_path = "clangd"
-                if vim.loop.os_uname().version:match("Windows") then
-                    local local_appdata = vim.loop.os_getenv("LOCALAPPDATA")
-                    clangd_path = local_appdata .. "\\nvim-data\\mason\\packages\\clangd\\clangd_20.1.0\\bin\\clangd.exe"
+                local mason_lspconfig = require("mason-lspconfig")
+                local installed_servers = mason_lspconfig.get_installed_servers()
+                for _, server_name in ipairs(installed_servers) do
+                    if server_name ~= "luau_lsp" then -- Skip luau_lsp as it's configured separately
+                        vim.lsp.config[server_name] = {
+                            capabilities = capabilities,
+                        }
+                        vim.lsp.enable(server_name)
+                    end
                 end
-
-                require("lspconfig").clangd.setup({
-                    cmd = { clangd_path },
-                    capabilities = capabilities,
-                    init_options = {},
-                })
-
-                -- Treesitter setup
-                require("nvim-treesitter.configs").setup({
-                    ensure_installed = { "lua", "c", "cpp", "rust" },
-                    highlight = { enable = true },
-                })
-
-                -- Blink autocomplete setup
-                require("blink.cmp").setup({
-                    keymap = {
-                        ["<C-f>"] = { scroll_documentation_down = true },
-                        ["<C-b>"] = { scroll_documentation_up = true },
-                        ["<C-j>"] = { select_next = true },
-                        ["<C-k>"] = { select_prev = true },
-                        ["<Tab>"] = { select_next = true },
-                        ["<S-Tab>"] = { select_prev = true },
-                        ["<C-e>"] = { hide = true },
-                        ["<CR>"] = { accept = true },
-                    },
-                    completion = {
-                        documentation = { auto_show = true },
-                    },
-                    sources = {
-                        default = { "lsp", "path", "snippets", "buffer" },
-                    },
-                    fuzzy = {
-                        implementation = "prefer_rust_with_warning",
-                    },
-                    appearance = {
-                        nerd_font_variant = "mono",
-                    },
-                })
-
-                -- Load friendly-snippets for LuaSnip
-                require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
     }
 else
-    return { }
+    return {}
 end

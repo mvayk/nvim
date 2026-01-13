@@ -12,6 +12,10 @@ if enable == true then
                 show_start = false,   -- ← disables underline on first line of scope
                 show_end = false,     -- ← disables underline on last line of scope
             },
+            whitespace = {
+                highlight = "Whitespace",
+                remove_blankline_trail = false,
+            }
         },
     }
 else

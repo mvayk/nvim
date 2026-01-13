@@ -51,7 +51,33 @@ vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
+-- vim.o.list = true
+-- vim.opt.listchars = {
+--     space = "⋅",
+--     -- eol = "↴",
+--     -- tab = "▎_",
+--     -- -- tab = ">.",
+--     -- trail = "•",
+--     -- extends = "❯",
+--     -- precedes = "❮",
+--     -- nbsp = "",
+-- }
+-- vim.opt.fillchars = {
+--     fold = " ",
+--     foldsep = " ",
+--     foldopen = "",
+--     foldclose = "",
+--     diff = "╱",
+-- }
 
+vim.opt.fillchars:append({
+  fold      = " ",       -- blank for no-fold areas
+  foldopen  = "",       -- chevron down for open fold (Nerd Font)
+  foldclose = "",       -- chevron right for closed fold (Nerd Font)
+  foldsep   = " ",       -- ← THIS removes the vertical | lines between levels
+})
+
+vim.keymap.set('n', '<CR>', 'za')
 
 vim.opt.foldcolumn     = "1"      -- ufo needs this >0, but statuscol handles the display
 vim.opt.foldlevel      = 99       -- start with all folds open (ufo needs high value)
