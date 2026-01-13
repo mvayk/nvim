@@ -21,6 +21,9 @@ local function other_transparency()
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
+
+    vim.api.nvim_set_hl(0, 'TabLineFill', { link = "NONE" })
+    vim.api.nvim_set_hl(0, 'TabLineFill', { bg = "NONE" })
 end
 
 local function transparency()
@@ -60,10 +63,10 @@ local function transparency()
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-      other_transparency()
-  end,
+    pattern = "*",
+    callback = function()
+        other_transparency()
+    end,
 })
 
 --// use terminal colors

@@ -26,7 +26,7 @@ return {
             layouts = {
                 telescope = {  -- optional: mimic Telescope look
                     layout = {
-                        box = "horizontal",
+                        box = "vertical",
                         backdrop = false,
                         width = 0.8,
                         height = 0.9,

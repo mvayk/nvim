@@ -1,17 +1,23 @@
-return {
-    'danilamihailov/beacon.nvim',
+local enabled = false
 
-    config = function()
-        require("beacon").setup({
-            enabled = false, --- (boolean | fun():boolean) check if enabled
-            speed = 2, --- integer speed at wich animation goes
-            width = 40, --- integer width of the beacon window
-            winblend = 70, --- integer starting transparency of beacon window :h winblend
-            fps = 240, --- integer how smooth the animation going to be
-            min_jump = 10, --- integer what is considered a jump. Number of lines
-            cursor_events = { 'CursorMoved' }, -- table<string> what events trigger check for cursor moves
-            window_events = { 'WinEnter', 'FocusGained' }, -- table<string> what events trigger cursor highlight
-            highlight = { bg = 'white', ctermbg = 60 }, -- vim.api.keyset.highlight table passed to vim.api.nvim_set_hl
-        })
-    end
-}
+if enabled then
+    return {
+        'danilamihailov/beacon.nvim',
+
+        config = function()
+            require("beacon").setup({
+                enabled = false, --- (boolean | fun():boolean) check if enabled
+                speed = 2, --- integer speed at wich animation goes
+                width = 40, --- integer width of the beacon window
+                winblend = 70, --- integer starting transparency of beacon window :h winblend
+                fps = 240, --- integer how smooth the animation going to be
+                min_jump = 10, --- integer what is considered a jump. Number of lines
+                cursor_events = { 'CursorMoved' }, -- table<string> what events trigger check for cursor moves
+                window_events = { 'WinEnter', 'FocusGained' }, -- table<string> what events trigger cursor highlight
+                highlight = { bg = 'white', ctermbg = 60 }, -- vim.api.keyset.highlight table passed to vim.api.nvim_set_hl
+            })
+        end
+    }
+else
+    return { }
+end
