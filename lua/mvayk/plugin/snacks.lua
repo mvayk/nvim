@@ -48,8 +48,6 @@ return {
         { "<leader>/",  function() Snacks.picker.grep() end,     desc = "Live Grep" },
 
         { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
-        { "gr", function() Snacks.picker.lsp_references() end,  desc = "References" },
-        { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Implementations" },
 
         { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
     },

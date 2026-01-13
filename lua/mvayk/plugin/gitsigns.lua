@@ -49,8 +49,14 @@ return {
                 row = 0,
                 col = 1
             },
+            on_attach = function(bufnr)
+                local gs = package.loaded.gitsigns
+                vim.keymap.set("n", "]c", gs.next_hunk, { desc = "Next Git Change" })
+                vim.keymap.set("n", "[c", gs.prev_hunk, { desc = "Prev Git Change" })
+                vim.keymap.set("n", "<leader>gp", gs.preview_hunk, { desc = "Preview Git Change" })
+                vim.keymap.set("n", "<leader>gb", gs.blame_line, { desc = "Git Blame" })
+           end,
         }
-
     end
 }
 
