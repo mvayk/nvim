@@ -6,7 +6,10 @@ map("n", "<C-n>", ":bnext<CR>")
 map("n", "<C-p>", ":bprev<CR>")
 map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
-map("n", "<leader>w", ":w<CR>", { desc = "Write file using leader" })
+map("n", "<leader>w", ":w<CR>", { desc = "Write file" })
+map("n", "<leader>q", ":q!<CR>", { desc = "Force quit" })
+map('n', '<CR>', 'za')
+map('n', 'mq', ':bd!<CR>', { silent = true } )
 
 --> emacs bindings for insert mode
 map('i', '<C-a>', '<Home>', {desc='Move to start of line'})      -- C-a
@@ -27,6 +30,3 @@ map('i', '<C-_>', '<C-o>u', {desc='Undo'})                      -- C-_
 map('i', '<M-_>', '<C-o><C-r>', {desc='Redo'})                  -- M-_
 
 map('i', '<C-y>', '<C-r>"', {desc='Yank last delete'})          -- C-y
-
-map('n', '<CR>', 'za')
-map('n', 'mq', ':bd!<CR>', { silent = true } )

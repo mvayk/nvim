@@ -2,6 +2,7 @@
 --// vim.g.material_style = "deep ocean"
 
 return {
+    "rktjmp/lush.nvim",
     "folke/tokyonight.nvim",
     "rebelot/kanagawa.nvim",
     "marko-cerovac/material.nvim",

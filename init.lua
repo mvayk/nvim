@@ -24,6 +24,12 @@ local function other_transparency()
 
     vim.api.nvim_set_hl(0, 'TabLineFill', { link = "NONE" })
     vim.api.nvim_set_hl(0, 'TabLineFill', { bg = "NONE" })
+
+    vim.api.nvim_set_hl(0, "SignColumn",      { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "CursorLineSign",  { bg = "NONE", ctermbg = "NONE" })  -- important when cursorline is on
+    vim.api.nvim_set_hl(0, "FoldColumn",       { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "LineNr",           { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "CursorLineNr",     { bg = "NONE", ctermbg = "NONE" }) -- line number of cursor line
 end
 
 local function transparency()
@@ -73,4 +79,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
-vim.cmd([[colorscheme citruszest]])
+vim.cmd([[colorscheme kanagawa]])

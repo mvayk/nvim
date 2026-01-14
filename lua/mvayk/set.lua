@@ -75,7 +75,7 @@ vim.opt.fillchars:append({
   fold      = " ",       -- blank for no-fold areas
   foldopen  = "",       -- chevron down for open fold (Nerd Font)
   foldclose = "",       -- chevron right for closed fold (Nerd Font)
-  foldsep   = " ",       -- ← THIS removes the vertical | lines between levels
+  foldsep   = "|",       -- ← THIS removes the vertical | lines between levels
 })
 
 vim.opt.foldcolumn     = "1"      -- ufo needs this >0, but statuscol handles the display

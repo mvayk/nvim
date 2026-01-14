@@ -68,7 +68,7 @@ if enabled then
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         -- Add delay to prevent fast event context errors
-                        auto_show_delay_ms = 100,
+                        auto_show_delay_ms = 0,
                         draw = {
                             columns = {
                                 { "kind_icon" },
@@ -78,7 +78,7 @@ if enabled then
                     },
                     documentation = {
                         auto_show = true,
-                        auto_show_delay_ms = 100,
+                        auto_show_delay_ms = 0,
                         window = {
                             border = "none",
                             winblend = 0,
