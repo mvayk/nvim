@@ -177,7 +177,7 @@ return {
                 min_height = { 5, 0.1 },
                 -- optionally define an integer/float for the exact height of the preview window
                 height = nil,
-                border = "rounded",
+                border = "none",
                 win_options = {
                     winblend = 0,
                 },
@@ -190,7 +190,7 @@ return {
                 max_height = { 10, 0.9 },
                 min_height = { 5, 0.1 },
                 height = nil,
-                border = "rounded",
+                border = "none",
                 minimized_border = "none",
                 win_options = {
                     winblend = 0,
@@ -204,6 +204,20 @@ return {
             keymaps_help = {
                 border = "rounded",
             },
+        })
+        vim.api.nvim_create_autocmd("BufEnter", {
+            pattern = "oil://*",
+            group = vim.api.nvim_create_augroup("OilSetCwd", { clear = true }),
+            desc = "Change cwd to oil directory on enter",
+            callback = function()
+                local oil = require("oil")
+                local dir = oil.get_current_dir()
+                if dir then
+                    vim.fn.chdir(dir)                -- or vim.api.nvim_set_current_dir(dir)
+                    -- Optional: refresh oil after cwd change (usually not needed)
+                    -- oil.open(dir)
+                end
+            end,
         })
     end
 }

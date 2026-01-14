@@ -22,7 +22,7 @@ return {
                     hidden = true,
                     layout = {
                         layout = {
-                            width = 0.35,
+                            width = 0.2,
                             height = 1,
                             position = "right",
                         },
