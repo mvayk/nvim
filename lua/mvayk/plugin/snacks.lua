@@ -19,16 +19,16 @@ return {
                     tree = true,
                     follow_file = false,
                     git_status = true,
-                    hidden = "false",
+                    hidden = true,
                     layout = {
                         layout = {
-                            width = 0.2,
+                            width = 0.35,
                             height = 1,
                             position = "right",
                         },
                     },
                 },
-                files = { hidden = false },  -- for regular file picker
+                files = { hidden = true },  -- for regular file picker
                 win = {
                     backdrop = false,
                 },
