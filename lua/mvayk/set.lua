@@ -15,16 +15,9 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.wrap = true
         vim.opt_local.linebreak = true
         vim.opt_local.list = false
-
-        local opts = { buffer = true, noremap = true, silent = true }
-
-        vim.keymap.set("n", "j", "gj", opts)
-        vim.keymap.set("n", "k", "gk", opts)
-
-        vim.keymap.set("v", "j", "gj", opts)
-        vim.keymap.set("v", "k", "gk", opts)
     end,
 })
+
 vim.opt.nu = true
 vim.opt.fileformats = {'unix', 'dos'} --// fixes windows line endings
 vim.opt.relativenumber = true
@@ -91,4 +84,3 @@ vim.api.nvim_create_autocmd("CursorHold", {
         vim.diagnostic.open_float(nil, { focus = false })
     end
 })
-vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float)

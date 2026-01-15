@@ -49,13 +49,5 @@ return {
         },
     },
     keys = {
-        { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-        { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Git Files" },
-        { "<leader>/",  function() Snacks.picker.grep() end,     desc = "Live Grep" },
-
-        { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
-
-        { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
     },
 }

@@ -1,32 +1,46 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = " "
--- map("n", "<leader>pv", vim.cmd.Ex)
-map("n", "<C-n>", ":bnext<CR>")
-map("n", "<C-p>", ":bprev<CR>")
-map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+--map("n", "<leader>pv", vim.cmd.Ex) -- i dont know what this is but it must be important!
+
+--// Vanilla
+map("n", "<C-n>", ":bnext<CR>", { desc = "Goto next buffer"})
+map("n", "<C-p>", ":bprev<CR>", { desc = "Goto previous buffer"})
 map("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 map("n", "<leader>w", ":w<CR>", { desc = "Write file" })
 map("n", "<leader>q", ":q!<CR>", { desc = "Force quit" })
-map('n', '<CR>', 'za')
-map('n', 'mq', ':bd!<CR>', { silent = true } )
+map({"n", "x", "o"}, "<C-e>", "/\\s<CR>", { desc = "Jump to next space", silent = true })
+map({"n", "x", "o"}, "<C-S-e>", "?\\s<CR>", { desc = "Jump to previous space", silent = true })
+map('n', 'mq', ':bd!<CR>', { desc = "Force delete buffer", silent = true } )
+map('i', '<C-y>', '<C-r>"', {desc='Yank last delete'})
+map("n", "j", "gj", { buffer = true, noremap = true, silent = true })
+map("n", "k", "gk", { buffer = true, noremap = true, silent = true })
+map("v", "j", "gj", { buffer = true, noremap = true, silent = true })
+map("v", "k", "gk", { buffer = true, noremap = true, silent = true })
 
---> emacs bindings for insert mode
-map('i', '<C-a>', '<Home>', {desc='Move to start of line'})      -- C-a
-map('i', '<C-e>', '<End>',  {desc='Move to end of line'})        -- C-e
-map('i', '<M-b>', '<C-o>b', {desc='Back word'})                  -- M-b
-map('i', '<M-f>', '<C-o>w', {desc='Forward word'})               -- M-f
+--// LSP Related
+map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Rename symbol" })
+map("n", "<leader>gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto gefinition" })
+--// Glance
+map('n', '<leader>ld', '<CMD>Glance definitions<CR>')
+map('n', '<leader>lr', '<CMD>Glance references<CR>')
+map('n', '<leader>lt', '<CMD>Glance type_definitions<CR>')
+map('n', '<leader>li', '<CMD>Glance implementations<CR>')
 
-map('i', '<M-h>', '<C-o>h', { desc = 'Move left' })
-map('i', '<M-j>', '<C-o>j', { desc = 'Move down' })
-map('i', '<M-k>', '<C-o>k', { desc = 'Move up' })
-map('i', '<M-l>', '<C-o>l', { desc = 'Move right' })
+--// Folding
+map('n', '<CR>', 'za', { desc = "Toggle fold" })
 
-map('i', '<C-d>', '<Del>',  {desc='Delete char under cursor'})   -- C-d
-map('i', '<M-d>', '<C-o>dw',{desc='Kill word forward'})          -- M-d
-map('i', '<C-k>', '<C-o>D', {desc='Kill to end of line'})        -- C-k
+--// Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open oil / parent directory" })
 
-map('i', '<C-_>', '<C-o>u', {desc='Undo'})                      -- C-_
-map('i', '<M-_>', '<C-o><C-r>', {desc='Redo'})                  -- M-_
+--// Snacks Telescope
+Snacks = Snacks;
+map("n", "<leader>ff", function() Snacks.picker.files()      end, { desc = "Open telescope" })
+map("n", "<leader>fb", function() Snacks.picker.buffers()    end, { desc = "Telescope buffers" })
+map("n", "<leader>fg", function() Snacks.picker.git_files()  end, { desc = "Telescope git" })
+map("n", "<leader>f/",  function() Snacks.picker.grep()       end, { desc = "Telescope grep" })
 
-map('i', '<C-y>', '<C-r>"', {desc='Yank last delete'})          -- C-y
+--// Snacks Explorer
+map("n", "<leader>e",  function() Snacks.explorer()          end, { desc = "Open file explorer" })
+
