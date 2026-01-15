@@ -79,4 +79,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
-vim.cmd([[colorscheme kanagawa]])
+vim.cmd([[colorscheme gruvbox]])
