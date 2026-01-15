@@ -1,3 +1,4 @@
+--// im just gonna pretend i didnt see this file because this is effort
 return {
     "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate",
     config = function()
