@@ -72,17 +72,17 @@ vim.o.list = true
 -- }
 
 vim.opt.fillchars:append({
-  fold      = " ",       -- blank for no-fold areas
-  foldopen  = "",       -- chevron down for open fold (Nerd Font)
-  foldclose = "",       -- chevron right for closed fold (Nerd Font)
-  foldsep   = "|",       -- ← THIS removes the vertical | lines between levels
+  fold      = " ",
+  foldopen  = "",
+  foldclose = "",
+  foldsep   = "│",
 })
 
-vim.opt.foldcolumn     = "1"      -- ufo needs this >0, but statuscol handles the display
-vim.opt.foldlevel      = 99       -- start with all folds open (ufo needs high value)
+vim.opt.foldcolumn     = "1"
+vim.opt.foldlevel      = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable     = true
-vim.opt.signcolumn     = "no"     -- IMPORTANT: disable classic signcolumn – statuscol takes over!
+vim.opt.signcolumn     = "no"
 
 --> lsp hover diagnostics thing <--
 vim.o.updatetime = 250  -- faster CursorHold
