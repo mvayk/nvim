@@ -33,11 +33,14 @@ local function other_transparency()
 end
 
 local function other_other_transparency()
-    vim.api.nvim_set_hl(0, "SignColumn",      { bg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "CursorLineSign",  { bg = "NONE", ctermbg = "NONE" })  -- important when cursorline is on
-    vim.api.nvim_set_hl(0, "FoldColumn",       { bg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "LineNr",           { bg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "CursorLineNr",     { bg = "NONE", ctermbg = "NONE" }) -- line number of cursor line
+  local bg = vim.api.nvim_get_hl(0, { name = 'SignColumn' }).bg
+    vim.api.nvim_set_hl(0, 'GitSignsAdd', { bg = bg })
+    vim.api.nvim_set_hl(0, 'GitSignsChange', { bg = bg })
+    vim.api.nvim_set_hl(0, 'GitSignsDelete', { bg = bg })
+    vim.api.nvim_set_hl(0, 'DiagnosticSignError', { bg = bg })
+    vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { bg = bg })
+    vim.api.nvim_set_hl(0, 'DiagnosticSignInfo', { bg = bg })
+    vim.api.nvim_set_hl(0, 'DiagnosticSignHint', { bg = bg })
 end
 
 local function transparency()
@@ -79,7 +82,6 @@ end
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-        other_other_transparency()
     end,
 })
 
@@ -87,4 +89,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme tokyonight-night]])

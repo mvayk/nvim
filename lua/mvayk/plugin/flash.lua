@@ -1,4 +1,4 @@
-local enabled = true
+local enabled = false
 if enabled then
     return {
        "folke/flash.nvim",
@@ -6,8 +6,6 @@ if enabled then
         ---@type Flash.Config
         opts = {},
         keys = {
-            { "t", false },
-            { "f", false },
             { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
             { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
             { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },

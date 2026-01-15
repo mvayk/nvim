@@ -89,28 +89,7 @@ if enabled then
                 },
 
                 sources = {
-                    -- Add all sources to default list
-                    -- Built-in: lsp, path, snippets, buffer
-                    -- Custom: emoji, calc, git
-                    --default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "git" },
                     default = { "lsp", "path", "snippets", "buffer"};
-
-                    providers = {
-                        emoji = {
-                            name = "Emoji",
-                            module = "blink-emoji",
-                            score_offset = -5,
-                            opts = {
-                                insert = true, -- Insert emoji instead of name
-                            },
-                        },
-
-                        git = {
-                            name = "Git",
-                            module = "blink-cmp-git",
-                            score_offset = -10,
-                        },
-                    },
                 },
 
                 signature = {

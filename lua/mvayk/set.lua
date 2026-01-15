@@ -39,8 +39,8 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 --// vim.api.nvim_set_option("clipboard", "unnamedplus")
 vim.o.exrc = true
-vim.o.cursorline = false
-vim.o.cursorcolumn = false
+vim.o.cursorline = true
+vim.o.cursorcolumn = true
 vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
