@@ -5,8 +5,8 @@ return {
         local Snacks = require("snacks")
         todo.setup({
             keys = {
-                { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
-                { "<leader>sT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme" },
+                { "gct", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+                { "gcT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme" },
             },
         })
     end
