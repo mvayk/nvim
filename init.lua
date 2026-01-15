@@ -32,6 +32,14 @@ local function other_transparency()
     vim.api.nvim_set_hl(0, "CursorLineNr",     { bg = "NONE", ctermbg = "NONE" }) -- line number of cursor line
 end
 
+local function other_other_transparency()
+    vim.api.nvim_set_hl(0, "SignColumn",      { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "CursorLineSign",  { bg = "NONE", ctermbg = "NONE" })  -- important when cursorline is on
+    vim.api.nvim_set_hl(0, "FoldColumn",       { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "LineNr",           { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "CursorLineNr",     { bg = "NONE", ctermbg = "NONE" }) -- line number of cursor line
+end
+
 local function transparency()
     local transparent_groups = {
         "Normal", "NormalNC", "NormalFloat", "StatusLine", "StatusLineNC",
@@ -71,7 +79,7 @@ end
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-        --other_transparency()
+        other_other_transparency()
     end,
 })
 

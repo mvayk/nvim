@@ -138,7 +138,7 @@ if enabled then
                         exclude = { "luau_lsp" }
                     },
                 })
-
+--[[
                 require("nvim-treesitter.configs").setup({
                     ensure_installed = {
                         "lua",
@@ -151,7 +151,7 @@ if enabled then
                     highlight = {
                         enable = true,
                     },
-                })
+                }) ]]
 
                 require("luau-lsp").setup({
                     platform = {

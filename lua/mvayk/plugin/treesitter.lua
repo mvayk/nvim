@@ -1,4 +1,3 @@
---// im just gonna pretend i didnt see this file because this is effort
 return {
     "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate",
     config = function()
@@ -7,7 +6,7 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = false,
 
-                ensure_installed = { "c", "cpp", "lua", "vim" },
+                ensure_installed = { "c", "cpp", "lua", "vim", "nix" },
                 sync_install = false,
                 auto_install = true,
                 highlight = {
@@ -15,7 +14,16 @@ return {
                 },
                 indent = {
                     enable = true,
-                }
+                },
+
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                    },
+                    keymaps = {
+                    },
+                },
             },
         }
     end
