@@ -21,7 +21,7 @@ if enabled then
                         style = "icon",
                     },
 
-                    separator_style = "",
+                    separator_style = "slope",
                     always_show_bufferline = true,
                 }
             })
