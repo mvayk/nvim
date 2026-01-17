@@ -1,4 +1,4 @@
-local enabled = true
+local enabled = false
 if enabled then
     return {
         "nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = { "nvim-lua/plenary.nvim" },

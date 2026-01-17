@@ -14,6 +14,10 @@ return {
         },
         picker = {
             enabled = true,
+            layout = {
+                preset = "vscode",
+            },
+            position = "top",
             sources = {
                 explorer = {
                     tree = true,
@@ -31,19 +35,6 @@ return {
                 files = { hidden = true },  -- for regular file picker
                 win = {
                     backdrop = false,
-                },
-            },
-            -- Layout presets (e.g. telescope-like)
-            layouts = {
-                telescope = {  -- optional: mimic Telescope look
-                    layout = {
-                        box = "vertical",
-                        backdrop = false,
-                        width = 0.3,
-                        height = 0.9,
-                        border = "single",
-                        -- ... more tweaks if needed
-                    },
                 },
             },
         },

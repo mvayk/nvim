@@ -4,7 +4,6 @@ if enabled then
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {
-            -- add any options here
         },
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -13,7 +12,26 @@ if enabled then
             --   `nvim-notify` is only needed, if you want to use the notification view.
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
-        }
+        },
+        require("noice").setup({
+            cmdline = {
+                view = "cmdline",
+            },
+            messages = {
+                enabled = false,
+            },
+            popupmenu = {
+                enabled = true, -- enables the Noice popupmenu UI
+                ---@type 'nui'|'cmp'
+                backend = "nui", -- backend to use to show regular cmdline completions
+                ---@type NoicePopupmenuItemKind|false
+                -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
+                kind_icons = {}, -- set to `false` to disable icons
+            },
+            notify = {
+                enabled = false,
+            }
+        })
     }
 else
     return { }
