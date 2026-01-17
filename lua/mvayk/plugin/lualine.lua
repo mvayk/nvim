@@ -1,6 +1,6 @@
 local enabled = true
 
-local theme = "slanted-gaps"
+local theme = "bubbles"
 
 if enabled then
     if theme == "default" then
@@ -169,7 +169,7 @@ if enabled then
             config = function()
                 require('lualine').setup {
                     options = {
-                        theme = bubbles_theme,
+                        theme = "auto",
                         component_separators = '',
                         section_separators = { left = '', right = '' },
                     },

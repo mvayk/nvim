@@ -82,7 +82,7 @@ end
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-        --transparency()
+        transparency()
     end,
 })
 

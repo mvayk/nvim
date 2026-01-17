@@ -1,4 +1,4 @@
-local enabled = true
+local enabled = false
 
 if enabled then
     return {
@@ -10,11 +10,18 @@ if enabled then
                     show_buffer_close_icons = false,
                     show_close_icon = false,
 
+                    highlights = {
+                        background = {
+                            fg = 'NONE',
+                            bg = 'NONE',
+                        },
+                    },
+
                     indicator = {
                         style = "icon",
                     },
 
-                    separator_style = "slope",
+                    separator_style = "",
                     always_show_bufferline = true,
                 }
             })
