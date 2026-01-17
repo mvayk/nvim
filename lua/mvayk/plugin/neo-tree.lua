@@ -1,4 +1,4 @@
-local enabled = false 
+local enabled = true
 
 if enabled then
     return {
@@ -6,9 +6,8 @@ if enabled then
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
-            -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
         },
         lazy = false, -- neo-tree will lazily load itself
         ---@module "neo-tree"
@@ -19,23 +18,21 @@ if enabled then
             vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neo-tree" })
 
             require("neo-tree").setup({
-                -- fill any relevant options here
                 filesystem = {
                     filtered_items = {
-                        visible = true,          -- ← this is the key: makes hidden files visible (but dimmed)
-                        hide_dotfiles = false,   -- show files starting with .
-                        hide_gitignored = false, -- also show gitignored files (change to true if you want to hide them)
-                        show_hidden_count = true, -- shows "(X hidden)" at bottom if any
-                        hide_by_name = {         -- force-hide specific ones if needed
+                        visible = true,
+                        hide_dotfiles = false,
+                        hide_gitignored = false,
+                        show_hidden_count = true,
+                        hide_by_name = {
                             ".git",
                         },
-                        never_show = {           -- never ever show these
+                        never_show = {
                             ".DS_Store",
                             "thumbs.db",
                         },
                     },
-                    hijack_netrw_behavior = "disabled",  -- ← crucial: let other plugins (Oil) handle dirs
-                    -- rest of filesystem options...
+                    hijack_netrw_behavior = "disabled",
                 },
 
                 window = {

@@ -10,6 +10,7 @@ if enabled then
 
             require("statuscol").setup({
                 relculright = false,
+                ft_ignore = { "neo-tree" },
                 segments = {
                     { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
                     { sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },

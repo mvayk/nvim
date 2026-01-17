@@ -27,7 +27,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.undofile = true
-vim.opt.signcolumn = "yes:3"
+vim.opt.signcolumn = "yes"
 -- :bd!
 vim.opt.expandtab = true
 vim.opt.swapfile = false
