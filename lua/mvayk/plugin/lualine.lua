@@ -1,11 +1,21 @@
 local enabled = true
 
-local theme = "block"
+local theme = "slanted-gaps"
 
 if enabled then
     if theme == "default" then
         return {
             "nvim-lualine/lualine.nvim", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons" },
+        }
+    elseif theme == "slanted-gaps" then
+        return {
+            "nvim-lualine/lualine.nvim",
+            lazy = false,
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+
+            config = function()
+                require("lua.mvayk.plugin.lualine_themes.slanted-gaps").load()
+            end
         }
     elseif theme == "block" then
         return {

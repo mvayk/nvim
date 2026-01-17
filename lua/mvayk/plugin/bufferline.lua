@@ -1,4 +1,4 @@
-local enabled = false
+local enabled = true
 
 if enabled then
     return {
@@ -11,12 +11,10 @@ if enabled then
                     show_close_icon = false,
 
                     indicator = {
-                        style = "icon",             -- ← changes to underline instead of icon
+                        style = "icon",
                     },
 
-                    -- Optional: tweak separator if underline alone looks too plain
-                    separator_style = "thin",          -- or "slant", "thick", "slope" – thin looks clean with underline
-
+                    separator_style = "slope",
                     always_show_bufferline = true,
                 }
             })
