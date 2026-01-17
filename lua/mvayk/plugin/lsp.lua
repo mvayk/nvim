@@ -47,6 +47,7 @@ if enabled then
 
                 require("nvim-treesitter.configs").setup({
                     ensure_installed = {
+                        "html",
                         "lua",
                         "c",
                         "cpp",

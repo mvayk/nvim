@@ -14,7 +14,7 @@ if enabled then
             dependencies = { "nvim-tree/nvim-web-devicons" },
 
             config = function()
-                require("lua.mvayk.plugin.lualine_themes.slanted-gaps").load()
+                require("mvayk.plugin.lualine_themes.slanted-gaps").load()
             end
         }
     elseif theme == "block" then

@@ -1,10 +1,15 @@
-return {
-    "sindrets/diffview.nvim",
-    config = function()
-        require("diffview").setup({
-            vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Git Diff" }),
-            vim.keymap.set("n", "<leader>gq", ":DiffviewClose<CR>", { desc = "Git Diff" }),
-            vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory %<CR>", { desc = "File History" }),
-        })
-    end
-}
+local enabled = false
+if enabled then
+    return {
+        "sindrets/diffview.nvim",
+        config = function()
+            require("diffview").setup({
+                vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Git Diff" }),
+                vim.keymap.set("n", "<leader>gq", ":DiffviewClose<CR>", { desc = "Git Diff" }),
+                vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory %<CR>", { desc = "File History" }),
+            })
+        end
+    }
+else
+    return { }
+end

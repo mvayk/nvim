@@ -41,7 +41,7 @@ return {
                         backdrop = false,
                         width = 0.3,
                         height = 0.9,
-                        border = "none",
+                        border = "single",
                         -- ... more tweaks if needed
                     },
                 },
