@@ -90,7 +90,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 --// use terminal colors
-vim.o.termguicolors = false
+--vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
 vim.cmd([[colorscheme tokyonight-night]])
