@@ -77,12 +77,15 @@ local function transparency()
     for _, group in ipairs(border_groups) do
         vim.api.nvim_set_hl(0, group, { fg = "#ffffff", bg = "NONE", ctermbg = "NONE" })
     end
+
+    vim.api.nvim_set_hl(0, 'TabLineFill', { link = "NONE" })
+    vim.api.nvim_set_hl(0, 'TabLineFill', { bg = "NONE" })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-        transparency()
+        -- transparency()
     end,
 })
 
