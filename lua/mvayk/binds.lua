@@ -51,4 +51,4 @@ map("n", "<leader>fi", function() Snacks.picker.git_log() end, { desc = "Telesco
 map("n", "<leader>f/", function() Snacks.picker.grep() end, { desc = "Telescope grep" })
 
 --// Snacks Explorer
-map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })
+--map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })

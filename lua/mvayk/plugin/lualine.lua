@@ -1,6 +1,6 @@
-local enabled = true
+local enabled = false
 
-local theme = "bubbles"
+local theme = "slanted-gaps"
 
 if enabled then
     if theme == "default" then
