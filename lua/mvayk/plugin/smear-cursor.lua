@@ -1,4 +1,4 @@
-local enabled = true
+local enabled = false
 if enabled then
     return {
         "https://github.com/sphamba/smear-cursor.nvim",
