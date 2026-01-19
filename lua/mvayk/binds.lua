@@ -16,6 +16,8 @@ map("n", "j", "gj", { buffer = true, noremap = true, silent = true })
 map("n", "k", "gk", { buffer = true, noremap = true, silent = true })
 map("v", "j", "gj", { buffer = true, noremap = true, silent = true })
 map("v", "k", "gk", { buffer = true, noremap = true, silent = true })
+map("n", "<C-j>", "o<Esc>", { desc = "Insert line below" })
+map("n", "<C-k>", "O<Esc>", { desc = "Insert line above" })
 
 --// LSP Related
 map('n', '<leader>lr', vim.lsp.buf.rename, { desc = "Rename symbol" })

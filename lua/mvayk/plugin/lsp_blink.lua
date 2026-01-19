@@ -5,7 +5,6 @@ if enabled then
     return {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
-        { "nvim-treesitter/nvim-treesitter" },
         { "stevearc/conform.nvim" },
         { "nvimdev/lspsaga.nvim" },
         { "hedyhli/outline.nvim" },
@@ -136,20 +135,6 @@ if enabled then
                     automatic_installation = true,
                     automatic_enable = {
                         exclude = { "luau_lsp" }
-                    },
-                })
-
-                require("nvim-treesitter.configs").setup({
-                    ensure_installed = {
-                        "lua",
-                        "c",
-                        "cpp",
-                        "python",
-                        "rust",
-                        "nix",
-                    },
-                    highlight = {
-                        enable = true,
                     },
                 })
 
