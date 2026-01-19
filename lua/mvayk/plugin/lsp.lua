@@ -9,30 +9,22 @@ if enabled then
         { "nvimdev/lspsaga.nvim" },
         { "hedyhli/outline.nvim" },
         { "lopi-py/luau-lsp.nvim" },
-
-        -- Blink.compat for nvim-cmp sources
         {
             "saghen/blink.compat",
-            version = "2.*", -- Use v2.* for blink.cmp v1.*
+            version = "2.*",
             lazy = true,
             opts = {},
         },
-
-        -- Blink.cmp and its dependencies
         {
             "saghen/blink.cmp",
-            version = "1.*", -- Use stable release
+            version = "1.*",
             dependencies = {
-                "rafamadriz/friendly-snippets", -- Snippet collection
-                "moyiz/blink-emoji.nvim", -- Emoji source
-                "Kaiser-Yang/blink-cmp-git", -- Git source
-                "saghen/blink.compat", -- nvim-cmp compatibility layer
-                "hrsh7th/cmp-calc", -- Calculator source via compat
+                "rafamadriz/friendly-snippets",
+                "saghen/blink.compat",
             },
             opts = {
                 keymap = {
                     preset = "default",
-                    -- Custom keymaps matching your original configuration
                     ["<C-f>"] = { "scroll_documentation_down", "fallback" },
                     ["<C-b>"] = { "scroll_documentation_up", "fallback" },
                     ["<C-j>"] = { "select_next", "fallback" },
@@ -43,7 +35,7 @@ if enabled then
                     ["<CR>"] = { "accept", "fallback" },
                 },
                 appearance = {
-                    use_nvim_cmp_as_default = true, -- Use nvim-cmp-like appearance
+                    use_nvim_cmp_as_default = true,
                     nerd_font_variant = "mono",
                 },
 
@@ -66,7 +58,6 @@ if enabled then
                         border = "none",
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-                        -- Add delay to prevent fast event context errors
                         auto_show_delay_ms = 0,
                         draw = {
                             columns = {
@@ -88,28 +79,7 @@ if enabled then
                 },
 
                 sources = {
-                    -- Add all sources to default list
-                    -- Built-in: lsp, path, snippets, buffer
-                    -- Custom: emoji, calc, git
-                    --default = { "lsp", "path", "snippets", "buffer", "emoji", "calc", "git" },
                     default = { "lsp", "path", "snippets", "buffer"};
-
-                    providers = {
-                        emoji = {
-                            name = "Emoji",
-                            module = "blink-emoji",
-                            score_offset = -5,
-                            opts = {
-                                insert = true, -- Insert emoji instead of name
-                            },
-                        },
-
-                        git = {
-                            name = "Git",
-                            module = "blink-cmp-git",
-                            score_offset = -10,
-                        },
-                    },
                 },
 
                 signature = {
@@ -120,7 +90,6 @@ if enabled then
                 },
             },
         },
-
         {
             "neovim/nvim-lspconfig",
             dependencies = {
@@ -168,21 +137,16 @@ if enabled then
                     },
                 })
 
-                -- Get blink.cmp capabilities for LSP servers
                 local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-                -- Setup LSP servers using the new vim.lsp.config API (nvim 0.11+)
                 local mason_lspconfig = require("mason-lspconfig")
                 local installed_servers = mason_lspconfig.get_installed_servers()
 
                 for _, server_name in ipairs(installed_servers) do
-                    if server_name ~= "luau_lsp" then -- Skip luau_lsp as it's configured separately
-                        -- Use the new vim.lsp.config API
+                    if server_name ~= "luau_lsp" then
                         vim.lsp.config[server_name] = {
                             capabilities = capabilities,
                         }
 
-                        -- Enable the LSP server
                         vim.lsp.enable(server_name)
                     end
                 end

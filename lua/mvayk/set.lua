@@ -47,28 +47,28 @@ vim.o.cursorcolumn = false
 
 vim.o.list = true
 -- vim.opt.listchars = {
---     space = "⋅",
---     eol = "↴",
---     tab = "▎_",
---     tab = "󰄾 ",
---     trail = "•",
---     extends = "❯",
---     precedes = "❮",
---     nbsp = "",
--- }
--- vim.opt.fillchars = {
---     fold = " ",
---     foldsep = " ",
---     foldopen = "",
---     foldclose = "",
---     diff = "╱",
--- }
+    --     space = "⋅",
+    --     eol = "↴",
+    --     tab = "▎_",
+    --     tab = "󰄾 ",
+    --     trail = "•",
+    --     extends = "❯",
+    --     precedes = "❮",
+    --     nbsp = "",
+    -- }
+    -- vim.opt.fillchars = {
+        --     fold = " ",
+        --     foldsep = " ",
+        --     foldopen = "",
+        --     foldclose = "",
+        --     diff = "╱",
+        -- }
 
 vim.opt.fillchars:append({
-  fold      = " ",
-  foldopen  = "",
-  foldclose = "",
-  foldsep   = "│",
+    fold      = " ",
+    foldopen  = "",
+    foldclose = "",
+    foldsep   = "│",
 })
 
 vim.opt.foldcolumn     = "1"
