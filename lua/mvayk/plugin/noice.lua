@@ -1,4 +1,4 @@
-local enabled = false
+local enabled = true
 if enabled then
     return {
         "folke/noice.nvim",
@@ -11,14 +11,15 @@ if enabled then
             -- OPTIONAL:
             --   `nvim-notify` is only needed, if you want to use the notification view.
             --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
+            --"rcarriga/nvim-notify",
         },
+        --[[ disable setup incase of startup error, and enable about install ]]--
         require("noice").setup({
             cmdline = {
                 view = "cmdline",
             },
             messages = {
-                enabled = false,
+                enabled = true,
             },
             popupmenu = {
                 enabled = true, -- enables the Noice popupmenu UI
@@ -29,7 +30,7 @@ if enabled then
                 kind_icons = {}, -- set to `false` to disable icons
             },
             notify = {
-                enabled = false,
+                enabled = true,
             }
         })
     }

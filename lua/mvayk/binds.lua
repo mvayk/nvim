@@ -9,7 +9,7 @@ map("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search highlight"
 map("n", "<leader>w", ":w<CR>", { desc = "Write file" })
 map("n", "<leader>q", ":q!<CR>", { desc = "Force quit" })
 map({ "n", "x", "o" }, "<C-x>", "/\\s<CR>", { desc = "Jump to next space", silent = true })
-map({ "n", "x", "o" }, "<C-,>", "?\\s<CR>", { desc = "Jump to previous space", silent = true })
+map({ "n", "x", "o" }, "<C-a>", "?\\s<CR>", { desc = "Jump to previous space", silent = true })
 map('n', 'mq', ':bd!<CR>', { desc = "Force delete buffer", silent = true })
 map('i', '<C-y>', '<C-r>"', { desc = 'Yank last delete' })
 map("n", "j", "gj", { buffer = true, noremap = true, silent = true })

@@ -70,20 +70,24 @@ return {
 
         -- keymaps
         -- You can use the capture groups defined in `textobjects.scm`
-        vim.keymap.set({ "x", "o" }, "am", { desc = "Select function outer" }, function()
+        vim.keymap.set({ "x", "o", }, "am", function()
             require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
-        end)
-        vim.keymap.set({ "x", "o" }, "im", { desc = "Select function inner" }, function()
+        end, {desc = "Select function outer", })
+
+        vim.keymap.set({ "x", "o" }, "im", function()
             require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
-        end)
-        vim.keymap.set({ "x", "o" }, "ac", { desc = "Select class outer" }, function()
+        end, {desc = "Select function inner", })
+
+        vim.keymap.set({ "x", "o" }, "ac", function()
             require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
-        end)
-        vim.keymap.set({ "x", "o" }, "ic", { desc = "Select class inner" }, function()
+        end, {desc = "Select class outer", })
+
+        vim.keymap.set({ "x", "o" }, "ic", function()
             require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
-        end)
-        vim.keymap.set({ "x", "o" }, "as", { desc = "Select local scope" }, function()
+        end, {desc = "Select class inner", })
+
+        vim.keymap.set({ "x", "o" }, "as", function()
             require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
-        end)
+        end, {desc = "Select local scope", })
     end }
 }
