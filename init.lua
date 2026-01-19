@@ -93,4 +93,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 --vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
-vim.cmd([[colorscheme tokyonight-night]])
+vim.cmd([[colorscheme duckbones]])
