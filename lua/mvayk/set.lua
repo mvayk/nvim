@@ -79,7 +79,7 @@ vim.opt.signcolumn     = "yes"
 
 --> lsp hover diagnostics thing <--
 vim.o.updatetime = 250  -- faster CursorHold
-vim.api.nvim_create_autocmd("CursorHold", {
+vim.api.nvim_create_autocmd("cursorhold", {
     callback = function()
         vim.diagnostic.open_float(nil, { focus = false })
     end
