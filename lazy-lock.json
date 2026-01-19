@@ -2,6 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "YankAssassin.nvim": { "branch": "main", "commit": "4074b307bec6bb8c92b59fb3544e3dc3e43fcf6d" },
   "awesome-vim-colorschemes": { "branch": "master", "commit": "ae5e02298c8de6a5aa98fe4d29a21874cfcc3619" },
+  "base16-nvim": { "branch": "master", "commit": "5f140bdbb07c0767f0785c71407330c8c96e9bcf" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
   "citruszest.nvim": { "branch": "main", "commit": "ce6749e4c3a842679cc302ce1c2db76c2d07f700" },

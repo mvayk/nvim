@@ -31,14 +31,8 @@ return {
     "ellisonleao/gruvbox.nvim",
     "catppuccin/nvim", name = "catppuccin", priority = 1000,
     "rose-pine/neovim",
+    'RRethy/base16-nvim',
     config = function()
-        require("rose-pine").setup {
-            styles = {
-                bold = true,
-                italic = false,
-                transparency = true,
-                disable_background = true,
-            }
-        }
+        require("matugen").setup({})
     end
 }

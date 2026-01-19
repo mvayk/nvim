@@ -33,7 +33,7 @@ local function other_transparency()
 end
 
 local function other_other_transparency()
-  local bg = vim.api.nvim_get_hl(0, { name = 'SignColumn' }).bg
+    local bg = vim.api.nvim_get_hl(0, { name = 'SignColumn' }).bg
     vim.api.nvim_set_hl(0, 'GitSignsAdd', { bg = bg })
     vim.api.nvim_set_hl(0, 'GitSignsChange', { bg = bg })
     vim.api.nvim_set_hl(0, 'GitSignsDelete', { bg = bg })
@@ -93,4 +93,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 --vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 
-vim.cmd([[colorscheme duckbones]])
+--vim.cmd([[colorscheme duckbones]])
