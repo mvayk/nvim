@@ -1,5 +1,4 @@
 vim = vim
-vim.o.background = "dark"
 
 -- remove auto commentting  feature
 vim.api.nvim_create_autocmd("FileType", {

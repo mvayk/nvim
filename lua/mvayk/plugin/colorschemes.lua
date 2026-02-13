@@ -34,6 +34,6 @@ return {
     "rose-pine/neovim",
     'RRethy/base16-nvim',
     config = function()
-        require("matugen").setup({})
+        --require("matugen").setup()
     end
 }
