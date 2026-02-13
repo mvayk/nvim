@@ -18,11 +18,18 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    vim.opt.guicursor = "a:ver25-blinkon0"
+  end
+})
+
 vim.opt.nu = true
 vim.opt.fileformats = {'unix', 'dos'} --// fixes windows line endings
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
-vim.opt.scrolloff = 1923800
+--vim.opt.scrolloff = 1923800
+vim.opt.scrolloff = 6
 vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
