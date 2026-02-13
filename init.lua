@@ -17,6 +17,27 @@ require("lazy").setup({
     import = "mvayk.plugin",
 })
 
+local function anti_background()
+    local groups = {
+        "Normal",
+        "NormalFloat",
+        "SignColumn",
+        "LineNr",
+        "CursorLineNr",
+        "FoldColumn",
+        "EndOfBuffer",
+        "DiagnosticSignError",
+        "DiagnosticSignWarn",
+        "DiagnosticSignInfo",
+        "DiagnosticSignHint",
+        "LspCodeActionSign",
+    }
+
+    for _, group in ipairs(groups) do
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
+    end
+end
+
 local theme_file = vim.fn.stdpath("data") .. "/last_theme.lua"
 
 local ok, err = pcall(dofile, theme_file)
@@ -28,6 +49,7 @@ end
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
+        anti_background()
         local file = io.open(theme_file, "w")
         if file then
             file:write(string.format([[
@@ -36,15 +58,26 @@ vim.cmd.colorscheme("%s")
             ]], vim.o.background, vim.g.colors_name))
             file:close()
         end
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        anti_background()
     end
 })
+
+
+vim.keymap.set("n", "<leader>tb", function()
+    if vim.o.background == "dark" then
+        vim.o.background = "light"
+        vim.notify("Toggled Light")
+        anti_background()
+    else
+        vim.o.background = "dark"
+        vim.notify("Toggled Dark")
+        anti_background()
+    end
+end, { desc = "Toggle background" })
 
 --// use terminal colors
 --vim.o.termguicolors = false
 --vim.o.background = 'dark'  -- or 'light'
 --vim.cmd([[colorscheme tokyobones]])
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+anti_background()
