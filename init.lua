@@ -22,7 +22,7 @@ local theme_file = vim.fn.stdpath("data") .. "/last_theme.lua"
 local ok, err = pcall(dofile, theme_file)
 if not ok then
     vim.o.background = "dark"
-    vim.cmd([[colorscheme vague]])
+    vim.cmd([[colorscheme rose-pine]])
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
