@@ -54,3 +54,14 @@ map("n", "<leader>f/", function() Snacks.picker.grep() end, { desc = "Telescope 
 
 --// Snacks Explorer
 --map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })
+
+--// toggle background
+vim.keymap.set("n", "<leader>tb", function()
+    if vim.o.background == "dark" then
+        vim.o.background = "light"
+        vim.notify("Toggled Light")
+    else
+        vim.o.background = "dark"
+        vim.notify("Toggled Dark")
+    end
+end, { desc = "Toggle background" })

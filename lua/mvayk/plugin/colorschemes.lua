@@ -11,6 +11,7 @@ return {
     "scottmckendry/cyberdream.nvim",
     "sainnhe/gruvbox-material",
     "aktersnurra/no-clown-fiesta.nvim",
+    "datsfilipe/vesper.nvim",
     "rafi/awesome-vim-colorschemes",
     "zenbones-theme/zenbones.nvim",
     "Yagua/nebulous.nvim",
