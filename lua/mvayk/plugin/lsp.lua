@@ -149,7 +149,7 @@ if enabled then
 
                 vim.diagnostic.config({
                     -- TODO: make this work
-                    undercurl = true,
+                    --undercurl = true,
                     underline = true,
                     update_in_insert = true,
                     severity_sort = true,
