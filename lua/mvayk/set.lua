@@ -18,17 +18,17 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    vim.opt.guicursor = "a:ver25-blinkon0"
-  end
+    callback = function()
+        vim.opt.guicursor = "a:ver25-blinkon0"
+    end
 })
 
 vim.opt.nu = true
 vim.opt.fileformats = {'unix', 'dos'} --// fixes windows line endings
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
---vim.opt.scrolloff = 1923800
-vim.opt.scrolloff = 12
+vim.opt.scrolloff = 1923800
+--vim.opt.scrolloff = 24
 vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -47,55 +47,95 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 --// vim.api.nvim_set_option("clipboard", "unnamedplus")
 vim.o.exrc = true
-vim.o.cursorline = true
+vim.o.cursorline = false
 vim.o.cursorcolumn = false
 -- vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
 vim.o.list = true
--- vim.opt.listchars = {
-    --     space = "⋅",
-    --     eol = "↴",
-    --     tab = "▎_",
-    --     tab = "󰄾 ",
-    --     trail = "•",
-    --     extends = "❯",
-    --     precedes = "❮",
-    --     nbsp = "",
+vim.opt.listchars = {
+    --space = "⋅",
+    --eol = "↴",
+    --tab = "▎_",
+    tab = "󰄾 ",
+    trail = "•",
+    extends = "❯",
+    precedes = "❮",
+    nbsp = "",
+}
+-- vim.opt.fillchars = {
+    --     fold = " ",
+    --     foldsep = " ",
+    --     foldopen = "",
+    --     foldclose = "",
+    --     diff = "╱",
     -- }
-    -- vim.opt.fillchars = {
-        --     fold = " ",
-        --     foldsep = " ",
-        --     foldopen = "",
-        --     foldclose = "",
-        --     diff = "╱",
-        -- }
 
-vim.opt.fillchars:append({
-    fold      = " ",
-    foldopen  = "",
-    foldclose = "",
-    foldsep   = "│",
-})
+    vim.opt.fillchars:append({
+        fold      = " ",
+        foldopen  = "",
+        foldclose = "",
+        foldsep   = "│",
+    })
 
-vim.opt.foldcolumn     = "1"
-vim.opt.foldlevel      = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable     = true
-vim.opt.signcolumn     = "yes"
+    vim.opt.foldcolumn     = "1"
+    vim.opt.foldlevel      = 99
+    vim.opt.foldlevelstart = 99
+    vim.opt.foldenable     = true
+    vim.opt.signcolumn     = "yes"
 
---> lsp hover diagnostics thing <--
-vim.o.updatetime = 0
-vim.api.nvim_create_autocmd("cursorhold", {
-    callback = function()
-        vim.diagnostic.open_float(nil, {
-            focus = false,
-            focusable = false,
-            border = "single",
-            source = "always",
-            prefix = " ",
-            scope = "cursor",
-        })
-    end
-})
+    --> lsp hover diagnostics thing <--
+    vim.o.updatetime = 0
+    --[[ vim.api.nvim_create_autocmd("cursorhold", {
+        callback = function()
+            vim.diagnostic.open_float(nil, {
+                border = "none",
+                source = "always",
+                prefix = " ",
+                scope = "cursor",
+                relative = "win",
+                anchor = "NE",
+                row = 0,
+                col = vim.api.nvim_win_get_width(0) - 2,  -- Window width minus 2
+                max_width = 50,
+            })
+        end
+    }) 
+    ]]--
+
+    vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
+        callback = function()
+            local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
+            if #diagnostics > 0 then
+                local float_bufnr, winid = vim.diagnostic.open_float(nil, {
+                    focus = false,
+                    focusable = false,
+                    border = "none",
+                    source = "always",
+                    prefix = " ",
+                    scope = "line",
+                    close_events = {
+                        "CursorMoved",
+                        "CursorMovedI",
+                        "InsertEnter",
+                        "InsertLeave",
+                        "BufLeave",
+                        "BufHidden",
+                        "InsertCharPre",
+                        "TextChanged",
+                        "TextChangedI",
+                    },
+                })
+
+                if winid then
+                    vim.api.nvim_win_set_config(winid, {
+                        relative = "editor",
+                        anchor = "NE",
+                        row = 1,
+                        col = vim.o.columns,
+                    })
+                end
+            end
+        end
+    })

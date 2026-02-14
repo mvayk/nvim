@@ -153,7 +153,7 @@ if enabled then
                     update_in_insert = true,
                     severity_sort = true,
                     virtual_text = {
-                        enabled = false,
+                        true,
                         spacing = 25,
                         prefix = "",
                     },
