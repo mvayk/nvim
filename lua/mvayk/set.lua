@@ -113,6 +113,7 @@ vim.opt.listchars = {
                     focusable = false,
                     border = "none",
                     source = "always",
+                    max_width = 39,
                     prefix = " ",
                     scope = "line",
                     close_events = {

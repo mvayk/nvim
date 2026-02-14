@@ -148,7 +148,7 @@ if enabled then
                 })
 
                 vim.diagnostic.config({
-                    --undercurl = true,
+                    undercurl = true,
                     underline = true,
                     update_in_insert = true,
                     severity_sort = true,
@@ -179,7 +179,7 @@ if enabled then
                 local installed_servers = mason_lspconfig.get_installed_servers()
 
                 for _, server_name in ipairs(installed_servers) do
-                    if server_name ~= "luau_lsp" then
+                    if server_name ~= "luau_lsp" and server_name ~= "rust-analyzer" then
                         vim.lsp.config[server_name] = {
                             capabilities = capabilities,
                         }
