@@ -51,6 +51,9 @@ local function anti_background()
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn",  { fg = "#ffaa00" })
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo",  { fg = "#cccccc" })
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { fg = "#cccccc" })
+
+    -- nixos shenanigans cause this to be undercurled for some reason probably
+    vim.api.nvim_set_hl(0, "@lsp.type.unresolvedReference", { undercurl = false })
 end
 
 local theme_file = vim.fn.stdpath("data") .. "/last_theme.lua"
