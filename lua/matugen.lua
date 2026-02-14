@@ -2,22 +2,22 @@ local M = {}
 
 function M.setup()
     require('base16-colorscheme').setup {
-        base00 = '#131313', -- Default Background
-        base01 = '#1f1f1f', -- Lighter Background (status bars)
-        base02 = '#2a2a2a', -- Selection Background
-        base03 = '#919191', -- Comments, Invisibles
-        base04 = '#c6c6c6', -- Dark Foreground (status bars)
-        base05 = '#e2e2e2', -- Default Foreground
-        base06 = '#e2e2e2', -- Light Foreground
-        base07 = '#e2e2e2', -- Lightest Foreground
-        base08 = '#ffb4ab', -- Variables, XML Tags, Errors
-        base09 = '#eab9d2', -- Integers, Constants
-        base0A = '#c7c4dd', -- Classes, Search Background
-        base0B = '#c3c0ff', -- Strings, Diff Inserted
-        base0C = '#eab9d2', -- Regex, Escape Chars
-        base0D = '#c3c0ff', -- Functions, Methods
-        base0E = '#c7c4dd', -- Keywords, Storage
-        base0F = '#93000a', -- Deprecated, Embedded Tags
+        base00 = '#f9f9f9', -- Default Background
+        base01 = '#eeeeee', -- Lighter Background (status bars)
+        base02 = '#e8e8e8', -- Selection Background
+        base03 = '#777777', -- Comments, Invisibles
+        base04 = '#474747', -- Dark Foreground (status bars)
+        base05 = '#1b1b1b', -- Default Foreground
+        base06 = '#1b1b1b', -- Light Foreground
+        base07 = '#1b1b1b', -- Lightest Foreground
+        base08 = '#ba1a1a', -- Variables, XML Tags, Errors
+        base09 = '#6a5779', -- Integers, Constants
+        base0A = '#526070', -- Classes, Search Background
+        base0B = '#0062a1', -- Strings, Diff Inserted
+        base0C = '#d5bee5', -- Regex, Escape Chars
+        base0D = '#9ccaff', -- Functions, Methods
+        base0E = '#bac8db', -- Keywords, Storage
+        base0F = '#ffdad6', -- Deprecated, Embedded Tags
     }
 end
 
@@ -27,7 +27,7 @@ signal:start(
     'sigusr1',
     vim.schedule_wrap(function()
         package.loaded['matugen'] = nil
-        require('matugen').setup()
+        --require('matugen').setup()
     end)
 )
 

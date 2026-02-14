@@ -32,8 +32,4 @@ return {
     "ellisonleao/gruvbox.nvim",
     "catppuccin/nvim", name = "catppuccin", priority = 1000,
     "rose-pine/neovim",
-    --[[ 'RRethy/base16-nvim',
-    config = function()
-        --require("matugen").setup()
-    end ]]
 }

@@ -104,39 +104,39 @@ vim.opt.listchars = {
     }) 
     ]]--
 
-    vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
-        callback = function()
-            local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
-            if #diagnostics > 0 then
-                local float_bufnr, winid = vim.diagnostic.open_float(nil, {
-                    focus = false,
-                    focusable = false,
-                    border = "none",
-                    source = "always",
-                    max_width = 39,
-                    prefix = " ",
-                    scope = "line",
-                    close_events = {
-                        "CursorMoved",
-                        "CursorMovedI",
-                        "InsertEnter",
-                        "InsertLeave",
-                        "BufLeave",
-                        "BufHidden",
-                        "InsertCharPre",
-                        "TextChanged",
-                        "TextChangedI",
-                    },
-                })
+vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
+    callback = function()
+        local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
+        if #diagnostics > 0 then
+            local float_bufnr, winid = vim.diagnostic.open_float(nil, {
+                focus = false,
+                focusable = false,
+                border = "none",
+                source = "always",
+                max_width = 39,
+                prefix = " ",
+                scope = "line",
+                close_events = {
+                    "CursorMoved",
+                    "CursorMovedI",
+                    "InsertEnter",
+                    "InsertLeave",
+                    "BufLeave",
+                    "BufHidden",
+                    "InsertCharPre",
+                    "TextChanged",
+                    "TextChangedI",
+                },
+            })
 
-                if winid then
-                    vim.api.nvim_win_set_config(winid, {
-                        relative = "editor",
-                        anchor = "NE",
-                        row = 1,
-                        col = vim.o.columns,
-                    })
-                end
+            if winid then
+                vim.api.nvim_win_set_config(winid, {
+                    relative = "editor",
+                    anchor = "NE",
+                    row = 1,
+                    col = vim.o.columns,
+                })
             end
         end
-    })
+    end
+})

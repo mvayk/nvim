@@ -60,6 +60,7 @@ local theme_file = vim.fn.stdpath("data") .. "/last_theme.lua"
 
 local ok, _err = pcall(dofile, theme_file)
 if not ok then
+    print("Creating theme file")
     vim.o.background = "dark"
     vim.cmd([[colorscheme rose-pine]])
 end
@@ -75,11 +76,11 @@ vim.o.background = "%s"
 vim.cmd.colorscheme("%s")
             ]], vim.o.background, vim.g.colors_name))
             file:close()
+            anti_background()
         end
         anti_background()
     end
 })
-
 
 vim.keymap.set("n", "<leader>tb", function()
     if vim.o.background == "dark" then
@@ -91,7 +92,9 @@ vim.keymap.set("n", "<leader>tb", function()
         vim.notify("Toggled Dark")
         anti_background()
     end
+    anti_background()
 end, { desc = "Toggle background" })
+
 
 --// use terminal colors
 --vim.o.termguicolors = false
