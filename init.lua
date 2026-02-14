@@ -37,10 +37,10 @@ local function anti_background()
         vim.api.nvim_set_hl(0, group, { bg = "none" })
     end
 
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { underline = true, sp = "#ff5555" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn",  { underline = true, sp = "#ffaa00" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo",  { underline = true, sp = "#cccccc" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",  { underline = true, sp = "#cccccc" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn",  { undercurl = true, sp = "#ffaa00" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo",  { undercurl = true, sp = "#cccccc" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",  { undercurl = true, sp = "#cccccc" })
 
     vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ff5555" })
     vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg =  "#ffaa00" })

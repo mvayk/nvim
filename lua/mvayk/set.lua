@@ -35,6 +35,8 @@ vim.opt.shiftwidth = 4
 vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
 -- :bd!
+vim.opt.smarttab = true
+vim.opt.breakindent = true
 vim.opt.expandtab = true
 vim.opt.swapfile = false
 vim.opt.autoindent = true
@@ -90,7 +92,7 @@ vim.api.nvim_create_autocmd("cursorhold", {
         vim.diagnostic.open_float(nil, {
             focus = false,
             focusable = false,
-            border = "none",
+            border = "single",
             source = "always",
             prefix = " ",
             scope = "cursor",

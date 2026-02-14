@@ -83,7 +83,7 @@ if enabled then
                     },
                     menu = {
                         max_height = 15,
-                        border = "none",
+                        border = "single",
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
@@ -101,7 +101,7 @@ if enabled then
                         auto_show = true,
                         auto_show_delay_ms = 0,
                         window = {
-                            border = "none",
+                            border = "single",
                             winblend = 0,
                             winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                             max_width = 60,
@@ -116,7 +116,7 @@ if enabled then
                 signature = {
                     enabled = true,
                     window = {
-                        border = "none",
+                        border = "single",
                     },
                 },
             },
@@ -148,12 +148,12 @@ if enabled then
                 })
 
                 vim.diagnostic.config({
-                    -- TODO: make this work
                     --undercurl = true,
                     underline = true,
                     update_in_insert = true,
                     severity_sort = true,
                     virtual_text = {
+                        enabled = false,
                         spacing = 25,
                         prefix = "",
                     },
@@ -166,7 +166,7 @@ if enabled then
                         },
                     },
                     float = {
-                        border = "none",
+                        border = "single",
                         source = "always",
                         header = "",
                         prefix = "",

@@ -14,6 +14,7 @@ return {
                 "rust",
                 "lua",
             },
+            indent = { enable = true },
             vim.api.nvim_create_autocmd('FileType', {
                 pattern = { '<filetype>' },
                 callback = function()
