@@ -28,7 +28,7 @@ vim.opt.fileformats = {'unix', 'dos'} --// fixes windows line endings
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 --vim.opt.scrolloff = 1923800
-vim.opt.scrolloff = 6
+vim.opt.scrolloff = 12
 vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -84,9 +84,16 @@ vim.opt.foldenable     = true
 vim.opt.signcolumn     = "yes"
 
 --> lsp hover diagnostics thing <--
---[[ vim.o.updatetime = 250  -- faster CursorHold
+vim.o.updatetime = 0
 vim.api.nvim_create_autocmd("cursorhold", {
     callback = function()
-        vim.diagnostic.open_float(nil, { focus = false })
+        vim.diagnostic.open_float(nil, {
+            focus = false,
+            focusable = false,
+            border = "none",
+            source = "always",
+            prefix = " ",
+            scope = "cursor",
+        })
     end
-}) ]]
+})

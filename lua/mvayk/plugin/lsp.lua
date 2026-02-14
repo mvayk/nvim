@@ -21,6 +21,7 @@ if enabled then
             dependencies = {
                 "rafamadriz/friendly-snippets",
                 "saghen/blink.compat",
+                "molleweide/LuaSnip-snippets.nvim",
             },
             opts = {
                 keymap = {
@@ -37,13 +38,40 @@ if enabled then
                 appearance = {
                     use_nvim_cmp_as_default = true,
                     nerd_font_variant = "mono",
+                    kind_icons = {
+                        Text = "󰉿",
+                        Method = "󰊕",
+                        Function = "󰊕",
+                        Constructor = "󰒓",
+                        Field = "󰜢",
+                        Variable = "󰆦",
+                        Class = "󱡠",
+                        Interface = "󱡠",
+                        Module = "󰅩",
+                        Property = "󰖷",
+                        Unit = "󰪚",
+                        Value = "󰦨",
+                        Enum = "󰦨",
+                        Keyword = "󰻾",
+                        Snippet = "󱄽",
+                        Color = "󰏘",
+                        File = "󰈔",
+                        Reference = "󰬲",
+                        Folder = "󰉋",
+                        EnumMember = "󰦨",
+                        Constant = "󰏿",
+                        Struct = "󱡠",
+                        Event = "󱐋",
+                        Operator = "󰪚",
+                        TypeParameter = "󰬛",
+                    },
                 },
 
                 completion = {
                     trigger = {
                         show_on_keyword = true,
                         show_on_trigger_character = true,
-                        show_on_insert_on_trigger_character = false,
+                        show_on_insert_on_trigger_character = true,
                     },
                     list = {
                         max_items = 200,
@@ -54,15 +82,18 @@ if enabled then
                         },
                     },
                     menu = {
-                        max_height = 10,
+                        max_height = 15,
                         border = "none",
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
                         draw = {
+                            padding = 1,
+                            gap = 1,
                             columns = {
-                                { "kind_icon" },
+                                { "kind_icon", gap = 1 },
                                 { "label", "label_description", gap = 1 },
+                                { "kind" },
                             },
                         },
                     },
@@ -100,7 +131,7 @@ if enabled then
             config = function()
                 require("mason").setup()
                 require("mason-lspconfig").setup({
-                    ensure_installed = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer" },
+                    ensure_installed = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright" },
                     automatic_installation = true,
                     automatic_enable = {
                         exclude = { "luau_lsp" }
@@ -117,23 +148,29 @@ if enabled then
                 })
 
                 vim.diagnostic.config({
-                    virtual_text = true,
+                    -- TODO: make this work
+                    undercurl = true,
+                    underline = true,
+                    update_in_insert = true,
+                    severity_sort = true,
+                    virtual_text = {
+                        spacing = 25,
+                        prefix = "",
+                    },
                     signs = {
                         text = {
-                            [vim.diagnostic.severity.ERROR] = "",
+                            [vim.diagnostic.severity.ERROR] = "",
                             [vim.diagnostic.severity.WARN]  = "",
                             [vim.diagnostic.severity.INFO]  = "",
                             [vim.diagnostic.severity.HINT]  = "",
                         },
                     },
-                    underline = true,
-                    update_in_insert = true,
-                    severity_sort = true,
                     float = {
                         border = "none",
                         source = "always",
                         header = "",
                         prefix = "",
+                        focusable = false,
                     },
                 })
 

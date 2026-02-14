@@ -36,11 +36,26 @@ local function anti_background()
     for _, group in ipairs(groups) do
         vim.api.nvim_set_hl(0, group, { bg = "none" })
     end
+
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn",  { undercurl = true, sp = "#ffaa00" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo",  { undercurl = true, sp = "#cccccc" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",  { undercurl = true, sp = "#cccccc" })
+
+    vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ff5555" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg =  "#ffaa00" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg =  "#cccccc" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg =  "#cccccc" })
+
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff5555" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn",  { fg = "#ffaa00" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo",  { fg = "#cccccc" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { fg = "#cccccc" })
 end
 
 local theme_file = vim.fn.stdpath("data") .. "/last_theme.lua"
 
-local ok, err = pcall(dofile, theme_file)
+local ok, _err = pcall(dofile, theme_file)
 if not ok then
     vim.o.background = "dark"
     vim.cmd([[colorscheme rose-pine]])
