@@ -32,6 +32,7 @@ if enabled then
                     --["<S-Tab>"] = { "select_prev", "fallback" },
                     ["<Tab>"]   = { "select_and_accept", "snippet_forward", "fallback" },
                     ["<S-Tab>"] = { "snippet_backward",  "fallback" },
+                    ["<C-Space>"] = { "show", "hide", "fallback" },
 
                     ["<C-h>"] = { "hide", "fallback" },
                     ["<CR>"] =  { "fallback" },
@@ -68,6 +69,7 @@ if enabled then
                     },
                 },
                 completion = {
+                    scrollbar = false,
                     ghost_text = {
                         enabled = true,
                     },
@@ -92,15 +94,18 @@ if enabled then
                         auto_show = true,
                         auto_show_delay_ms = 0,
                         window = {
-                            border = "single",
+                            border = "none",
                             winblend = 0,
                             winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                             max_width = 60,
                         },
                     },
                     menu = {
+                        auto_show = function()
+                            return vim.b.menu_auto_show ~= false
+                        end,
                         max_height = 15,
-                        border = "single",
+                        border = "none",
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
@@ -108,9 +113,8 @@ if enabled then
                             padding = 1,
                             gap = 1,
                             columns = {
-                                { "kind_icon", gap = 1 },
+                                { "kind_icon", gap = 0 },
                                 { "label", "label_description", gap = 1 },
-                                { "kind" },
                             },
                         },
                     },
@@ -121,7 +125,7 @@ if enabled then
                 signature = {
                     enabled = false,
                     window = {
-                        border = "single",
+                        border = "none",
                         show_documentation = true,
                     }
                 },
@@ -172,7 +176,7 @@ if enabled then
                         },
                     },
                     float = {
-                        border = "single",
+                        border = "none",
                         source = "always",
                         header = "",
                         prefix = "",

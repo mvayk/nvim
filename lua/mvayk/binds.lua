@@ -38,6 +38,22 @@ map('n', '<leader>l[', vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map('n', '<leader>l]', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map('n', '<leader>ld', vim.diagnostic.open_float, { desc = "Show diagnostics float" })
 
+local function toggle_completion()
+    require("blink.cmp").hide()
+    vim.b.completion = not vim.b.completion
+    vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"), vim.log.levels.INFO)
+end
+
+vim.keymap.set({ "n", }, "<leader>lz", toggle_completion, { desc = "Toggle Completion in its entirety" })
+
+vim.keymap.set('n', '<leader>lc', function()
+    require('blink.cmp').hide()
+    vim.b.menu_auto_show = not vim.b.menu_auto_show
+    vim.notify("Menu auto-show: "
+    .. (vim.b.menu_auto_show and "ON" or "OFF")
+    )
+end, { desc = "Toggle popup menu auto-show" })
+
 --// Folding
 map('n', '<CR>', 'za', { desc = "Toggle fold" })
 
@@ -59,3 +75,4 @@ map("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Telescope g
 vim.keymap.set("n", "<leader>ts", function()
   Snacks.picker.colorschemes()
 end, { desc = "Select Colorschemes (Snacks Picker)" })
+
