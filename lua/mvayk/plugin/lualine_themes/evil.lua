@@ -155,7 +155,8 @@ ins_left {
 -- for lualine it's any number greater then 2
 ins_left {
     function()
-        return '%='
+        return ' '
+        --return '%='
     end,
 }
 

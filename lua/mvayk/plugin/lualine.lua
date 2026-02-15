@@ -1,10 +1,21 @@
 local enabled = true
-local theme = "arrows"
+local theme = "evil"
 if enabled then
     if theme == "default" then
         return {
             "nvim-lualine/lualine.nvim", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons" },
         }
+    elseif theme == "personal" then
+        return {
+            "nvim-lualine/lualine.nvim",
+            lazy = false,
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+
+            config = function()
+                require("mvayk.plugin.lualine_themes.personal").load()
+            end
+        }
+
     elseif theme == "slanted-gaps" then
         return {
             "nvim-lualine/lualine.nvim",

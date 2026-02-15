@@ -14,7 +14,7 @@ if enabled then
                 segments = {
                     { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
                     --// disabled for now
-                    --{ sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },
+                    { sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },
                     { sign = { namespace = { ".*diagnostic.*" }, maxwidth = 1 } },
                     { text = { builtin.lnumfunc, " " },
                     },
