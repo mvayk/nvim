@@ -4,18 +4,20 @@ if enabled then
         "luukvbaal/statuscol.nvim",
         event = "VeryLazy",
         config = function()
-            -- Example: "+|x24"
+            -- Example: ">| 24"
 
             local builtin = require("statuscol.builtin")
 
             require("statuscol").setup({
-                relculright = false,
+                relculright = true,
                 ft_ignore = { "neo-tree" },
                 segments = {
                     { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-                    { sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },
-                    { sign = { namespace = { ".*diagnostic.*" }, maxwidth = 1 } },
-                    { text = { builtin.lnumfunc, " " } }
+                    --// disabled for now
+                    --{ sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },
+                    { sign = { namespace = { ".*diagnostic.*" }, maxwidth = 0 } },
+                    { text = { builtin.lnumfunc, " " },
+                    },
                 }
             })
         end,

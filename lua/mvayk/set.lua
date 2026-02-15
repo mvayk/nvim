@@ -33,7 +33,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.undofile = true
-vim.opt.signcolumn = "yes"
 -- :bd!
 vim.opt.smarttab = true
 vim.opt.breakindent = true
@@ -49,7 +48,7 @@ vim.opt.termguicolors = true
 vim.o.exrc = true
 vim.o.cursorline = false
 vim.o.cursorcolumn = false
--- vim.opt["guicursor"] = "i:block"
+vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
@@ -57,6 +56,7 @@ vim.o.list = true
 vim.opt.listchars = {
     --space = "⋅",
     --eol = "↴",
+    --lead = "⋅",
     --tab = "▎_",
     tab = "󰄾 ",
     trail = "•",
@@ -72,12 +72,13 @@ vim.opt.listchars = {
     --     diff = "╱",
     -- }
 
-    vim.opt.fillchars:append({
-        fold      = " ",
-        foldopen  = "",
-        foldclose = "",
-        foldsep   = "│",
-    })
+vim.opt.fillchars:append({
+    fold      = " ",
+    foldopen  = "",
+    foldclose = "",
+    foldsep   = " ",
+    --foldsep   = "│",
+})
 
     vim.opt.foldcolumn     = "1"
     vim.opt.foldlevel      = 99
