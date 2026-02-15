@@ -55,3 +55,7 @@ map("n", "<leader>f/", function() Snacks.picker.grep() end, { desc = "Telescope 
 --// Snacks Explorer
 --map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })
 
+--// Snacks colorscheme selector
+vim.keymap.set("n", "<leader>ts", function()
+  Snacks.picker.colorschemes()
+end, { desc = "Select Colorschemes (Snacks Picker)" })

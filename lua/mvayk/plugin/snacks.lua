@@ -14,8 +14,9 @@ return {
         },
         picker = {
             enabled = true,
+            preview = true,
             layout = {
-                preset = "vscode",
+                preset = "ivy",
             },
             position = "top",
             sources = {

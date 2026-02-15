@@ -6,7 +6,7 @@ local M = {}
 
 function M.load()
   -- Default Theme Colors
-  local colors = {
+  --[[ local colors = {
     BG = '#16181b',
     FG = '#c5c4c4',
     YELLOW = '#e8b75f',
@@ -96,7 +96,7 @@ function M.load()
     local c2 = get_opposite_color(c1)
     return interpolate_color(c1, c2, step)
   end
-
+]]
   -- Conditions
   local function hide_in_width()
     return vim.fn.winwidth(0) > 80
@@ -140,8 +140,8 @@ function M.load()
     return {
       function() return side == 'left' and '' or '' end,
       color = function()
-        local col = use_mode_color and get_mode_color() or get_opposite_color(get_mode_color())
-        return { fg = col }
+        --local col = use_mode_color and get_mode_color() or get_opposite_color(get_mode_color())
+        --return { fg = col }
       end,
       padding = { left = 0 },
     }
@@ -153,11 +153,11 @@ function M.load()
       content,
       icon = icon,
       color = function()
-        local mode_color = get_mode_color()
-        local opposite = get_opposite_color(mode_color)
+        -- local mode_color = get_mode_color()
+        -- local opposite = get_opposite_color(mode_color)
         return {
-          fg = color_fg or colors.FG,
-          bg = color_bg or opposite,
+          -- fg = color_fg or colors.FG,
+          -- bg = color_bg or opposite,
           gui = 'bold',
         }
       end,
@@ -180,10 +180,12 @@ function M.load()
     options = {
       component_separators = '',
       section_separators = '',
-      theme = {
+
+      theme = "auto",
+      --[[ theme = {
         normal = { c = { fg = colors.FG, bg = colors.BG } },
         inactive = { c = { fg = colors.FG, bg = colors.BG } },
-      },
+      }, ]]
       disabled_filetypes = { 'neo-tree', 'undotree', 'sagaoutline', 'diff' },
     },
     sections = {
@@ -197,8 +199,8 @@ function M.load()
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { { 'location', color = { fg = colors.FG, gui = 'bold' } } },
-      lualine_x = { { 'filename', color = { fg = colors.FG, gui = 'bold,italic' } } },
+      lualine_c = { { 'location', color = { --[[ fg = colors.FG, ]] gui = 'bold' } } },
+      lualine_x = { { 'filename', color = { --[[ fg = colors.FG, ]] gui = 'bold,italic' } } },
       lualine_y = {},
       lualine_z = {},
     },
@@ -208,24 +210,24 @@ function M.load()
   local function ins_right(component) table.insert(config.sections.lualine_x, component) end
 
   -- LEFT
-  ins_left { mode, color = function() return { fg = colors.BG, bg = get_mode_color(), gui = 'bold' } end, padding = { left = 1, right = 1 } }
+  ins_left { mode, color = function() return { --[[fg = colors.BG, bg = get_mode_color(), ]] gui = 'bold' } end, padding = { left = 1, right = 1 } }
   ins_left(create_separator('left', true))
   ins_left {
     function() return vim.fn.fnamemodify(vim.fn.getcwd(), ':t') end,
     icon = ' ',
     color = function()
       return vim.env.VIRTUAL_ENV
-        and { fg = get_mode_color(), gui = 'bold,strikethrough' }
-        or  { fg = get_mode_color(), gui = 'bold' }
+        and { --[[ fg = get_mode_color(), ]] gui = 'bold,strikethrough' }
+        or  { --[[ fg = get_mode_color(), ]] gui = 'bold' }
     end,
   }
   ins_left(create_separator('right'))
-  ins_left(create_mode_based_component('filename', nil, colors.BG))
+  ins_left(create_mode_based_component('filename', nil --[[ colors.BG) ]]))
   ins_left(create_separator('left'))
 
   ins_left {
     function() return '' end,
-    color = function() return { fg = get_middle_color() } end,
+    color = function() return { --[[ fg = get_middle_color()  ]]} end,
     cond = hide_in_width,
   }
 
@@ -237,19 +239,19 @@ function M.load()
       end
       return ''
     end,
-    color = { fg = colors.YELLOW, gui = 'bold' },
+    color = { --[[ fg = colors.YELLOW, ]] gui = 'bold' },
     cond = hide_in_width,
   }
 
   for _, icons in pairs(icon_sets_list) do
     ins_left {
       function() return get_random_icon(icons) end,
-      color = function() return { fg = get_animated_color(get_mode_color()) } end,
+      color = function() return { --[[ fg = get_animated_color(get_mode_color()) ]] } end,
       cond = hide_in_width,
     }
   end
 
-  ins_left { 'searchcount', color = { fg = colors.GREEN, gui = 'bold' } }
+  ins_left { 'searchcount', color = { --[[ fg = colors.GREEN, ]] gui = 'bold' } }
 
   -- RIGHT
   ins_right {
@@ -261,12 +263,12 @@ function M.load()
     cond = function() return vim.fn.reg_recording() ~= '' end,
   }
 
-  ins_right { 'selectioncount', color = { fg = colors.GREEN, gui = 'bold' } }
+  ins_right { 'selectioncount', color = { --[[ fg = colors.GREEN, ]] gui = 'bold' } }
 
   for _, icons in ipairs(reversed_icon_sets) do
     ins_right {
       function() return get_random_icon(icons) end,
-      color = function() return { fg = get_animated_color(get_mode_color()) } end,
+      color = function() return { --[[ fg = get_animated_color(get_mode_color()) ]] } end,
       cond = hide_in_width,
     }
   end
@@ -293,17 +295,17 @@ function M.load()
       return msg
     end,
     icon = ' ',
-    color = { fg = colors.YELLOW, gui = 'bold' },
+    color = { --[[ fg = colors.YELLOW, ]] gui = 'bold' },
   }
 
   ins_right {
     function() return '' end,
-    color = function() return { fg = get_middle_color() } end,
+    color = function() return { --[[ fg = get_middle_color() ]] } end,
     cond = hide_in_width,
   }
 
   ins_right(create_separator('right'))
-  ins_right(create_mode_based_component('location', nil, colors.BG))
+  ins_right(create_mode_based_component('location', nil--[[ , colors.BG ]]))
   ins_right(create_separator('left'))
 
   ins_right {
@@ -330,11 +332,11 @@ function M.load()
       if #truncated > 15 then truncated = truncated:sub(1, 15) .. '…' end
       return truncated
     end,
-    color = function() return { fg = get_mode_color(), gui = 'bold' } end,
+    color = function() return { --[[ fg = get_mode_color(), ]] gui = 'bold' } end,
   }
 
   ins_right(create_separator('right'))
-  ins_right(create_mode_based_component('progress', nil, colors.BG))
+  ins_right(create_mode_based_component('progress', nil--[[ , colors.BG) ]]))
 
   require('lualine').setup(config)
 end
