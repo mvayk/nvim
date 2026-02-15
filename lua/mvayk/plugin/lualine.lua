@@ -1,7 +1,5 @@
 local enabled = true
-
-local theme = "block"
-
+local theme = "cosmicink"
 if enabled then
     if theme == "default" then
         return {
@@ -224,6 +222,16 @@ if enabled then
 
             config = function()
                 require("mvayk.plugin.lualine_themes.evil").load()
+            end
+        }
+    elseif theme == "cosmicink" then
+        return {
+            "nvim-lualine/lualine.nvim",
+            lazy = false,
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+
+            config = function()
+                require("mvayk.plugin.lualine_themes.cosmicink").load()
             end
         }
     end

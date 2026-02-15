@@ -11,12 +11,12 @@ function M.setup()
         base06 = '#e2e2e2', -- Light Foreground
         base07 = '#e2e2e2', -- Lightest Foreground
         base08 = '#ffb4ab', -- Variables, XML Tags, Errors
-        base09 = '#a1d0c6', -- Integers, Constants
-        base0A = '#c3caaa', -- Classes, Search Background
-        base0B = '#b5d269', -- Strings, Diff Inserted
-        base0C = '#a1d0c6', -- Regex, Escape Chars
-        base0D = '#b5d269', -- Functions, Methods
-        base0E = '#c3caaa', -- Keywords, Storage
+        base09 = '#d7bde4', -- Integers, Constants
+        base0A = '#bbc7db', -- Classes, Search Background
+        base0B = '#a0c9ff', -- Strings, Diff Inserted
+        base0C = '#d7bde4', -- Regex, Escape Chars
+        base0D = '#a0c9ff', -- Functions, Methods
+        base0E = '#bbc7db', -- Keywords, Storage
         base0F = '#93000a', -- Deprecated, Embedded Tags
     }
 end
