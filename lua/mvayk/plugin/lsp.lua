@@ -69,7 +69,7 @@ if enabled then
                     },
                 },
                 completion = {
-                    scrollbar = false,
+                    --scrollbar = false,
                     ghost_text = {
                         enabled = true,
                     },
@@ -189,7 +189,7 @@ if enabled then
                 local installed_servers = mason_lspconfig.get_installed_servers()
 
                 for _, server_name in ipairs(installed_servers) do
-                    if server_name ~= "luau_lsp" and server_name ~= "rust-analyzer" then
+                    if server_name ~= "luau_lsp" then
                         vim.lsp.config[server_name] = {
                             capabilities = capabilities,
                         }
