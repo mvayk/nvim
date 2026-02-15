@@ -5,9 +5,6 @@ if enabled then
     return {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
-        { "stevearc/conform.nvim" },
-        { "nvimdev/lspsaga.nvim" },
-        { "hedyhli/outline.nvim" },
         { "lopi-py/luau-lsp.nvim" },
         {
             "saghen/blink.compat",
@@ -24,19 +21,23 @@ if enabled then
                 "molleweide/LuaSnip-snippets.nvim",
             },
             opts = {
+                -- blink cmp configuration
                 keymap = {
                     preset = "default",
                     ["<C-f>"] = { "scroll_documentation_down", "fallback" },
                     ["<C-b>"] = { "scroll_documentation_up", "fallback" },
                     ["<C-j>"] = { "select_next", "fallback" },
                     ["<C-k>"] = { "select_prev", "fallback" },
-                    ["<Tab>"] = { "select_next", "fallback" },
-                    ["<S-Tab>"] = { "select_prev", "fallback" },
-                    ["<C-e>"] = { "hide", "fallback" },
-                    ["<CR>"] = { "accept", "fallback" },
+                    --["<Tab>"] = { "select_next", "fallback" },
+                    --["<S-Tab>"] = { "select_prev", "fallback" },
+                    ["<Tab>"]   = { "select_and_accept", "snippet_forward", "fallback" },
+                    ["<S-Tab>"] = { "snippet_backward",  "fallback" },
+
+                    ["<C-h>"] = { "hide", "fallback" },
+                    ["<CR>"] =  { "fallback" },
                 },
                 appearance = {
-                    use_nvim_cmp_as_default = true,
+                    use_nvim_cmp_as_default = false,
                     nerd_font_variant = "mono",
                     kind_icons = {
                         Text = "󰉿",
@@ -66,19 +67,35 @@ if enabled then
                         TypeParameter = "󰬛",
                     },
                 },
-
                 completion = {
+                    ghost_text = {
+                        enabled = true,
+                    },
                     trigger = {
                         show_on_keyword = true,
                         show_on_trigger_character = true,
                         show_on_insert_on_trigger_character = true,
                     },
                     list = {
-                        max_items = 200,
+                        selection = {
+                            auto_insert = false,
+                            preselect = true,
+                        },
+                        max_items = 2000,
                     },
                     accept = {
                         auto_brackets = {
                             enabled = true,
+                        },
+                    },
+                    documentation = {
+                        auto_show = true,
+                        auto_show_delay_ms = 0,
+                        window = {
+                            border = "single",
+                            winblend = 0,
+                            winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                            max_width = 60,
                         },
                     },
                     menu = {
@@ -97,27 +114,16 @@ if enabled then
                             },
                         },
                     },
-                    documentation = {
-                        auto_show = true,
-                        auto_show_delay_ms = 0,
-                        window = {
-                            border = "single",
-                            winblend = 0,
-                            winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-                            max_width = 60,
-                        },
-                    },
                 },
-
                 sources = {
                     default = { "lsp", "path", "snippets", "buffer"};
                 },
-
                 signature = {
-                    enabled = true,
+                    enabled = false,
                     window = {
                         border = "single",
-                    },
+                        show_documentation = true,
+                    }
                 },
             },
         },

@@ -50,7 +50,7 @@ map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Open tele
 map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Telescope buffers" })
 map("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Telescope git files" })
 map("n", "<leader>fi", function() Snacks.picker.git_log() end, { desc = "Telescope git" })
-map("n", "<leader>f/", function() Snacks.picker.grep() end, { desc = "Telescope grep" })
+map("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Telescope grep" })
 
 --// Snacks Explorer
 --map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })

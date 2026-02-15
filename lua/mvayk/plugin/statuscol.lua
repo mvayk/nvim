@@ -12,9 +12,8 @@ if enabled then
                 relculright = true,
                 ft_ignore = { "neo-tree" },
                 segments = {
-                    { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-                    --// disabled for now
-                    { sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },
+                    --{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+                    --{ sign = { namespace = { "gitsigns.*" }, maxwidth = 1 } },
                     { sign = { namespace = { ".*diagnostic.*" }, maxwidth = 1 } },
                     { text = { builtin.lnumfunc, " " },
                     },
