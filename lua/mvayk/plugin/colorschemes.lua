@@ -20,6 +20,7 @@ return {
     "Verf/deepwhite.nvim",
     "kdheepak/monochrome.nvim",
     "vague2k/vague.nvim",
+
     "lunarvim/horizon.nvim",
     "andersevenrud/nordic.nvim",
     "oxfist/night-owl.nvim",
@@ -47,4 +48,6 @@ return {
     "water-sucks/darkrose.nvim",
     "uhs-robert/oasis.nvim",
     "casedami/neomodern.nvim",
+    "paulfrische/reddish.nvim",
+    "nikolvs/vim-sunbather",
 }

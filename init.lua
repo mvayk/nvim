@@ -42,6 +42,7 @@ local function anti_background()
         "StatusLine",
         "StatusLineNC",
 
+
         "NeoTreeNormal",
         "NeoTreeNormalNC",
         "NeoTreeEndOfBuffer",
@@ -84,6 +85,7 @@ local function anti_background()
         "SnacksDashboardDesc",
         "SnacksDashboardKey",
         "SnacksDashboardTitle",
+
         "SnacksNotifierInfo",
         "SnacksNotifierWarn",
         "SnacksNotifierError",
