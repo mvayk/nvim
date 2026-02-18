@@ -46,4 +46,5 @@ return {
     "ficd0/ashen.nvim",
     "water-sucks/darkrose.nvim",
     "uhs-robert/oasis.nvim",
+    "casedami/neomodern.nvim",
 }
