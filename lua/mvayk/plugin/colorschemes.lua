@@ -43,4 +43,6 @@ return {
     "olivercederborg/poimandres.nvim",
     "xero/miasma.nvim",
     "dgox16/oldworld.nvim",
+    "ficd0/ashen.nvim",
+    "water-sucks/darkrose.nvim",
 }
