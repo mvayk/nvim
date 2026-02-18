@@ -45,4 +45,5 @@ return {
     "dgox16/oldworld.nvim",
     "ficd0/ashen.nvim",
     "water-sucks/darkrose.nvim",
+    "uhs-robert/oasis.nvim",
 }
