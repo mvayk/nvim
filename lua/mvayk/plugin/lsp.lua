@@ -142,7 +142,7 @@ if enabled then
                 require("mason").setup()
                 require("mason-lspconfig").setup({
                     --WHY IS RUST ANALYZER BROKEN
-                    ensure_installed = { "lua_ls", "clangd", "ast_grep", "nil_ls", --[[ "rust_analyzer", ]] "pyright" },
+                    ensure_installed = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright" },
                     automatic_installation = true,
                     automatic_enable = {
                         exclude = { "luau_lsp" }
