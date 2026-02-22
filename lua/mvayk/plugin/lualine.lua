@@ -1,5 +1,5 @@
-local enabled = false
-local theme = "default"
+local enabled = true
+local theme = "arrows"
 if enabled then
     if theme == "default" then
         return {

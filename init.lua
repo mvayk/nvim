@@ -126,35 +126,65 @@ if not ok then
     vim.cmd([[colorscheme rose-pine]])
 end
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "*",
-    callback = function()
-        anti_background()
-        local file = io.open(theme_file, "w")
-        if file then
-            file:write(string.format([[
-vim.o.background = "%s"
-vim.cmd.colorscheme("%s")
-            ]], vim.o.background, vim.g.colors_name))
-            file:close()
+local function anti_anti_background()
+    vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+            anti_background()
+            local file = io.open(theme_file, "w")
+            if file then
+                file:write(string.format([[
+                vim.o.background = "%s"
+                vim.cmd.colorscheme("%s")
+                ]], vim.o.background, vim.g.colors_name))
+                file:close()
+                anti_background()
+            end
+            anti_background()
+        end
+    })
+
+    vim.keymap.set("n", "<leader>tb", function()
+        if vim.o.background == "dark" then
+            vim.o.background = "light"
+            vim.notify("Toggled Light")
+            anti_background()
+        else
+            vim.o.background = "dark"
+            vim.notify("Toggled Dark")
             anti_background()
         end
         anti_background()
-    end
-})
+    end, { desc = "Toggle background" })
 
-vim.keymap.set("n", "<leader>tb", function()
-    if vim.o.background == "dark" then
-        vim.o.background = "light"
-        vim.notify("Toggled Light")
-        anti_background()
-    else
-        vim.o.background = "dark"
-        vim.notify("Toggled Dark")
-        anti_background()
-    end
     anti_background()
-end, { desc = "Toggle background" })
+end
+
+local function normal_background()
+    vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+            local file = io.open(theme_file, "w")
+            if file then
+                file:write(string.format([[
+                vim.o.background = "%s"
+                vim.cmd.colorscheme("%s")
+                ]], vim.o.background, vim.g.colors_name))
+                file:close()
+            end
+        end
+    })
+
+    vim.keymap.set("n", "<leader>tb", function()
+        if vim.o.background == "dark" then
+            vim.o.background = "light"
+            vim.notify("Toggled Light")
+        else
+            vim.o.background = "dark"
+            vim.notify("Toggled Dark")
+        end
+    end, { desc = "Toggle background" })
+end
 
 
 --// use terminal colors
@@ -163,5 +193,4 @@ end, { desc = "Toggle background" })
 --vim.cmd([[colorscheme tokyobones]])
 
 
-
-anti_background()
+normal_background()
