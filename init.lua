@@ -192,4 +192,4 @@ end
 --vim.o.background = 'dark'  -- or 'light'
 --vim.cmd([[colorscheme tokyobones]])
 
-anti_anti_background()
+normal_background()

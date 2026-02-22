@@ -50,4 +50,5 @@ return {
     "casedami/neomodern.nvim",
     "paulfrische/reddish.nvim",
     "nikolvs/vim-sunbather",
+    {"tiesen243/vercel.nvim", config = function() require("vercel").setup({ theme = "dark" }) end },
 }
