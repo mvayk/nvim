@@ -1,6 +1,8 @@
 # big thanks to big baby girl claude
 local enabled = true
 
+local servers = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright", "nixfmt", "stylua" }
+
 if enabled then
     return {
         { "williamboman/mason.nvim" },
@@ -23,19 +25,19 @@ if enabled then
             opts = {
                 -- blink cmp configuration
                 keymap = {
-                    preset = "default",
-                    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-                    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
-                    ["<C-j>"] = { "select_next", "fallback" },
-                    ["<C-k>"] = { "select_prev", "fallback" },
+                    preset        = "default",
+                    ["<C-f>"]     = { "scroll_documentation_down", "fallback" },
+                    ["<C-b>"]     = { "scroll_documentation_up", "fallback" },
+                    ["<C-j>"]     = { "select_next", "fallback" },
+                    ["<C-k>"]     = { "select_prev", "fallback" },
                     --["<Tab>"] = { "select_next", "fallback" },
                     --["<S-Tab>"] = { "select_prev", "fallback" },
-                    ["<Tab>"]   = { "select_and_accept", "snippet_forward", "fallback" },
-                    ["<S-Tab>"] = { "snippet_backward",  "fallback" },
+                    ["<Tab>"]     = { "select_and_accept", "snippet_forward", "fallback" },
+                    ["<S-Tab>"]   = { "snippet_backward", "fallback" },
                     ["<C-Space>"] = { "show", "hide", "fallback" },
 
-                    ["<C-h>"] = { "hide", "fallback" },
-                    ["<CR>"] =  { "fallback" },
+                    ["<C-h>"]     = { "hide", "fallback" },
+                    ["<CR>"]      = { "fallback" },
                 },
                 appearance = {
                     use_nvim_cmp_as_default = false,
@@ -114,13 +116,13 @@ if enabled then
                             gap = 1,
                             columns = {
                                 { "kind_icon", gap = 0 },
-                                { "label", "label_description", gap = 1 },
+                                { "label",     "label_description", gap = 1 },
                             },
                         },
                     },
                 },
                 sources = {
-                    default = { "lsp", "path", "snippets", "buffer"};
+                    default = { "lsp", "path", "snippets", "buffer" },
                 },
                 signature = {
                     enabled = false,
@@ -141,8 +143,7 @@ if enabled then
             config = function()
                 require("mason").setup()
                 require("mason-lspconfig").setup({
-                    --WHY IS RUST ANALYZER BROKEN
-                    ensure_installed = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright" },
+                    ensure_installed = servers,
                     automatic_installation = true,
                     automatic_enable = {
                         exclude = { "luau_lsp" }
