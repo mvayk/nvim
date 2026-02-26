@@ -2,6 +2,7 @@
 local enabled = true
 
 local servers = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright", "nixfmt", "stylua" }
+local border_type = "single"
 
 if enabled then
     return {
@@ -96,7 +97,7 @@ if enabled then
                         auto_show = true,
                         auto_show_delay_ms = 0,
                         window = {
-                            border = "none",
+                            border = border_type,
                             winblend = 0,
                             winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                             max_width = 60,
@@ -107,7 +108,7 @@ if enabled then
                             return vim.b.menu_auto_show ~= false
                         end,
                         max_height = 15,
-                        border = "none",
+                        border = border_type,
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
@@ -127,7 +128,7 @@ if enabled then
                 signature = {
                     enabled = false,
                     window = {
-                        border = "none",
+                        border = border_type,
                         show_documentation = true,
                     }
                 },
@@ -178,7 +179,7 @@ if enabled then
                         },
                     },
                     float = {
-                        border = "none",
+                        border = border_type,
                         source = "always",
                         header = "",
                         prefix = "",
