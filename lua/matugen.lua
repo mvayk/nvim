@@ -21,6 +21,7 @@ function M.setup()
     }
 end
 
+
 -- Register a signal handler for SIGUSR1 (matugen updates)
 local signal = vim.uv.new_signal()
 signal:start(
