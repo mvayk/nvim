@@ -1,5 +1,5 @@
 set guifont=VictorMono\ Nerd\ Font\ Mono:h15
-set linespace=10
+set linespace=12
 
 " let g:neovide_line_height = 5
 let g:neovide_padding_top = 16
