@@ -2,7 +2,7 @@
 local enabled = true
 
 local servers = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright", "nixfmt", "stylua" }
-local border_type = "single"
+local border_type = "none"
 
 if enabled then
     return {
