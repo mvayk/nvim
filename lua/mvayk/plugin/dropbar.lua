@@ -1,4 +1,4 @@
-local enabled = false
+local enabled = true
 if enabled then
     return {
         'Bekaboo/dropbar.nvim',
