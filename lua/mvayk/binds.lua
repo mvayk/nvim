@@ -10,8 +10,8 @@ map("n", "<leader>w", ":w<CR>", { desc = "Write file" })
 map("n", "<leader>q", ":q!<CR>", { desc = "Force quit" })
 map({ "n", "x", "o" }, "<C-x>", "/\\s<CR>", { desc = "Jump to next space", silent = true })
 map({ "n", "x", "o" }, "<C-a>", "?\\s<CR>", { desc = "Jump to previous space", silent = true })
-map('n', 'mq', ':bd!<CR>', { desc = "Force delete buffer", silent = true })
-map('i', '<C-y>', '<C-r>"', { desc = 'Yank last delete' })
+map("n", "mq", ":bd!<CR>", { desc = "Force delete buffer", silent = true })
+map("i", "<C-y>", '<C-r>"', { desc = "Yank last delete" })
 map("n", "j", "gj", { buffer = true, noremap = true, silent = true })
 map("n", "k", "gk", { buffer = true, noremap = true, silent = true })
 map("v", "j", "gj", { buffer = true, noremap = true, silent = true })
@@ -20,23 +20,29 @@ map("n", "<C-j>", "o<Esc>", { desc = "Insert line below" })
 map("n", "<C-k>", "O<Esc>", { desc = "Insert line above" })
 
 --// LSP Related
-map('n', '<leader>lr', vim.lsp.buf.rename, { desc = "Rename symbol" })
-map("n", "<leader>ld", function() Snacks.picker.lsp_definitions() end, { desc = "Goto definition" })
+map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+map("n", "<leader>ld", function()
+    Snacks.picker.lsp_definitions()
+end, { desc = "Goto definition" })
 
-map('n', '<leader>lgd', '<CMD>Glance definitions<CR>')
-map('n', '<leader>lgr', '<CMD>Glance references<CR>')
-map('n', '<leader>lgt', '<CMD>Glance type_definitions<CR>')
-map('n', '<leader>lgi', '<CMD>Glance implementations<CR>')
+map("n", "<leader>lgd", "<CMD>Glance definitions<CR>")
+map("n", "<leader>lgr", "<CMD>Glance references<CR>")
+map("n", "<leader>lgt", "<CMD>Glance type_definitions<CR>")
+map("n", "<leader>lgi", "<CMD>Glance implementations<CR>")
 
-map('n', '<leader>la', vim.lsp.buf.code_action, { desc = "Code action" })
-map({ 'n', 'v' }, '<leader>lf', vim.lsp.buf.format, { desc = "Format document/range" })
-map('n', '<leader>lh', vim.lsp.buf.hover, { desc = "Hover documentation" })
-map('n', '<leader>li', vim.lsp.buf.implementation, { desc = "Goto implementation" })
-map('n', '<leader>lw', function() Snacks.picker.lsp_workspace_symbols() end, { desc = "Workspace symbols" })
-map('n', '<leader>ll', function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
-map('n', '<leader>l[', vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
-map('n', '<leader>l]', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-map('n', '<leader>ld', vim.diagnostic.open_float, { desc = "Show diagnostics float" })
+map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
+map({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format document/range" })
+map("n", "<leader>lh", vim.lsp.buf.hover, { desc = "Hover documentation" })
+map("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Goto implementation" })
+map("n", "<leader>lw", function()
+    Snacks.picker.lsp_workspace_symbols()
+end, { desc = "Workspace symbols" })
+map("n", "<leader>ll", function()
+    Snacks.picker.diagnostics()
+end, { desc = "Diagnostics" })
+map("n", "<leader>l[", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+map("n", "<leader>l]", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
 
 local function toggle_completion()
     require("blink.cmp").hide()
@@ -44,36 +50,44 @@ local function toggle_completion()
     vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"), vim.log.levels.INFO)
 end
 
-vim.keymap.set({ "n", }, "<leader>lz", toggle_completion, { desc = "Toggle Completion in its entirety" })
+vim.keymap.set({ "n" }, "<leader>lz", toggle_completion, { desc = "Toggle Completion in its entirety" })
 
-vim.keymap.set('n', '<leader>lc', function()
-    require('blink.cmp').hide()
+vim.keymap.set("n", "<leader>lc", function()
+    require("blink.cmp").hide()
     vim.b.menu_auto_show = not vim.b.menu_auto_show
-    vim.notify("Menu auto-show: "
-    .. (vim.b.menu_auto_show and "ON" or "OFF")
-    )
+    vim.notify("Menu auto-show: " .. (vim.b.menu_auto_show and "ON" or "OFF"))
 end, { desc = "Toggle popup menu auto-show" })
 
 --// Folding
-map('n', '<CR>', 'za', { desc = "Toggle fold" })
+map("n", "<CR>", "za", { desc = "Toggle fold" })
 
 --// Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open oil / parent directory" })
 
 --// Snacks Telescope
-Snacks = Snacks;
-map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Open telescope" })
-map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Telescope buffers" })
-map("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Telescope git files" })
-map("n", "<leader>fi", function() Snacks.picker.git_log() end, { desc = "Telescope git" })
-map("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Telescope grep" })
+Snacks = Snacks
+map("n", "<leader>ff", function()
+    Snacks.picker.files()
+end, { desc = "Open telescope" })
+map("n", "<leader>fb", function()
+    Snacks.picker.buffers()
+end, { desc = "Telescope buffers" })
+map("n", "<leader>fg", function()
+    Snacks.picker.git_files()
+end, { desc = "Telescope git files" })
+map("n", "<leader>fi", function()
+    Snacks.picker.git_log()
+end, { desc = "Telescope git" })
+map("n", "<leader>/", function()
+    Snacks.picker.grep()
+end, { desc = "Telescope grep" })
 
 --// Snacks Explorer
 --map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })
 
 --// Snacks colorscheme selector
 vim.keymap.set("n", "<leader>ts", function()
-  Snacks.picker.colorschemes()
+    Snacks.picker.colorschemes()
 end, { desc = "Select Colorschemes (Snacks Picker)" })
 
 --// conform
@@ -82,8 +96,12 @@ vim.keymap.set("n", "=", function()
 end)
 
 vim.keymap.set("v", "=", function()
-    require("conform").format({ async = true, lsp_fallback = true, range = {
-        start = vim.api.nvim_buf_get_mark(0, "<"),
-        ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
-    }})
+    require("conform").format({
+        async = true,
+        lsp_fallback = true,
+        range = {
+            start = vim.api.nvim_buf_get_mark(0, "<"),
+            ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+        },
+    })
 end)
