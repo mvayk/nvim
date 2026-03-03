@@ -1,6 +1,6 @@
-local enable = true;
+local enabled = false;
 
-if enable == true then
+if enabled == true then
     return {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",

@@ -99,7 +99,7 @@ vim.opt.fillchars:append({
                 anchor = "NE",
                 row = 0,
                 col = vim.api.nvim_win_get_width(0) - 2,  -- Window width minus 2
-                max_width = 50,
+                max_width = 85,
             })
         end
     })

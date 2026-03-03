@@ -100,7 +100,7 @@ if enabled then
                             border = border_type,
                             winblend = 0,
                             winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-                            max_width = 60,
+                            max_width = 90,
                         },
                     },
                     menu = {
@@ -113,11 +113,12 @@ if enabled then
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
                         draw = {
+                            treesitter = { "lsp" },
                             padding = 1,
                             gap = 1,
                             columns = {
-                                { "kind_icon", gap = 0 },
-                                { "label",     "label_description", gap = 1 },
+                                { "label", "label_description", gap = 1 },
+                                { "kind_icon", gap = 1 },
                             },
                         },
                     },
