@@ -89,19 +89,3 @@ end, { desc = "Telescope grep" })
 vim.keymap.set("n", "<leader>ts", function()
     Snacks.picker.colorschemes()
 end, { desc = "Select Colorschemes (Snacks Picker)" })
-
---// conform
-vim.keymap.set("n", "=", function()
-    require("conform").format({ async = true, lsp_fallback = true })
-end)
-
-vim.keymap.set("v", "=", function()
-    require("conform").format({
-        async = true,
-        lsp_fallback = true,
-        range = {
-            start = vim.api.nvim_buf_get_mark(0, "<"),
-            ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
-        },
-    })
-end)

@@ -1,7 +1,47 @@
-# big thanks to big baby girl claude
+--big thanks to big baby girl claude
 local enabled = true
 
-local servers = { "lua_ls", "clangd", "ast_grep", "nil_ls", "rust_analyzer", "pyright", "stylua" }
+local servers = {
+    "lua_ls",
+    "clangd",
+    "ast_grep",
+    "nil_ls",
+    "rust_analyzer",
+    "pyright",
+    "ts_ls",
+    "html",
+    "cssls",
+    "eslint",
+    "gopls",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "taplo",
+    "dockerls",
+    "zls",
+}
+
+local tools = {
+    "prettier",
+    "ruff",
+    "clang-format",
+    "goimports",
+    "shfmt",
+    "taplo",
+    "stylua",
+    "shellcheck",
+    "hadolint",
+    "markdownlint-cli2",
+}
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MasonUpdateAllComplete",
+    once = true,
+    callback = function()
+        vim.cmd("MasonInstall " .. table.concat(tools, " "))
+    end,
+})
+
 local border_type = "none"
 
 if enabled then
@@ -9,6 +49,7 @@ if enabled then
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
         { "lopi-py/luau-lsp.nvim" },
+        { "mfussenegger/nvim-lint" },
         {
             "saghen/blink.compat",
             version = "2.*",
@@ -26,19 +67,19 @@ if enabled then
             opts = {
                 -- blink cmp configuration
                 keymap = {
-                    preset        = "default",
-                    ["<C-f>"]     = { "scroll_documentation_down", "fallback" },
-                    ["<C-b>"]     = { "scroll_documentation_up", "fallback" },
-                    ["<C-j>"]     = { "select_next", "fallback" },
-                    ["<C-k>"]     = { "select_prev", "fallback" },
+                    preset = "default",
+                    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+                    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+                    ["<C-j>"] = { "select_next", "fallback" },
+                    ["<C-k>"] = { "select_prev", "fallback" },
                     --["<Tab>"] = { "select_next", "fallback" },
                     --["<S-Tab>"] = { "select_prev", "fallback" },
-                    ["<Tab>"]     = { "select_and_accept", "snippet_forward", "fallback" },
-                    ["<S-Tab>"]   = { "snippet_backward", "fallback" },
+                    ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+                    ["<S-Tab>"] = { "snippet_backward", "fallback" },
                     ["<C-Space>"] = { "show", "hide", "fallback" },
 
-                    ["<C-h>"]     = { "hide", "fallback" },
-                    ["<CR>"]      = { "fallback" },
+                    ["<C-h>"] = { "hide", "fallback" },
+                    ["<CR>"] = { "fallback" },
                 },
                 appearance = {
                     use_nvim_cmp_as_default = false,
@@ -131,7 +172,7 @@ if enabled then
                     window = {
                         border = border_type,
                         show_documentation = true,
-                    }
+                    },
                 },
             },
         },
@@ -148,16 +189,16 @@ if enabled then
                     ensure_installed = servers,
                     automatic_installation = true,
                     automatic_enable = {
-                        exclude = { "luau_lsp" }
+                        exclude = { "luau_lsp" },
                     },
                 })
 
                 require("luau-lsp").setup({
                     platform = {
-                        type = "roblox"
+                        type = "roblox",
                     },
                     types = {
-                        roblox_security_level = "PluginSecurity"
+                        roblox_security_level = "PluginSecurity",
                     },
                 })
 
@@ -174,9 +215,9 @@ if enabled then
                     signs = {
                         text = {
                             [vim.diagnostic.severity.ERROR] = "",
-                            [vim.diagnostic.severity.WARN]  = "",
-                            [vim.diagnostic.severity.INFO]  = "",
-                            [vim.diagnostic.severity.HINT]  = "",
+                            [vim.diagnostic.severity.WARN] = "",
+                            [vim.diagnostic.severity.INFO] = "",
+                            [vim.diagnostic.severity.HINT] = "",
                         },
                     },
                     float = {
