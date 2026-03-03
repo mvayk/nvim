@@ -88,13 +88,13 @@ vim.opt.fillchars:append({
 
     --> lsp hover diagnostics thing <--
     vim.o.updatetime = 0
-    --[[ vim.api.nvim_create_autocmd("cursorhold", {
+    vim.api.nvim_create_autocmd("cursorhold", {
         callback = function()
             vim.diagnostic.open_float(nil, {
                 border = "none",
                 source = "always",
                 prefix = " ",
-                scope = "cursor",
+                scope = "line",
                 relative = "win",
                 anchor = "NE",
                 row = 0,
@@ -102,10 +102,9 @@ vim.opt.fillchars:append({
                 max_width = 50,
             })
         end
-    }) 
-    ]]--
+    })
 
-vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
+--[[ vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
     callback = function()
         local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
         if #diagnostics > 0 then
@@ -140,4 +139,4 @@ vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
             end
         end
     end
-})
+}) ]]

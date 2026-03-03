@@ -5,7 +5,7 @@ if enabled == true then
         "nvimdev/dashboard-nvim", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             local dashboard = require("dashboard").setup({
-                theme = 'hyper',
+                theme = "hyper",
             })
         end
     }

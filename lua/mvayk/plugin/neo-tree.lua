@@ -34,7 +34,10 @@ if enabled then
                     },
                     hijack_netrw_behavior = "disabled",
                 },
-
+                source_selector = {
+                    winbar = false, -- toggle to show selector on winbar
+                    statusline = false, -- toggle to show selector on statusline
+                },
                 window = {
                     position = "right",
                 }
@@ -42,5 +45,5 @@ if enabled then
         end
     }
 else
-    return { }
+    return {}
 end
