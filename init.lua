@@ -42,7 +42,6 @@ local function anti_background()
         "StatusLine",
         "StatusLineNC",
 
-
         "NeoTreeNormal",
         "NeoTreeNormalNC",
         "NeoTreeEndOfBuffer",
@@ -133,15 +132,19 @@ local function anti_anti_background()
             anti_background()
             local file = io.open(theme_file, "w")
             if file then
-                file:write(string.format([[
+                file:write(string.format(
+                    [[
                 vim.o.background = "%s"
                 vim.cmd.colorscheme("%s")
-                ]], vim.o.background, vim.g.colors_name))
+                ]],
+                    vim.o.background,
+                    vim.g.colors_name
+                ))
                 file:close()
                 anti_background()
             end
             anti_background()
-        end
+        end,
     })
 
     vim.keymap.set("n", "<leader>tb", function()
@@ -166,13 +169,17 @@ local function normal_background()
         callback = function()
             local file = io.open(theme_file, "w")
             if file then
-                file:write(string.format([[
+                file:write(string.format(
+                    [[
                 vim.o.background = "%s"
                 vim.cmd.colorscheme("%s")
-                ]], vim.o.background, vim.g.colors_name))
+                ]],
+                    vim.o.background,
+                    vim.g.colors_name
+                ))
                 file:close()
             end
-        end
+        end,
     })
 
     vim.keymap.set("n", "<leader>tb", function()
@@ -185,7 +192,6 @@ local function normal_background()
         end
     end, { desc = "Toggle background" })
 end
-
 
 --// use terminal colors
 --vim.o.termguicolors = false

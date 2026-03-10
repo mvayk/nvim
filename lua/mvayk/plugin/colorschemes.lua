@@ -31,7 +31,9 @@ return {
     "e-ink-colorscheme/e-ink.nvim",
     "luisiacc/gruvbox-baby",
     "ellisonleao/gruvbox.nvim",
-    "catppuccin/nvim", name = "catppuccin", priority = 1000,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     "rose-pine/neovim",
     "rktjmp/lush.nvim",
     "nyoom-engineering/oxocarbon.nvim",
@@ -50,5 +52,10 @@ return {
     "casedami/neomodern.nvim",
     "paulfrische/reddish.nvim",
     "nikolvs/vim-sunbather",
-    {"tiesen243/vercel.nvim", config = function() require("vercel").setup({ theme = "dark" }) end },
+    {
+        "tiesen243/vercel.nvim",
+        config = function()
+            require("vercel").setup({ theme = "dark" })
+        end,
+    },
 }

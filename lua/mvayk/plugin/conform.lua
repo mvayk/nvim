@@ -17,7 +17,6 @@ return {
                 timeout_ms = 500,
                 lsp_fallback = true,
             },
-
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "ruff_format", "ruff_organize_imports" },
@@ -47,10 +46,8 @@ return {
                 php = { "php_cs_fixer" },
                 zig = { "zigfmt" },
                 dockerfile = {},
-
                 ["_"] = { "trim_whitespace" },
             },
-
             formatters = {
                 stylua = {
                     prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
@@ -59,10 +56,13 @@ return {
                     prepend_args = { "-i", "4" },
                 },
                 clang_format = {
-                    prepend_args = { "--style=file", "--fallback-style=LLVM" },
+                    prepend_args = { "--style=Google" },
                 },
                 prettier = {
-                    prepend_args = { "--tab-width", "2", "--use-tabs", "false" },
+                    prepend_args = { "--tab-width", "4", "--use-tabs", "false" },
+                },
+                nixfmt = {
+                    prepend_args = { "--width", "2" },
                 },
             },
         })
