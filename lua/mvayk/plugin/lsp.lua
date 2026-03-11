@@ -1,5 +1,5 @@
 --big thanks to big baby girl claude
-local config = require("mvayk.config")
+local config = require("mvayk.settings")
 
 local enabled = true
 

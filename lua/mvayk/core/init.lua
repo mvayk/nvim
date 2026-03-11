@@ -1,4 +1,3 @@
+require("mvayk.neovide")
 require("mvayk.plugin")
-require("mvayk.config")
-require("mvayk.core.options")
-require("mvayk.core.binds")
+require("mvayk.settings")

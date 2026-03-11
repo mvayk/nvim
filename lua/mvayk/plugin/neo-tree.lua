@@ -1,4 +1,4 @@
-local enabled = true
+local enabled = false
 
 if enabled then
     return {
@@ -12,8 +12,7 @@ if enabled then
         lazy = false, -- neo-tree will lazily load itself
         ---@module "neo-tree"
         ---@type neotree.Config?
-        opts = {
-        },
+        opts = {},
         config = function()
             vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neo-tree" })
 
@@ -40,9 +39,9 @@ if enabled then
                 },
                 window = {
                     position = "right",
-                }
+                },
             })
-        end
+        end,
     }
 else
     return {}
