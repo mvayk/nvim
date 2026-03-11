@@ -130,6 +130,8 @@ map("n", "<CR>", "za", { desc = "Toggle fold" })
 --// Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open oil / parent directory" })
 
+--// foaming at the mouth
+
 --// Snacks Telescope
 Snacks = Snacks
 map("n", "<leader>ff", function()
