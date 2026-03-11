@@ -7,6 +7,8 @@ let g:neovide_padding_bottom = 16
 let g:neovide_padding_left = 20
 let g:neovide_padding_right = 20
 
+let g:neovide_opacity = 0.5
+
 function! ChangeFontSize(delta)
   let l:font = matchstr(&guifont, '.*:h')
   let l:size = matchstr(&guifont, ':h\zs\d\+')

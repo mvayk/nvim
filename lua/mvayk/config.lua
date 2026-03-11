@@ -1,3 +1,3 @@
 return {
-    border = "rounded",
+    border = "none",
 }
