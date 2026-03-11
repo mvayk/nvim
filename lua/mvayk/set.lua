@@ -20,11 +20,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("VimLeave", {
     callback = function()
         vim.opt.guicursor = "a:ver25-blinkon0"
-    end
+    end,
 })
 
 vim.opt.nu = true
-vim.opt.fileformats = {'unix', 'dos'} --// fixes windows line endings
+vim.opt.fileformats = { "unix", "dos" } --// fixes windows line endings
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 --vim.opt.scrolloff = 1923800
@@ -48,7 +48,7 @@ vim.opt.termguicolors = true
 vim.o.exrc = true
 vim.o.cursorline = false
 vim.o.cursorcolumn = false
-vim.opt["guicursor"] = "i:block"
+--vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
@@ -65,44 +65,44 @@ vim.opt.listchars = {
     nbsp = "",
 }
 -- vim.opt.fillchars = {
-    --     fold = " ",
-    --     foldsep = " ",
-    --     foldopen = "",
-    --     foldclose = "",
-    --     diff = "╱",
-    -- }
+--     fold = " ",
+--     foldsep = " ",
+--     foldopen = "",
+--     foldclose = "",
+--     diff = "╱",
+-- }
 
 vim.opt.fillchars:append({
-    fold      = " ",
-    foldopen  = "",
+    fold = " ",
+    foldopen = "",
     foldclose = "",
-    foldsep   = " ",
+    foldsep = " ",
     --foldsep   = "│",
 })
 
-    vim.opt.foldcolumn     = "1"
-    vim.opt.foldlevel      = 99
-    vim.opt.foldlevelstart = 99
-    vim.opt.foldenable     = true
-    vim.opt.signcolumn     = "yes"
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.signcolumn = "yes"
 
-    --> lsp hover diagnostics thing <--
-    vim.o.updatetime = 0
-    vim.api.nvim_create_autocmd("cursorhold", {
-        callback = function()
-            vim.diagnostic.open_float(nil, {
-                border = "none",
-                source = "always",
-                prefix = " ",
-                scope = "line",
-                relative = "win",
-                anchor = "NE",
-                row = 0,
-                col = vim.api.nvim_win_get_width(0) - 2,  -- Window width minus 2
-                max_width = 85,
-            })
-        end
-    })
+--> lsp hover diagnostics thing <--
+vim.o.updatetime = 0
+vim.api.nvim_create_autocmd("cursorhold", {
+    callback = function()
+        vim.diagnostic.open_float(nil, {
+            border = "none",
+            source = "always",
+            prefix = " ",
+            scope = "line",
+            relative = "win",
+            anchor = "NE",
+            row = 0,
+            col = vim.api.nvim_win_get_width(0) - 2, -- Window width minus 2
+            max_width = 85,
+        })
+    end,
+})
 
 --[[ vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
     callback = function()
