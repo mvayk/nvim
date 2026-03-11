@@ -1,28 +1,7 @@
+local config = require("mvayk.config")
+
 vim = vim
-
--- remove auto commentting  feature
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
-    callback = function()
-        vim.opt_local.formatoptions:remove({ "c", "r", "o" })
-    end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown, org",
-    callback = function()
-        vim.opt_local.wrap = true
-        vim.opt_local.linebreak = true
-        vim.opt_local.list = false
-    end,
-})
-
-vim.api.nvim_create_autocmd("VimLeave", {
-    callback = function()
-        vim.opt.guicursor = "a:ver25-blinkon0"
-    end,
-})
-
+vim.o.updatetime = 0
 vim.opt.nu = true
 vim.opt.fileformats = { "unix", "dos" } --// fixes windows line endings
 vim.opt.relativenumber = true
@@ -33,7 +12,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.undofile = true
--- :bd!
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.expandtab = true
@@ -86,23 +64,48 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.signcolumn = "yes"
 
---> lsp hover diagnostics thing <--
-vim.o.updatetime = 0
+--[[========================================================================
+    AUTOCMD
+============================================================================]]
+
 vim.api.nvim_create_autocmd("cursorhold", {
     callback = function()
         vim.diagnostic.open_float(nil, {
-            border = "none",
+            border = config.border,
             source = "always",
             prefix = " ",
             scope = "line",
             relative = "win",
             anchor = "NE",
             row = 0,
-            col = vim.api.nvim_win_get_width(0) - 2, -- Window width minus 2
+            col = vim.api.nvim_win_get_width(0) - 2,
             max_width = 85,
         })
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown, org",
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.list = false
+    end,
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+    callback = function()
+        vim.opt.guicursor = "a:ver25-blinkon0"
+    end,
+})
+
 
 --[[ vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
     callback = function()
@@ -140,3 +143,5 @@ vim.api.nvim_create_autocmd("cursorhold", {
         end
     end
 }) ]]
+
+

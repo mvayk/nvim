@@ -1,4 +1,6 @@
 --big thanks to big baby girl claude
+local config = require("mvayk.config")
+
 local enabled = true
 
 local servers = {
@@ -41,8 +43,6 @@ vim.api.nvim_create_autocmd("User", {
         vim.cmd("MasonInstall " .. table.concat(tools, " "))
     end,
 })
-
-local border_type = "none"
 
 if enabled then
     return {
@@ -138,7 +138,7 @@ if enabled then
                         auto_show = true,
                         auto_show_delay_ms = 0,
                         window = {
-                            border = border_type,
+                            border = config.border,
                             winblend = 0,
                             winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                             max_width = 90,
@@ -149,7 +149,7 @@ if enabled then
                             return vim.b.menu_auto_show ~= false
                         end,
                         max_height = 15,
-                        border = border_type,
+                        border = config.border,
                         winblend = 0,
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
@@ -170,7 +170,7 @@ if enabled then
                 signature = {
                     enabled = false,
                     window = {
-                        border = border_type,
+                        border = config.border,
                         show_documentation = true,
                     },
                 },
@@ -221,7 +221,7 @@ if enabled then
                         },
                     },
                     float = {
-                        border = border_type,
+                        border = config.border,
                         source = "always",
                         header = "",
                         prefix = "",
