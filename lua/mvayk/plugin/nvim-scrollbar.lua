@@ -1,12 +1,8 @@
-local enabled = false;
-if enabled then
-    return {
-        "petertriho/nvim-scrollbar",
+return {
+    "petertriho/nvim-scrollbar",
+    enabled = false,
 
-        config = function()
-            require("scrollbar").setup({})
-        end
-    }
-else
-    return { }
-end
+    config = function()
+        require("scrollbar").setup({})
+    end,
+}

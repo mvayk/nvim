@@ -1,11 +1,6 @@
-local enabled = true
-
-if enabled then
-    return {
-        'vyfor/cord.nvim',
-        build = ':Cord update',
-        -- opts = {}
-    }
-else
-    return { }
-end
+return {
+    "vyfor/cord.nvim",
+    enabled = true,
+    build = ":Cord update",
+    -- opts = {}
+}

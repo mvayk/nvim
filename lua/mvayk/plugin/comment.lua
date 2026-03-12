@@ -1,5 +1,6 @@
 return {
     "numToStr/Comment.nvim",
+    enabled = true,
     config = function()
         require("Comment").setup({
             ---Add a space b/w comment and the line
@@ -11,26 +12,26 @@ return {
             ---LHS of toggle mappings in NORMAL mode
             toggler = {
                 ---Line-comment toggle keymap
-                line = 'glc',
+                line = "glc",
                 ---Block-comment toggle keymap
-                block = 'gbc',
+                block = "gbc",
                 ---Block-comment keymap
             },
             ---LHS of operator-pending mappings in NORMAL and VISUAL mode
             opleader = {
                 ---Line-comment keymap
-                line = 'glc',
+                line = "glc",
                 ---Block-comment keymap
-                block = 'gbc',
+                block = "gbc",
             },
             ---LHS of extra mappings
             extra = {
                 ---Add comment on the line above
-                above = 'gc0',
+                above = "gc0",
                 ---Add comment on the line below
-                below = 'gco',
+                below = "gco",
                 ---Add comment at the end of line
-                eol = 'gca',
+                eol = "gca",
             },
             ---Enable keybindings
             ---NOTE: If given `false` then the plugin won't create any mappings
@@ -45,5 +46,5 @@ return {
             ---Function to call after (un)comment
             post_hook = nil,
         })
-    end
+    end,
 }

@@ -1,8 +1,9 @@
 -- oh for fuck sakes!
 return {
     "folke/snacks.nvim",
-    priority = 1000,  -- load early
-    lazy = false,     -- important for picker/explorer availability
+    enabled = true,
+    priority = 1000, -- load early
+    lazy = false, -- important for picker/explorer availability
     opts = {
         dashboard = {
             enabled = false,
@@ -33,13 +34,12 @@ return {
                         },
                     },
                 },
-                files = { hidden = true },  -- for regular file picker
+                files = { hidden = true }, -- for regular file picker
                 win = {
                     backdrop = false,
                 },
             },
         },
     },
-    keys = {
-    },
+    keys = {},
 }

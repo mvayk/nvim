@@ -1,5 +1,5 @@
 return {
     "nvim-tree/nvim-web-devicons",
-    config = function()
-    end
+    enabled = true,
+    config = function() end,
 }

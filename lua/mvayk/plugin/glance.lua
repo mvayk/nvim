@@ -1,9 +1,9 @@
 return {
-    'dnlhc/glance.nvim',
-    cmd = 'Glance',
+    "dnlhc/glance.nvim",
+    enabled = true,
+    cmd = "Glance",
 
     config = function()
-        require("glance").setup({
-        })
-    end
+        require("glance").setup({})
+    end,
 }

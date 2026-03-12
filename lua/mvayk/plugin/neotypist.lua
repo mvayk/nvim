@@ -1,7 +1,6 @@
-local enabled = false
-if enabled then
 return {
     "JohnnyJumper/neotypist.nvim",
+    enabled = true,
     opts = {
         -- your configuration options here
     },
@@ -38,8 +37,5 @@ return {
             -- Position of virtual text (default: "right_align")
             virt_text_pos = "right_align",
         })
-    end
+    end,
 }
-else
-    return { }
-end

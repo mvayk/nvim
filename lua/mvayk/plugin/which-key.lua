@@ -1,10 +1,8 @@
-local enabled = true
-if enabled then
 return {
     "folke/which-key.nvim",
+    enabled = true,
     event = "VeryLazy",
-    opts = {
-    },
+    opts = {},
     keys = {
         {
             "<leader>?",
@@ -15,6 +13,3 @@ return {
         },
     },
 }
-else
-    return { }
-end

@@ -1,11 +1,7 @@
-local enabled=  false
-if enabled then
-    return {
-        "NvChad/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup({})
-        end
-    }
-else
-    return { }
-end
+return {
+    "NvChad/nvim-colorizer.lua",
+    enabled = false,
+    config = function()
+        require("colorizer").setup({})
+    end,
+}

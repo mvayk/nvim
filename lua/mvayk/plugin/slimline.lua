@@ -1,25 +1,20 @@
-local enabled = false
-if enabled then
-    return {
-        -- Calls `require('slimline').setup({})`
-        "sschleemilch/slimline.nvim",
-        opts = {
-            spaces = {
-                components = "",
-                left = "",
-                right = "",
+return {
+    -- Calls `require('slimline').setup({})`
+    "sschleemilch/slimline.nvim",
+    enabled = false,
+    opts = {
+        spaces = {
+            components = "",
+            left = "",
+            right = "",
+        },
+        sep = {
+            hide = {
+                first = true,
+                last = true,
             },
-            sep = {
-                hide = {
-                    first = true,
-                    last = true,
-                },
-                left = "",
-                right = "",
-            },
-        }
-
-    }
-else
-    return { }
-end
+            left = "",
+            right = "",
+        },
+    },
+}

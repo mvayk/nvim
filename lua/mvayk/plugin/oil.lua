@@ -1,5 +1,6 @@
 return {
     "stevearc/oil.nvim",
+    enabled = true,
     lazy = false,
     config = function()
         require("oil").setup({
@@ -212,11 +213,11 @@ return {
                 local oil = require("oil")
                 local dir = oil.get_current_dir()
                 if dir then
-                    vim.fn.chdir(dir)                -- or vim.api.nvim_set_current_dir(dir)
+                    vim.fn.chdir(dir) -- or vim.api.nvim_set_current_dir(dir)
                     -- Optional: refresh oil after cwd change (usually not needed)
                     -- oil.open(dir)
                 end
             end,
         })
-    end
+    end,
 }
