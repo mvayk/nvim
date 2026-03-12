@@ -1,16 +1,18 @@
 local enabled = false
 if enabled then
     return {
-        'romgrk/barbar.nvim',
+        "romgrk/barbar.nvim",
         dependencies = {
-            'nvim-tree/nvim-web-devicons', -- optional
+            "nvim-tree/nvim-web-devicons", -- optional
         },
-        init = function() vim.g.barbar_auto_setup = false end,
+        init = function()
+            vim.g.barbar_auto_setup = false
+        end,
         opts = {
-            preset = 'powerline',
+            preset = "powerline",
             separator = {
-                left = '',
-                right = '',
+                left = "",
+                right = "",
             },
 
             animation = true,
@@ -21,5 +23,5 @@ if enabled then
         },
     }
 else
-    return { }
+    return {}
 end

@@ -18,6 +18,7 @@ require("mvayk.core.config")
 require("lazy").setup({
     import = "mvayk.plugin",
 })
+
 local settings = require("mvayk.settings")
 
 local ok, _ = pcall(dofile, settings.theme_file)
@@ -26,10 +27,3 @@ if not ok then
     vim.o.background = "dark"
     vim.cmd([[colorscheme rose-pine]])
 end
-
---// use terminal colors
---vim.o.termguicolors = false
---vim.o.background = 'dark'  -- or 'light'
---vim.cmd([[colorscheme tokyobones]])
---normal_background()
---anti_anti_background()
