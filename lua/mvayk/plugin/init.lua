@@ -8,7 +8,9 @@ local handle = uv.fs_scandir(plugin_path)
 if handle then
     while true do
         local name, type = uv.fs_scandir_next(handle)
-        if not name then break end
+        if not name then
+            break
+        end
         if type == "file" and name:match("%.lua$") and name ~= "init.lua" then
             local mod_name = name:gsub("%.lua$", "")
             local ok, plugin = pcall(require, "mvayk.plugin." .. mod_name)
