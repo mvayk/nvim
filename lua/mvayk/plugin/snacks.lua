@@ -17,7 +17,7 @@ return {
             },
         },
         explorer = {
-            enabled = false,
+            enabled = true,
             replace_netrw = true,
             trash = true,
         },

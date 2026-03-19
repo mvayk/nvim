@@ -154,7 +154,9 @@ map("n", "<leader>/", function()
 end, { desc = "Telescope grep" })
 
 --// Snacks Explorer
---map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Open file explorer" })
+map("n", "<leader>e", function()
+    Snacks.explorer()
+end, { desc = "Open file explorer" })
 
 --// Snacks colorscheme selector
 vim.keymap.set("n", "<leader>ts", function()
