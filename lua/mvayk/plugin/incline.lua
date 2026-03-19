@@ -16,7 +16,7 @@ return {
                         InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
                     },
                 },
-                window = { margin = { vertical = 0, horizontal = 0 } },
+                window = { margin = { vertical = 2, horizontal = 2 } },
                 hide = {
                     cursorline = true,
                 },
@@ -26,13 +26,13 @@ return {
                         filename = "[+] " .. filename
                     end
 
-                    local icon, color = require("lua.mvayk.plugin.icons-theme").get_icon_color(filename)
+                    local icon, color = require(require("mvayk.settings").icon_theme_package).get_icon_color(filename)
                     return { { icon, guifg = color }, { " " }, { filename } }
                 end,
             })
         else
             require("incline").setup({
-                window = { margin = { vertical = 0, horizontal = 0 } },
+                window = { margin = { vertical = 2, horizontal = 2 } },
                 hide = {
                     cursorline = false,
                 },

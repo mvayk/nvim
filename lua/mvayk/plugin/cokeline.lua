@@ -1,6 +1,6 @@
 return {
     "willothy/nvim-cokeline",
-    enabled = true,
+    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim", -- Required for v0.4.0+
         require("mvayk.settings").icon_theme_package,
