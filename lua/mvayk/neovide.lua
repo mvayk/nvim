@@ -20,10 +20,10 @@ end
 vim.o.guifont = "VictorMono Nerd Font Mono:h15"
 vim.o.linespace = 12
 
-vim.g.neovide_padding_top = 16
+--[[ vim.g.neovide_padding_top = 16
 vim.g.neovide_padding_bottom = 16
 vim.g.neovide_padding_left = 20
-vim.g.neovide_padding_right = 20
+vim.g.neovide_padding_right = 20 ]]
 
 local function change_font_size(delta)
     local font = vim.o.guifont

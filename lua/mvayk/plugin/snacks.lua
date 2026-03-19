@@ -25,8 +25,10 @@ return {
             preview = true,
             layout = {
                 preset = "ivy",
+                layout = {
+                    position = "top",
+                },
             },
-            position = "top",
             sources = {
                 explorer = {
                     tree = true,
