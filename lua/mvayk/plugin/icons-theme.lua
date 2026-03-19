@@ -1,5 +1,5 @@
 return {
-    "nvim-tree/nvim-web-devicons",
+    require("mvayk.settings").icon_theme_package,
     enabled = true,
     config = function() end,
 }

@@ -14,5 +14,7 @@ return {
             highlight = "Whitespace",
             remove_blankline_trail = false,
         },
+
+        exclude = { filetypes = { "dashboard" } },
     },
 }

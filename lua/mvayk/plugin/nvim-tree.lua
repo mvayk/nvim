@@ -4,7 +4,7 @@ return {
     version = "*",
     lazy = false,
     dependencies = {
-        "nvim-tree/nvim-web-devicons",
+        require("mvayk.settings").icon_theme_package,
     },
     config = function()
         vim.keymap.set("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", { desc = "Open NvimTree" })

@@ -3,7 +3,7 @@ return {
     enabled = true,
     dependencies = {
         "nvim-lua/plenary.nvim", -- Required for v0.4.0+
-        "nvim-tree/nvim-web-devicons", -- If you want devicons
+        require("mvayk.settings").icon_theme_package,
         "stevearc/resession.nvim", -- Optional, for persistent history
     },
     config = function()

@@ -4,7 +4,7 @@ return {
     branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
+        require("mvayk.settings").icon_theme_package,
         "MunifTanjim/nui.nvim",
     },
     lazy = false, -- neo-tree will lazily load itself

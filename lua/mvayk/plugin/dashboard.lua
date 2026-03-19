@@ -2,7 +2,7 @@ return {
     "nvimdev/dashboard-nvim",
     enabled = false,
     lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { require("mvayk.settings").icon_theme_package },
     config = function()
         local dashboard = require("dashboard").setup({
             theme = "hyper",

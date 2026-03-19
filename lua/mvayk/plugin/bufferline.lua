@@ -2,7 +2,7 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
     version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    dependencies = require("mvayk.settings").icon_theme_package,
     config = function()
         require("bufferline").setup({
             options = {

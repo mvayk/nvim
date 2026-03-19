@@ -2,7 +2,7 @@ return {
     "romgrk/barbar.nvim",
     enabled = false,
     dependencies = {
-        "nvim-tree/nvim-web-devicons", -- optional
+        require("mvayk.settings").icon_theme_package,
     },
     init = function()
         vim.g.barbar_auto_setup = false
