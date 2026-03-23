@@ -26,7 +26,7 @@ vim.opt.termguicolors = true
 vim.o.exrc = true
 vim.o.cursorline = false
 vim.o.cursorcolumn = false
---vim.opt["guicursor"] = "i:block"
+vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
@@ -328,11 +328,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.api.nvim_create_autocmd("VimLeave", {
+--[[ vim.api.nvim_create_autocmd("VimLeave", {
     callback = function()
         vim.opt.guicursor = "a:ver25-blinkon0"
     end,
-})
+}) ]]
 
 --[[ vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
     callback = function()

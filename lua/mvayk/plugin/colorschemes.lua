@@ -20,7 +20,7 @@ return {
     "Verf/deepwhite.nvim",
     "kdheepak/monochrome.nvim",
     "vague2k/vague.nvim",
-
+    "metalelf0/black-metal-theme-neovim",
     "lunarvim/horizon.nvim",
     "andersevenrud/nordic.nvim",
     "oxfist/night-owl.nvim",
