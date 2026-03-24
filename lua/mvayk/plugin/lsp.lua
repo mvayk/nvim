@@ -24,6 +24,7 @@ local servers = {
 }
 
 local tools = {
+    "nixfmt",
     "prettier",
     "ruff",
     "clang-format",

@@ -63,7 +63,7 @@ return {
                     prepend_args = { "--tab-width", "4", "--use-tabs", "false" },
                 },
                 nixfmt = {
-                    prepend_args = { "--width", "2" },
+                    prepend_args = { "--width", "80" },
                 },
             },
         })
