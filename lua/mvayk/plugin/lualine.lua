@@ -1,5 +1,5 @@
 local enabled = true
-local theme = "default"
+local theme = "evil"
 
 if enabled then
     if theme == "default" then
