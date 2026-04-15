@@ -1,5 +1,5 @@
 local enabled = true
-local theme = "evil"
+local theme = "block"
 
 if enabled then
     if theme == "default" then
@@ -115,8 +115,8 @@ if enabled then
                                 sections = { "warn" },
                                 diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
                             },
-                            { "filename", file_status = false, path = 1 },
-                            { modified, color = { bg = colors.red } },
+                            { "filename", file_status = false,        path = 1 },
+                            { modified,   color = { bg = colors.red } },
                             {
                                 "%w",
                                 cond = function()

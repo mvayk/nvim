@@ -1,3 +1,5 @@
+local enabled = false
+if not enabled then return {} end
 return {
     "folke/noice.nvim",
     enabled = true,
@@ -21,7 +23,7 @@ return {
             enabled = true,
         },
         popupmenu = {
-            enabled = true, -- enables the Noice popupmenu UI
+            enabled = true,  -- enables the Noice popupmenu UI
             ---@type 'nui'|'cmp'
             backend = "nui", -- backend to use to show regular cmdline completions
             ---@type NoicePopupmenuItemKind|false

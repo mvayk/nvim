@@ -200,7 +200,7 @@ local function anti_background()
         "NeoTreeGitUntracked",
         "NeoTreeGitModified",
 
-        "lualine_a_normal",
+        --[[ "lualine_a_normal",
         "lualine_b_normal",
         "lualine_c_normal",
         "lualine_x_normal",
@@ -211,7 +211,7 @@ local function anti_background()
         "lualine_c_insert",
         "lualine_x_insert",
         "lualine_y_insert",
-        "lualine_z_insert",
+        "lualine_z_insert", ]]
 
         "SnacksPicker",
         "SnacksPickerBorder",
