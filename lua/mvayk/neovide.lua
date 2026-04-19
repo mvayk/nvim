@@ -17,7 +17,8 @@ end
 
 --vim.g.neovide_opacity = 0.0
 
-vim.o.guifont = "VictorMono Nerd Font Mono:h15"
+-- vim.o.guifont = "VictorMono Nerd Font Mono:h15"
+vim.o.guifont = "BigBlueTermPlus Nerd Font Mono:h15"
 -- vim.o.linespace = 12
 vim.o.linespace = 0
 
