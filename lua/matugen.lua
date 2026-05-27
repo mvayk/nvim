@@ -1,37 +1,37 @@
-local settings = require("mvayk.settings")
 local M = {}
 
-if settings.use_base16_colorscheme then
-    function M.setup()
-        require('base16-colorscheme').setup {
-            base00 = '#000000', -- Default Background
-            base01 = '#000000', -- Lighter Background (status bars)
-            base02 = '#1e2f3e', -- Selection Background
-            base03 = '#5f6a73', -- Comments, Invisibles
-            base04 = '#afb3b6', -- Dark Foreground (status bars)
-            base05 = '#f2f2f3', -- Default Foreground
-            base06 = '#f2f2f3', -- Light Foreground
-            base07 = '#f2f2f3', -- Lightest Foreground
-            base08 = '#fd4663', -- Variables, XML Tags, Errors
-            base09 = '#9566cc', -- Integers, Constants
-            base0A = '#5c61d6', -- Classes, Search Background
-            base0B = '#67abe4', -- Strings, Diff Inserted
-            base0C = '#bc96e9', -- Regex, Escape Chars
-            base0D = '#93c3ec', -- Functions, Methods
-            base0E = '#9699e9', -- Keywords, Storage
-            base0F = '#900017', -- Deprecated, Embedded Tags
-        }
-    end
-
-    -- Register a signal handler for SIGUSR1 (matugen updates)
-    local signal = vim.uv.new_signal()
-    signal:start(
-        'sigusr1',
-        vim.schedule_wrap(function()
-            package.loaded['matugen'] = nil
-            require('matugen').setup()
-        end)
-    )
-
-    return M
+function M.setup()
+    require("base16-colorscheme").setup({
+        -- Background tones
+        base00 = "#000000", -- Default Background
+        base01 = "#000000", -- Lighter Background (status bars)
+        base02 = "#2a2a2a", -- Selection Background
+        base03 = "#919191", -- Comments, Invisibles
+        -- Foreground tones
+        base04 = "#c6c6c6", -- Dark Foreground (status bars)
+        base05 = "#e2e2e2", -- Default Foreground
+        base06 = "#e2e2e2", -- Light Foreground
+        base07 = "#e2e2e2", -- Lightest Foreground
+        -- Accent colors
+        base08 = "#ffb4ab", -- Variables, XML Tags, Errors
+        base09 = "#edb8cc", -- Integers, Constants
+        base0A = "#c9c3dc", -- Classes, Search Background
+        base0B = "#cabeff", -- Strings, Diff Inserted
+        base0C = "#edb8cc", -- Regex, Escape Chars
+        base0D = "#cabeff", -- Functions, Methods
+        base0E = "#c9c3dc", -- Keywords, Storage
+        base0F = "#93000a", -- Deprecated, Embedded Tags
+    })
 end
+
+-- Register a signal handler for SIGUSR1 (matugen updates)
+local signal = vim.uv.new_signal()
+signal:start(
+    "sigusr1",
+    vim.schedule_wrap(function()
+        package.loaded["matugen"] = nil
+        require("matugen").setup()
+    end)
+)
+
+return M
