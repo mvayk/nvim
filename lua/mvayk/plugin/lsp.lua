@@ -159,7 +159,7 @@ if enabled then
                             padding = 1,
                             gap = 1,
                             columns = {
-                                { "label", "label_description", gap = 1 },
+                                { "label",     "label_description", gap = 1 },
                                 { "kind_icon", gap = 1 },
                             },
                         },

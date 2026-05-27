@@ -1,5 +1,5 @@
 local enabled = true
-local theme = "block"
+local theme = "default"
 
 if enabled then
     if theme == "default" then

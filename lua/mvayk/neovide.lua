@@ -17,10 +17,10 @@ end
 
 --vim.g.neovide_opacity = 0.0
 
--- vim.o.guifont = "VictorMono Nerd Font Mono:h15"
-vim.o.guifont = "BigBlueTermPlus Nerd Font Mono:h15"
+vim.o.guifont = "SpaceMono Nerd Font Mono:h15"
+--vim.o.guifont = "BigBlueTermPlus Nerd Font Mono:h15"
 -- vim.o.linespace = 12
-vim.o.linespace = 0
+vim.o.linespace = 6
 
 --[[ vim.g.neovide_padding_top = 16
 vim.g.neovide_padding_bottom = 16
