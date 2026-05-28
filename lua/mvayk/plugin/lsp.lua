@@ -25,16 +25,16 @@ local servers = {
 
 local tools = {
     "nixfmt",
-    "prettier",
-    "ruff",
-    "clang-format",
-    "goimports",
-    "shfmt",
-    "taplo",
-    "stylua",
-    "shellcheck",
-    "hadolint",
-    "markdownlint-cli2",
+    -- "prettier",
+    -- "ruff",
+    --"clang-format",
+    -- "goimports",
+    -- "shfmt",
+    -- "taplo",
+    -- "stylua",
+    -- "shellcheck",
+    -- "hadolint",
+    -- "markdownlint-cli2",
 }
 
 vim.api.nvim_create_autocmd("User", {
@@ -159,7 +159,7 @@ if enabled then
                             padding = 1,
                             gap = 1,
                             columns = {
-                                { "label",     "label_description", gap = 1 },
+                                { "label", "label_description", gap = 1 },
                                 { "kind_icon", gap = 1 },
                             },
                         },
