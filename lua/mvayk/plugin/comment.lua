@@ -1,6 +1,7 @@
 return {
     "numToStr/Comment.nvim",
     enabled = true,
+    lazy = true,
     config = function()
         require("Comment").setup({
             ---Add a space b/w comment and the line

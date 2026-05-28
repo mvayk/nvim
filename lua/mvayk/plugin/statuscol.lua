@@ -1,6 +1,7 @@
 return {
     "luukvbaal/statuscol.nvim",
     enabled = true,
+    lazy = true,
     event = "VeryLazy",
     config = function()
         -- Example: ">| 24"

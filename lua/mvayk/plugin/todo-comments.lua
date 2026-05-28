@@ -2,6 +2,8 @@ return {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     enabled = true,
+    lazy = true,
+    event = "VeryLazy",
     config = function()
         local todo = require("todo-comments")
         local Snacks = require("snacks")

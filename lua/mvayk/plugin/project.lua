@@ -1,6 +1,8 @@
 return {
     "DrKJeff16/project.nvim",
     enabled = true,
+    lazy = false,
+    event = "VeryLazy",
     config = function()
         require("project").setup({
             -- your existing options here (e.g. detection_methods, silent_chdir, etc.)

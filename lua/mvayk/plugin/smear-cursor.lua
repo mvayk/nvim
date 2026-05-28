@@ -1,6 +1,8 @@
 return {
     "https://github.com/sphamba/smear-cursor.nvim",
     enabled = false,
+    lazy = true,
+    event = "VeryLazy",
     opts = {
         smear_insert_mode = true,
         smear_between_buffers = true,

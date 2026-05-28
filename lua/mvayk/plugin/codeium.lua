@@ -1,6 +1,7 @@
 return {
     "Exafunction/codeium.nvim",
     enabled = false,
+    lazy = true,
     dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
     config = function()
         --[[ old codeium vim not nvim stuff

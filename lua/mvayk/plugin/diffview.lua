@@ -1,6 +1,7 @@
 return {
     "sindrets/diffview.nvim",
     enabled = false,
+    lazy = true,
     config = function()
         require("diffview").setup({
             vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Git Diff" }),

@@ -1,13 +1,14 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false,
+    lazy = true,
+    event = "VeryLazy",
     branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
         require("mvayk.settings").icon_theme_package,
         "MunifTanjim/nui.nvim",
     },
-    lazy = false, -- neo-tree will lazily load itself
     ---@module "neo-tree"
     ---@type neotree.Config?
     opts = {},

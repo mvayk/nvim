@@ -1,5 +1,6 @@
 return {
     "danilamihailov/beacon.nvim",
+    lazy = true,
 
     config = function()
         require("beacon").setup({

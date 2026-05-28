@@ -2,6 +2,7 @@ return {
     "NeogitOrg/neogit",
     enabled = false,
     lazy = true,
+    event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim", -- required
         "sindrets/diffview.nvim", -- optional - Diff integration

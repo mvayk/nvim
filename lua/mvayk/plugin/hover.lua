@@ -2,6 +2,8 @@ return {
     {
         "lewis6991/hover.nvim",
         enabled = false,
+        lazy = true,
+        event = "VeryLazy",
         config = function()
             vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
             vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })

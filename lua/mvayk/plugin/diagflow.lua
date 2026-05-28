@@ -1,6 +1,7 @@
 return {
     "dgagn/diagflow.nvim",
     enabled = false,
+    lazy = true,
     event = "LspAttach", --This is what I use personnally and it works great
     opts = {
         enable = true,

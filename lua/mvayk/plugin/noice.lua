@@ -3,6 +3,7 @@ if not enabled then return {} end
 return {
     "folke/noice.nvim",
     enabled = true,
+    lazy = true,
     event = "VeryLazy",
     opts = {},
     dependencies = {

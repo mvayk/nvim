@@ -1,6 +1,8 @@
 return {
     "JohnnyJumper/neotypist.nvim",
     enabled = false,
+    lazy = true,
+    event = "VeryLazy",
     opts = {
         -- your configuration options here
     },

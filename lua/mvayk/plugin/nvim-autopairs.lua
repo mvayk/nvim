@@ -3,6 +3,8 @@ return {
     config = true,
     check_ts = true,
     enabled = true,
+    lazy = true,
+    event = "VeryLazy",
     config = function()
         require("nvim-autopairs").setup({})
 

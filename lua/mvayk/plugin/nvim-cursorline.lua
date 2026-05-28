@@ -1,6 +1,8 @@
 return {
     "ya2s/nvim-cursorline",
     enabled = true,
+    lazy = true,
+    event = "VeryLazy",
     config = function()
         require("nvim-cursorline").setup({
             cursorline = {

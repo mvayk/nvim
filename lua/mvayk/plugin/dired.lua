@@ -1,6 +1,7 @@
 return {
     "X3eRo0/dired.nvim",
     enabled = false,
+    lazy = true,
     requires = "MunifTanjim/nui.nvim",
     config = function()
         require("dired").setup({

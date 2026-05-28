@@ -1,6 +1,7 @@
 return {
     "svban/YankAssassin.nvim",
     enabled = false,
+    lazy = true,
     event = "VeryLazy",
     config = function()
         require("YankAssassin").setup({

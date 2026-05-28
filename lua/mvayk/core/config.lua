@@ -30,6 +30,18 @@ vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
+vim.g.do_filetype_lua = 1
+vim.g.loaded_lua_ftplugin = 1
+vim.g.loaded_lua_indent = 1
+
+vim.opt.synmaxcol = 200
+vim.opt.maxmempattern = 2000
+vim.opt.redrawtime = 2000
+vim.opt.ttyfast = true
+vim.opt.lazyredraw = true
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 300
+
 vim.o.list = true
 vim.opt.listchars = {
     --space = "⋅",
