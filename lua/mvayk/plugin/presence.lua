@@ -1,6 +1,7 @@
+-- having this enabled causes lag when creating new buffer
 return {
     "andweeb/presence.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
         require("presence").setup({
             -- General options

@@ -1,6 +1,6 @@
 return {
     "JohnnyJumper/neotypist.nvim",
-    enabled = true,
+    enabled = false,
     opts = {
         -- your configuration options here
     },

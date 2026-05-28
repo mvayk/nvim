@@ -1,5 +1,5 @@
 return {
     "rafcamlet/nvim-luapad",
-    enabled = true,
+    enabled = false,
     config = function() end,
 }
