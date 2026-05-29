@@ -27,7 +27,7 @@ return {
             layout = {
                 preset = "ivy",
                 layout = {
-                    position = "bottom",
+                    position = "top",
                 },
             },
             sources = {

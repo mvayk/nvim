@@ -14,12 +14,12 @@ function M.setup()
         base07 = "#e2e2e2", -- Lightest Foreground
         -- Accent colors
         base08 = "#ffb4ab", -- Variables, XML Tags, Errors
-        base09 = "#e4bad9", -- Integers, Constants
-        base0A = "#c3c5dd", -- Classes, Search Background
-        base0B = "#b8c3ff", -- Strings, Diff Inserted
-        base0C = "#e4bad9", -- Regex, Escape Chars
-        base0D = "#b8c3ff", -- Functions, Methods
-        base0E = "#c3c5dd", -- Keywords, Storage
+        base09 = "#ddc48c", -- Integers, Constants
+        base0A = "#e7bdb5", -- Classes, Search Background
+        base0B = "#ffb4a6", -- Strings, Diff Inserted
+        base0C = "#ddc48c", -- Regex, Escape Chars
+        base0D = "#ffb4a6", -- Functions, Methods
+        base0E = "#e7bdb5", -- Keywords, Storage
         base0F = "#93000a", -- Deprecated, Embedded Tags
     })
 end
