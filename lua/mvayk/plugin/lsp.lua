@@ -1,13 +1,12 @@
 --big thanks to big baby girl claude
 local config = require("mvayk.settings")
-
 local enabled = true
 
 local servers = {
     "lua_ls",
     "clangd",
     "ast_grep",
-    "nil_ls",
+    --"nil_ls",
     "rust_analyzer",
     "pyright",
     "ts_ls",
@@ -84,34 +83,7 @@ if enabled then
                 },
                 appearance = {
                     use_nvim_cmp_as_default = false,
-                    nerd_font_variant = "mono",
-                    kind_icons = {
-                        Text = "󰉿",
-                        Method = "󰊕",
-                        Function = "󰊕",
-                        Constructor = "󰒓",
-                        Field = "󰜢",
-                        Variable = "󰆦",
-                        Class = "󱡠",
-                        Interface = "󱡠",
-                        Module = "󰅩",
-                        Property = "󰖷",
-                        Unit = "󰪚",
-                        Value = "󰦨",
-                        Enum = "󰦨",
-                        Keyword = "󰻾",
-                        Snippet = "󱄽",
-                        Color = "󰏘",
-                        File = "󰈔",
-                        Reference = "󰬲",
-                        Folder = "󰉋",
-                        EnumMember = "󰦨",
-                        Constant = "󰏿",
-                        Struct = "󱡠",
-                        Event = "󱐋",
-                        Operator = "󰪚",
-                        TypeParameter = "󰬛",
-                    },
+                    --nerd_font_variant = "mono",
                 },
                 completion = {
                     --scrollbar = false,
@@ -160,7 +132,8 @@ if enabled then
                             gap = 1,
                             columns = {
                                 { "label", "label_description", gap = 1 },
-                                { "kind_icon", gap = 1 },
+                                {"kind"},
+                                --{ "kind_icon", "kind" },
                             },
                         },
                     },
@@ -169,7 +142,7 @@ if enabled then
                     default = { "lsp", "path", "snippets", "buffer" },
                 },
                 signature = {
-                    enabled = false,
+                    enabled = true,
                     window = {
                         border = config.border,
                         show_documentation = true,
@@ -219,6 +192,11 @@ if enabled then
                             [vim.diagnostic.severity.WARN] = "",
                             [vim.diagnostic.severity.INFO] = "",
                             [vim.diagnostic.severity.HINT] = "",
+
+                            -- [vim.diagnostic.severity.ERROR] = "E",
+                            -- [vim.diagnostic.severity.WARN] = "W",
+                            -- [vim.diagnostic.severity.INFO] = "i",
+                            -- [vim.diagnostic.severity.HINT] = "H",
                         },
                     },
                     float = {
@@ -249,3 +227,4 @@ if enabled then
 else
     return {}
 end
+
