@@ -13,7 +13,7 @@ return {
         --// this works on windows aswell as linux
         require("codeium").setup({
             -- Optionally disable cmp source if using virtual text only
-            enable_cmp_source = true,
+            enable_cmp_source = false,
             virtual_text = {
                 enabled = true,
 

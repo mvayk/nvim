@@ -4,6 +4,14 @@ if not vim.g.neovide then
     return
 end
 
+--[[
+SpaceMono Nerd Font Mono:h17
+BigBlueTermPlus Nerd Font Mono:h15
+]]
+local default_font = "VictorMono Nerd Font Mono:h15"
+vim.o.guifont = default_font
+vim.o.linespace = 0
+
 settings.transparent_background = false
 
 if not settings.neovide_animations then
@@ -16,14 +24,6 @@ if not settings.neovide_animations then
 end
 
 --vim.g.neovide_opacity = 0.0
-
---[[
-SpaceMono Nerd Font Mono:h17
-BigBlueTermPlus Nerd Font Mono:h15
-]]
-local default_font = "VictorMono Nerd Font Mono:h15"
-vim.o.guifont = default_font
-vim.o.linespace = 0
 
 --[[ vim.g.neovide_padding_top = 16
 vim.g.neovide_padding_bottom = 16

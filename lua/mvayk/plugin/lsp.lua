@@ -20,6 +20,7 @@ local servers = {
     "taplo",
     "dockerls",
     "zls",
+    "tailwindcss",
 }
 
 local tools = {

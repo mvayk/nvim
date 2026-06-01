@@ -1,4 +1,4 @@
-local solarized_osaka = true
+local solarized_osaka = false
 return {
     --[[ https://github.com/Fadilix/dotfiles/blob/main/nvim/lua/plugins/ui.lua ]]
     "b0o/incline.nvim",
