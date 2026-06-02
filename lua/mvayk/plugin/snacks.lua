@@ -6,7 +6,7 @@ return {
     lazy = true, -- important for picker/explorer availability
     opts = {
         dashboard = {
-            enabled = true,
+            enabled = false,
             sections = {
                 { padding = 1 },
                 { section = "header" },

@@ -1,6 +1,6 @@
 return {
     "stevearc/conform.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
@@ -19,6 +19,10 @@ return {
                 timeout_ms = 500,
                 lsp_fallback = true,
             },
+            formatters_by_ft = {
+                nix = {"nixfmt"}
+            },
+            --[[
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "ruff_format", "ruff_organize_imports" },
@@ -67,6 +71,7 @@ return {
                     prepend_args = { "--width", "80" },
                 },
             },
+            ]]
         })
     end,
 }
