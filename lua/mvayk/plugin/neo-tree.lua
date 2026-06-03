@@ -1,6 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     event = "VeryLazy",
     branch = "v3.x",
@@ -33,7 +33,7 @@ return {
                 hijack_netrw_behavior = "disabled",
             },
             source_selector = {
-                winbar = false, -- toggle to show selector on winbar
+                winbar = false,     -- toggle to show selector on winbar
                 statusline = false, -- toggle to show selector on statusline
             },
             window = {
