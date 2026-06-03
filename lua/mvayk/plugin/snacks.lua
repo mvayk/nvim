@@ -3,7 +3,7 @@ return {
     "folke/snacks.nvim",
     enabled = true,
     priority = 1000, -- load early
-    lazy = true, -- important for picker/explorer availability
+    lazy = false,    -- important for picker/explorer availability
     opts = {
         dashboard = {
             enabled = false,
