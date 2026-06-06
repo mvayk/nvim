@@ -133,7 +133,7 @@ if enabled then
                             gap = 1,
                             columns = {
                                 { "label", "label_description", gap = 1 },
-                                {"kind"},
+                                { "kind" },
                                 --{ "kind_icon", "kind" },
                             },
                         },
@@ -228,4 +228,3 @@ if enabled then
 else
     return {}
 end
-
