@@ -1,8 +1,9 @@
 return {
     border = "none",
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
-    transparent_background = false,
+    transparent_background = true,
     neovide_animations = true,
+    neovide_transparency = true,
     icon_theme_package = "nvim-web-devicons",
     --icon_theme_package = "nvim-material-icon",
     use_base16_colorscheme = false,

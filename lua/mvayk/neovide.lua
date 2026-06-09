@@ -12,7 +12,7 @@ local default_font = "VictorMono Nerd Font Mono:h15"
 vim.o.guifont = default_font
 vim.o.linespace = 0
 
-settings.transparent_background = false
+settings.transparent_background = settings.neovide_transparency
 
 if not settings.neovide_animations then
     vim.g.neovide_cursor_animation_length = 0.00
@@ -23,7 +23,9 @@ if not settings.neovide_animations then
     vim.g.neovide_cursor_animate_command_line = false
 end
 
---vim.g.neovide_opacity = 0.0
+if settings.neovide_transparency then
+    vim.g.neovide_opacity = 0.7
+end
 
 --[[ vim.g.neovide_padding_top = 16
 vim.g.neovide_padding_bottom = 16
