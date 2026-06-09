@@ -1,5 +1,5 @@
 local enabled = true
-local theme = "default"
+local theme = "block"
 
 if enabled then
     if theme == "default" then
@@ -34,16 +34,6 @@ if enabled then
             lazy = false,
             dependencies = { "nvim-tree/nvim-web-devicons" },
             config = function()
-                local colors = {
-                    red = "#ca1243",
-                    grey = "#a0a1a7",
-                    black = "#383a42",
-                    white = "#f3f3f3",
-                    light_green = "#83a598",
-                    orange = "#fe8019",
-                    green = "#8ec07c",
-                }
-
                 local empty = require("lualine.component"):extend()
                 function empty:draw(default_highlight)
                     self.status = ""
@@ -58,7 +48,7 @@ if enabled then
                     for name, section in pairs(sections) do
                         local left = name:sub(9, 10) < "x"
                         for pos = 1, name ~= "lualine_z" and #section or #section - 1 do
-                            table.insert(section, pos * 2, { empty, color = { fg = colors.white, bg = colors.white } })
+                            table.insert(section, pos * 2, { empty, })
                         end
                         for id, comp in ipairs(section) do
                             if type(comp) ~= "table" then
@@ -107,16 +97,14 @@ if enabled then
                                 "diagnostics",
                                 source = { "nvim" },
                                 sections = { "error" },
-                                diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
                             },
                             {
                                 "diagnostics",
                                 source = { "nvim" },
                                 sections = { "warn" },
-                                diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
                             },
                             { "filename", file_status = false, path = 1 },
-                            { modified, color = { bg = colors.red } },
+                            { modified, },
                             {
                                 "%w",
                                 cond = function()

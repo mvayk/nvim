@@ -1,7 +1,7 @@
 local settings = require("mvayk.settings")
 
 vim.o.updatetime = 0
-vim.o.laststatus = 3
+--vim.o.laststatus = 3
 vim.opt.nu = true
 vim.opt.fileformats = { "unix", "dos" } --// fixes windows line endings
 vim.opt.relativenumber = true
