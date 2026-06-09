@@ -8,7 +8,11 @@ return {
         {
             "=",
             function()
-                require("conform").format({ async = true, lsp_fallback = true })
+                if vim.bo.filetype == "nix" then
+                    require("conform").format({ async = true, lsp_fallback = false })
+                else
+                    vim.cmd("normal! =G")
+                end
             end,
             desc = "Format buffer",
         },
