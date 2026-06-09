@@ -215,9 +215,27 @@ if enabled then
 
                 for _, server_name in ipairs(installed_servers) do
                     if server_name ~= "luau_lsp" then
-                        vim.lsp.config[server_name] = {
-                            capabilities = capabilities,
-                        }
+                        if server_name == "lua_ls" then
+                            vim.lsp.config["lua_ls"] = {
+                                capabilities = capabilities,
+                                settings = {
+                                    Lua = {
+                                        --runtime = { version = "LuaJIT" },
+                                        diagnostics = {
+                                            globals = { "vim" },
+                                        },
+                                        workspace = {
+                                            library = { vim.env.VIMRUNTIME },
+                                            checkThirdParty = false,
+                                        },
+                                    },
+                                },
+                            }
+                        else
+                            vim.lsp.config[server_name] = {
+                                capabilities = capabilities,
+                            }
+                        end
 
                         vim.lsp.enable(server_name)
                     end
