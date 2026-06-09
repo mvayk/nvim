@@ -1,5 +1,6 @@
 local settings = require("mvayk.settings")
 
+
 vim.o.updatetime = 0
 vim.opt.nu = true
 vim.opt.fileformats = { "unix", "dos" } --// fixes windows line endings
@@ -319,20 +320,44 @@ vim.opt.listchars = {
         end
     end, { desc = "Toggle background" })
 
-    vim.api.nvim_create_autocmd("cursorhold", {
-        callback = function()
-            vim.diagnostic.open_float(nil, {
-                border = settings.border,
-                source = "always",
-                prefix = " ",
-                scope = "line",
-                relative = "win",
-                anchor = "NE",
-                row = 0,
-                col = vim.api.nvim_win_get_width(0) - 2,
-                max_width = 85,
-            })
-        end,
+    local diag_float_win = nil
+
+    local function close_float()
+        if diag_float_win and vim.api.nvim_win_is_valid(diag_float_win) then
+            vim.api.nvim_win_close(diag_float_win, true)
+            diag_float_win = nil
+        end
+    end
+
+    local function update_float()
+        close_float()
+
+        local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+        local diagnostics = vim.diagnostic.get(0, { lnum = line })
+
+        if #diagnostics == 0 then return end
+
+        local _, win = vim.diagnostic.open_float(nil, {
+            border = settings.border,
+            source = "always",
+            prefix = " ",
+            scope = "line",
+            relative = "win",
+            anchor = "NE",
+            row = 0,
+            col = vim.api.nvim_win_get_width(0) - 2,
+            max_width = 85,
+        })
+
+        diag_float_win = win
+    end
+
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+        callback = update_float,
+    })
+
+    vim.api.nvim_create_autocmd("DiagnosticChanged", {
+        callback = update_float,
     })
 
     vim.api.nvim_create_autocmd("FileType", {
