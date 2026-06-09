@@ -123,8 +123,16 @@ map("n", "<leader>l]", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
 
 local function toggle_completion()
-    require("blink.cmp").hide()
-    vim.b.completion = not vim.b.completion
+    -- treat nil as true (enabled by default)
+    local current = vim.b.completion ~= false
+    vim.b.completion = not current
+
+    if vim.b.completion then
+        require("blink.cmp").show()
+    else
+        require("blink.cmp").hide()
+    end
+
     vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"), vim.log.levels.INFO)
 end
 

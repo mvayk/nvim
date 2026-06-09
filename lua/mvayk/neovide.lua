@@ -7,8 +7,9 @@ end
 --[[
 SpaceMono Nerd Font Mono:h17
 BigBlueTermPlus Nerd Font Mono:h15
+VictorMono Nerd Font Mono:h15
 ]]
-local default_font = "VictorMono Nerd Font Mono:h15"
+local default_font = "JetBrainsMono Nerd Font Mono:h19"
 vim.o.guifont = default_font
 vim.o.linespace = 0
 
