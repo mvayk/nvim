@@ -1,6 +1,7 @@
 --big thanks to big baby girl claude
+-- blink
 local config = require("mvayk.settings")
-local enabled = true
+local enabled = config.lsp_system == "blink"
 
 local servers = {
     "lua_ls",
@@ -109,7 +110,7 @@ if enabled then
                         },
                     },
                     documentation = {
-                        auto_show = true,
+                        auto_show = false,
                         auto_show_delay_ms = 0,
                         window = {
                             border = config.border,
@@ -146,7 +147,7 @@ if enabled then
                     enabled = true,
                     window = {
                         border = config.border,
-                        show_documentation = true,
+                        show_documentation = false,
                     },
                 },
             },
