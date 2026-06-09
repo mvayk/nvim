@@ -139,8 +139,13 @@ end
 vim.keymap.set({ "n" }, "<leader>lz", toggle_completion, { desc = "Toggle Completion in its entirety" })
 
 vim.keymap.set("n", "<leader>lc", function()
-    require("blink.cmp").hide()
-    vim.b.menu_auto_show = not vim.b.menu_auto_show
+    local current = vim.b.menu_auto_show ~= false
+    vim.b.menu_auto_show = not current
+
+    if not vim.b.menu_auto_show then
+        require("blink.cmp").hide()
+    end
+
     vim.notify("Menu auto-show: " .. (vim.b.menu_auto_show and "ON" or "OFF"))
 end, { desc = "Toggle popup menu auto-show" })
 
