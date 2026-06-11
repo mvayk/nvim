@@ -80,6 +80,9 @@ vim.opt.listchars = {
 
     --map("n", "<leader>pv", vim.cmd.Ex) -- i dont know what this is but it must be important!
     --// Vanilla
+    vim.api.nvim_create_user_command("E", function(opts)
+        require("oil").open(opts.args ~= "" and opts.args or nil)
+    end, { nargs = "?" })
     map("n", "<C-n>", ":bnext<CR>", { desc = "Goto next buffer" })
     map("n", "<C-p>", ":bprev<CR>", { desc = "Goto previous buffer" })
     map("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
@@ -117,8 +120,8 @@ vim.opt.listchars = {
     map("n", "<leader>ll", function()
         Snacks.picker.diagnostics()
     end, { desc = "Diagnostics" })
-    map("n", "<leader>l[", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
-    map("n", "<leader>l]", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+    map("n", "<leader>lk", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+    map("n", "<leader>lj", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
     map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
 
     local function toggle_completion()
