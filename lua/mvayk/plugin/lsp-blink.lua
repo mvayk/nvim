@@ -87,6 +87,16 @@ if enabled then
                     use_nvim_cmp_as_default = false,
                     --nerd_font_variant = "mono",
                 },
+                signature = {
+                    enabled = true,
+                    trigger = {
+                        show_on_insert = true,
+                    },
+                    window = {
+                        border = config.border,
+                        show_documentation = false,
+                    },
+                },
                 completion = {
                     --scrollbar = false,
                     ghost_text = {
@@ -102,7 +112,7 @@ if enabled then
                             auto_insert = false,
                             preselect = true,
                         },
-                        max_items = 2000,
+                        max_items = 200,
                     },
                     accept = {
                         auto_brackets = {
@@ -142,13 +152,6 @@ if enabled then
                 },
                 sources = {
                     default = { "lsp", "path", "snippets", "buffer" },
-                },
-                signature = {
-                    enabled = true,
-                    window = {
-                        border = config.border,
-                        show_documentation = false,
-                    },
                 },
             },
         },

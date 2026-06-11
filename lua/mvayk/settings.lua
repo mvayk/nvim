@@ -7,5 +7,6 @@ return {
     icon_theme_package = "nvim-web-devicons",
     --icon_theme_package = "nvim-material-icon",
     use_base16_colorscheme = false,
-    lsp_system = "blink" --[[ blink, cmp ]]
+    lsp_system = "blink", --[[ blink, cmp ]]
+    float_diagnostic = false,
 }
