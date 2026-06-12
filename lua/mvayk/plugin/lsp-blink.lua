@@ -105,7 +105,6 @@ if enabled then
                     trigger = {
                         show_on_keyword = true,
                         show_on_trigger_character = true,
-                        show_on_insert_on_trigger_character = true,
                     },
                     list = {
                         selection = {
@@ -139,7 +138,6 @@ if enabled then
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         auto_show_delay_ms = 0,
                         draw = {
-                            treesitter = { "lsp" },
                             padding = 1,
                             gap = 1,
                             columns = {
