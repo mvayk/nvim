@@ -29,10 +29,10 @@ if vim.g.neovide == true then
     vim.o.cursorline = true
 else
     vim.o.cursorline = false
+    vim.opt["guicursor"] = "i:block"
 end
 
 vim.o.cursorcolumn = false
-vim.opt["guicursor"] = "i:block"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
