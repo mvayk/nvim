@@ -1,5 +1,11 @@
+local tborder = "none"
+
+if vim.g.neovide then
+    tborder = "rounded"
+end
+
 return {
-    border = "none",
+    border = tborder,
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
     transparent_background = true,
     neovide_transparency = false,
