@@ -125,6 +125,14 @@ vim.opt.listchars = {
     map("n", "<C-j>", "o<Esc>", { desc = "Insert line below" })
     map("n", "<C-k>", "O<Esc>", { desc = "Insert line above" })
 
+    --// Terminal
+    vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', { desc = 'Exit terminal mode' })
+    vim.keymap.set('n', '<leader>tn', function()
+        vim.cmd('botright split')
+        vim.cmd('resize ' .. math.floor(vim.o.lines / 3))
+        vim.cmd('term')
+    end, { desc = 'Open terminal in bottom third' })
+
     --// LSP Related
     map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
     map("n", "<leader>ld", function()
