@@ -26,13 +26,28 @@ vim.opt.termguicolors = true
 vim.o.exrc = true
 
 if vim.g.neovide == true then
-    vim.o.cursorline = true
+    vim.o.cursorline = false
+    vim.o.cursorcolumn = true
+
+    vim.api.nvim_create_autocmd("InsertEnter", {
+        callback = function()
+            vim.o.cursorline = true
+            vim.o.cursorcolumn = false
+        end,
+    })
+
+    vim.api.nvim_create_autocmd("InsertLeave", {
+        callback = function()
+            vim.o.cursorline = false
+            vim.o.cursorcolumn = true
+        end,
+    })
 else
     vim.o.cursorline = false
+    vim.o.cursorcolumn = false
     vim.opt["guicursor"] = "i:block"
 end
 
-vim.o.cursorcolumn = false
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
