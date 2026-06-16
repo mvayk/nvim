@@ -26,22 +26,27 @@ vim.opt.termguicolors = true
 vim.o.exrc = true
 
 if vim.g.neovide == true then
-    vim.o.cursorline = false
-    vim.o.cursorcolumn = true
+    vim.o.cursorline = true
+    vim.o.cursorcolumn = false
 
-    vim.api.nvim_create_autocmd("InsertEnter", {
-        callback = function()
-            vim.o.cursorline = true
-            vim.o.cursorcolumn = false
-        end,
-    })
+    if settings.neovide_line_modes == true then
+        vim.o.cursorline = false
+        vim.o.cursorcolumn = true
 
-    vim.api.nvim_create_autocmd("InsertLeave", {
-        callback = function()
-            vim.o.cursorline = false
-            vim.o.cursorcolumn = true
-        end,
-    })
+        vim.api.nvim_create_autocmd("InsertEnter", {
+            callback = function()
+                vim.o.cursorline = true
+                vim.o.cursorcolumn = false
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("InsertLeave", {
+            callback = function()
+                vim.o.cursorline = false
+                vim.o.cursorcolumn = true
+            end,
+        })
+    end
 else
     vim.o.cursorline = false
     vim.o.cursorcolumn = false
@@ -390,91 +395,94 @@ vim.opt.listchars = {
         })
 
     end
-    -- vim.api.nvim_create_autocmd("User", {
-        --     pattern = "BlinkCmpMenuOpen",
-        --     callback = close_float,
-        -- })
-        --
-        -- vim.api.nvim_create_autocmd("User", {
-            --     pattern = "BlinkCmpMenuClose",
-            --     callback = update_float,
-            -- })
-            --
-            -- vim.api.nvim_create_autocmd("User", {
-                --     pattern = "BlinkCmpHide",
-                --     callback = close_float,
-                -- })
-                --
-                -- vim.api.nvim_create_autocmd("User", {
-                    --     pattern = "BlinkCmpShow",
-                    --     callback = update_float,
-                    -- })
 
-                    vim.api.nvim_create_autocmd("FileType", {
-                        pattern = "*",
-                        callback = function()
-                            vim.opt_local.formatoptions:remove({ "c", "r", "o" })
-                        end,
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "*",
+        callback = function()
+            vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+        end,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown, org",
+        callback = function()
+            vim.opt_local.wrap = true
+            vim.opt_local.linebreak = true
+            vim.opt_local.list = false
+        end,
+    })
+
+    --[[
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpMenuOpen",
+        callback = close_float,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpMenuClose",
+        callback = update_float,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpHide",
+        callback = close_float,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpShow",
+        callback = update_float,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "c", "cpp" },
+        callback = function()
+            vim.opt_local.shiftwidth = 2
+            vim.opt_local.tabstop = 2
+            vim.opt_local.softtabstop = 2
+            vim.opt_local.expandtab = true
+        end,
+    })
+
+    vim.api.nvim_create_autocmd("VimLeave", {
+        callback = function()
+            vim.opt.guicursor = "a:ver25-blinkon0"
+        end,
+    })
+
+    vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
+        callback = function()
+            local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
+            if #diagnostics > 0 then
+                local float_bufnr, winid = vim.diagnostic.open_float(nil, {
+                    focus = false,
+                    focusable = false,
+                    border = "none",
+                    source = "always",
+                    max_width = 39,
+                    prefix = " ",
+                    scope = "line",
+                    close_events = {
+                        "CursorMoved",
+                        "CursorMovedI",
+                        "InsertEnter",
+                        "InsertLeave",
+                        "BufLeave",
+                        "BufHidden",
+                        "InsertCharPre",
+                        "TextChanged",
+                        "TextChangedI",
+                    },
+                })
+
+                if winid then
+                    vim.api.nvim_win_set_config(winid, {
+                        relative = "editor",
+                        anchor = "NE",
+                        row = 1,
+                        col = vim.o.columns,
                     })
-
-                    vim.api.nvim_create_autocmd("FileType", {
-                        pattern = "markdown, org",
-                        callback = function()
-                            vim.opt_local.wrap = true
-                            vim.opt_local.linebreak = true
-                            vim.opt_local.list = false
-                        end,
-                    })
-
-                    -- vim.api.nvim_create_autocmd("FileType", {
-                        --     pattern = { "c", "cpp" },
-                        --     callback = function()
-                            --         vim.opt_local.shiftwidth = 2
-                            --         vim.opt_local.tabstop = 2
-                            --         vim.opt_local.softtabstop = 2
-                            --         vim.opt_local.expandtab = true
-                            --     end,
-                            -- })
-
-                            --[[ vim.api.nvim_create_autocmd("VimLeave", {
-                                callback = function()
-                                    vim.opt.guicursor = "a:ver25-blinkon0"
-                                end,
-                            }) ]]
-
-                            --[[ vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI" }, {
-                                callback = function()
-                                    local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line('.') - 1 })
-                                    if #diagnostics > 0 then
-                                        local float_bufnr, winid = vim.diagnostic.open_float(nil, {
-                                            focus = false,
-                                            focusable = false,
-                                            border = "none",
-                                            source = "always",
-                                            max_width = 39,
-                                            prefix = " ",
-                                            scope = "line",
-                                            close_events = {
-                                                "CursorMoved",
-                                                "CursorMovedI",
-                                                "InsertEnter",
-                                                "InsertLeave",
-                                                "BufLeave",
-                                                "BufHidden",
-                                                "InsertCharPre",
-                                                "TextChanged",
-                                                "TextChangedI",
-                                            },
-                                        })
-
-                                        if winid then
-                                            vim.api.nvim_win_set_config(winid, {
-                                                relative = "editor",
-                                                anchor = "NE",
-                                                row = 1,
-                                                col = vim.o.columns,
-                                            })
-                                        end
-                                    end
-                                end
-                            }) ]]
+                end
+            end
+        end
+    })
+    ]]

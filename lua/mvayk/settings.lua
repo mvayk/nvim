@@ -10,6 +10,7 @@ return {
     transparent_background = true,
     neovide_transparency = false,
     neovide_animations = false,
+    neovide_line_modes = false,
     icon_theme_package = "nvim-web-devicons",
     --icon_theme_package = "nvim-material-icon",
     use_base16_colorscheme = false,
