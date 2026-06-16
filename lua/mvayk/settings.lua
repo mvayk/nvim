@@ -1,7 +1,7 @@
 local tborder = "none"
 
 if vim.g.neovide then
-    tborder = "rounded"
+    tborder = "single"
 end
 
 return {

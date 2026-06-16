@@ -291,6 +291,9 @@ vim.opt.listchars = {
         vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#cccccc" })
         vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#cccccc" })
 
+        vim.api.nvim_set_hl(0, "IblScope", { link = "LineNr" } )
+
+
         -- nixos shenanigans cause this to be undercurled for some reason probably
         --vim.api.nvim_set_hl(0, "@lsp.type.unresolvedReference", { undercurl = false })
     end
