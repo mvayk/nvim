@@ -1,6 +1,6 @@
 -- cmp
 local config = require("mvayk.settings")
-local enabled = config.lsp_system == "cmp"
+local enabled = false
 
 local servers = {
     "lua_ls",
