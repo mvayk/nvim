@@ -24,10 +24,10 @@ local servers = {
 }
 
 local tools = {
-    "nixfmt",
+    -- "nixfmt",
     -- "prettier",
     -- "ruff",
-    --"clang-format",
+    -- "clang-format",
     -- "goimports",
     -- "shfmt",
     -- "taplo",

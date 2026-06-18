@@ -28,7 +28,7 @@ local servers = {
 }
 
 local mason_tools = {
-    "nixfmt",
+    "alejandra",
     -- "prettier",
     -- "ruff",
     --"clang-format",

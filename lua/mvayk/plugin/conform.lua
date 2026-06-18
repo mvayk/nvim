@@ -26,7 +26,7 @@ return {
                 return { timeout_ms = 500, lsp_fallback = false }
             end,
             formatters_by_ft = {
-                nix = { "nixfmt" },
+                nix = { "alejandra" },
             },
         })
     end,
