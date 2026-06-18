@@ -16,6 +16,7 @@ local servers = {
     "html",
     "cssls",
     "eslint",
+    "qmlls",
     "gopls",
     "bashls",
     "jsonls",

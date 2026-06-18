@@ -27,3 +27,7 @@ if not ok then
     vim.o.background = "dark"
     vim.cmd([[colorscheme rose-pine]])
 end
+
+if settings.use_base16_colorscheme then
+    require("matugen").setup()
+end
