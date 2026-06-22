@@ -28,6 +28,6 @@ if not ok then
     vim.cmd([[colorscheme rose-pine]])
 end
 
-if settings.use_base16_colorscheme then
+if settings.use_matugen then
     require("matugen").setup()
 end
