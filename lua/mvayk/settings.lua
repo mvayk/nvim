@@ -1,7 +1,7 @@
 local tborder = "none"
 
 if vim.g.neovide then
-    tborder = "single"
+    tborder = "none"
 end
 
 return {
@@ -12,8 +12,8 @@ return {
     neovide_transparency = false,
     neovide_animations = false,
     neovide_line_modes = false,
-    icon_theme_package = "nvim-web-devicons",
-    --icon_theme_package = "nvim-material-icon",
+    icon_theme_package = "nvim-tree/nvim-web-devicons",
+    --icon_theme_package = "nvim-tree/nvim-material-icon",
     use_base16_colorscheme = true,
     lsp_enabled = true,
     --lsp_system = "blink", --[[ blink, cmp ]]

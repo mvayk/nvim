@@ -8,37 +8,20 @@ local is_nixos = vim.fn.executable("nix-store") == 1
 local servers = {
     "lua_ls",
     "clangd",
-    "ast_grep",
-    "nil_ls",
-    "rust_analyzer",
-    "pyright",
-    "ts_ls",
-    "html",
-    "cssls",
-    "eslint",
-    --"qmlls",
-    "gopls",
-    "bashls",
-    "jsonls",
-    "yamlls",
-    "taplo",
-    "dockerls",
-    "zls",
-    "tailwindcss",
 }
 
 local mason_tools = {
-    "alejandra",
-    -- "prettier",
-    -- "ruff",
+    "ast_grep",
+    "prettier",
+    "ruff",
     --"clang-format",
-    -- "goimports",
-    -- "shfmt",
-    -- "taplo",
-    -- "stylua",
-    -- "shellcheck",
-    -- "hadolint",
-    -- "markdownlint-cli2",
+    "goimports",
+    "shfmt",
+    "taplo",
+    "stylua",
+    "shellcheck",
+    "hadolint",
+    "markdownlint-cli2",
 }
 
 if enabled then
@@ -67,13 +50,11 @@ if enabled then
 
     table.insert(plugins, {
         "neovim/nvim-lspconfig",
-        dependencies = not is_nixos
-        and {
+        dependencies = not is_nixos and {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "saghen/blink.cmp",
-        }
-        or {
+        } or {
             "saghen/blink.cmp",
         },
         config = function()
