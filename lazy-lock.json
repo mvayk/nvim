@@ -50,6 +50,7 @@
   "neo-tree.nvim": { "branch": "v3.x", "commit": "9d6826582a3e8c84787bd7355df22a2812a1ad59" },
   "neogit": { "branch": "master", "commit": "75ca811db3ca3e43137596d25d26e57331540ee0" },
   "neomodern.nvim": { "branch": "main", "commit": "d41469578922a23d75a0d9e8deef1e34837230a6" },
+  "neopywal": { "branch": "master", "commit": "95425eea6411eebc17c2fcdc46d1c45e57d99205" },
   "neotypist.nvim": { "branch": "master", "commit": "23570aedca4bb4d92967ac82e053cf4d4903abe9" },
   "night-owl.nvim": { "branch": "main", "commit": "86ed124c2f7e118670649701288e024444bf91e5" },
   "nightfox.nvim": { "branch": "main", "commit": "26b61b1f856ec37cae3cb64f5690adb955f246a1" },
