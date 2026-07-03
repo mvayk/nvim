@@ -3,7 +3,7 @@ return {
     "folke/snacks.nvim",
     enabled = true,
     priority = 1000, -- load early
-    lazy = false,    -- important for picker/explorer availability
+    lazy = false, -- important for picker/explorer availability
     opts = {
         dashboard = {
             enabled = true,
@@ -25,10 +25,12 @@ return {
             enabled = true,
             preview = true,
             layout = {
-                preset = "ivy",
+                preset = "telescope",
+                --[[
                 layout = {
                     position = "top",
                 },
+                ]]
             },
             sources = {
                 explorer = {

@@ -83,9 +83,9 @@ if settings.lsp_enabled then
                         padding = 1,
                         gap = 1,
                         columns = {
+                            { "kind_icon" },
                             { "label", "label_description", gap = 1 },
                             { "kind" },
-                            --{ "kind_icon", "kind" },
                         },
                     },
                 },
