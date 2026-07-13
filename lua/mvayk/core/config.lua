@@ -450,6 +450,16 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        vim.keymap.set("n", "<leader>r", function()
+            vim.cmd("w")
+            vim.cmd("split | terminal python3 %")
+        end, { buffer = true, desc = "Run Python file" })
+    end,
+})
+
 --[[
     vim.api.nvim_create_autocmd("User", {
         pattern = "BlinkCmpMenuOpen",

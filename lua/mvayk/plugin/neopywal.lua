@@ -1,7 +1,7 @@
 return {
     "RedsXDD/neopywal.nvim",
     name = "neopywal",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     opts = {},
