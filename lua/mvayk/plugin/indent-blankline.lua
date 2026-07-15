@@ -1,6 +1,6 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     event = "VeryLazy",
     main = "ibl",
@@ -8,9 +8,9 @@ return {
     ---@type ibl.config
     opts = {
         scope = {
-            enabled = true,     -- keep the current scope highlight (vertical line through the block)
+            enabled = true, -- keep the current scope highlight (vertical line through the block)
             show_start = false, -- ← disables underline on first line of scope
-            show_end = false,   -- ← disables underline on last line of scope
+            show_end = false, -- ← disables underline on last line of scope
         },
         whitespace = {
             highlight = "Whitespace",
