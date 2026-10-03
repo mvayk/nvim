@@ -8,6 +8,7 @@ local is_nixos = vim.fn.executable("nix-store") == 1
 local servers = {
     "lua_ls",
     "clangd",
+    "rust_analyzer",
 }
 
 local mason_tools = {
