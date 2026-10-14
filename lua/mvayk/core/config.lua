@@ -156,7 +156,7 @@ map("n", "<leader>ll", function()
 end, { desc = "Diagnostics" })
 map("n", "<leader>lk", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map("n", "<leader>lj", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
+map("n", "<leader>l;", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
 
 local function toggle_completion()
     -- treat nil as true (enabled by default)
