@@ -1,6 +1,6 @@
 return {
     "akinsho/bufferline.nvim",
-    enabled = true,
+    enabled = false,
     version = "*",
     dependencies = require("mvayk.settings").icon_theme_package,
     config = function()

@@ -24,13 +24,11 @@ return {
         picker = {
             enabled = true,
             layout = {
-                preset = "ivy",
+                preset = "ivy_split",
                 backdrop = false,
-                --[[
-                layout = {
-                    position = "top",
-                },
-                ]]
+                -- layout = {
+                --     position = "top",
+                -- },
             },
             -- win = {
             --     backdrop = false,
@@ -49,7 +47,7 @@ return {
                         },
                     },
                 },
-                files = { hidden = true }, -- for regular file picker
+                files = { hidden = false }, -- for regular file picker
             },
         },
     },

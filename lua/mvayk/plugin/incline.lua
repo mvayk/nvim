@@ -8,14 +8,15 @@ return {
         {
             require("mvayk.settings").icon_theme_package,
             lazy = false,
-        }
+        },
     },
     event = "BufReadPre",
     priority = 1200,
+
     config = function()
         local opts = {
             window = { margin = { vertical = 2, horizontal = 2 } },
-            hide = { cursorline = true },
+            hide = { cursorline = false },
             render = function(props)
                 local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
                 -- if vim.bo[props.buf].modified then
@@ -23,8 +24,10 @@ return {
                 -- end
                 local ok, devicons = pcall(require, require("mvayk.settings").icon_theme_package)
                 local icon, color = "", nil
-                if ok then icon, color = devicons.get_icon_color(filename) end
-                return { { icon, guifg = color }, { " " }, { filename } }
+                if ok then
+                    icon, color = devicons.get_icon_color(filename)
+                end
+                return { { icon, guifg = color }, { "" }, { filename } }
             end,
         }
 
@@ -32,8 +35,8 @@ return {
             local colors = require("solarized-osaka.colors").setup()
             opts.highlight = {
                 groups = {
-                    InclineNormal   = { guibg = colors.magenta500, guifg = colors.base04 },
-                    InclineNormalNC = { guifg = colors.violet500,  guibg = colors.base03 },
+                    InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
+                    InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
                 },
             }
         end

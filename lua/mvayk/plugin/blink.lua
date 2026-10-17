@@ -63,10 +63,11 @@ if settings.lsp_enabled then
                 documentation = {
                     auto_show = settings.show_blink_documentation, --false
                     auto_show_delay_ms = 0,
+                    treesitter_highlighting = false,
                     window = {
                         border = settings.border,
-                        -- winblend = 0,
-                        -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        --winblend = 0,
+                        --winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         max_width = 40,
                     },
                 },
@@ -80,18 +81,29 @@ if settings.lsp_enabled then
                     -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                     auto_show_delay_ms = 0,
                     draw = {
-                        padding = 1,
-                        gap = 1,
+                        -- padding = 1,
+                        -- gap = 1,
                         columns = {
-                            { "label", "label_description", gap = 1 },
+                            { "label", gap = 1 },
+                            --{ "label_description", gap = 1 },
                             { "kind_icon" },
                             { "kind" },
+                        },
+                        components = {
+                            label = {
+                                text = function(ctx)
+                                    return require("colorful-menu").blink_components_text(ctx)
+                                end,
+                                highlight = function(ctx)
+                                    return require("colorful-menu").blink_components_highlight(ctx)
+                                end,
+                            },
                         },
                     },
                 },
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
+                default = { "lsp", "path", "snippets", "buffer", "omni" },
             },
         },
     }
