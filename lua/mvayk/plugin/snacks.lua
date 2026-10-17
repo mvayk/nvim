@@ -23,15 +23,18 @@ return {
         },
         picker = {
             enabled = true,
-            preview = true,
             layout = {
-                preset = "telescope",
+                preset = "ivy",
+                backdrop = false,
                 --[[
                 layout = {
                     position = "top",
                 },
                 ]]
             },
+            -- win = {
+            --     backdrop = false,
+            -- },
             sources = {
                 explorer = {
                     tree = true,
@@ -47,9 +50,6 @@ return {
                     },
                 },
                 files = { hidden = true }, -- for regular file picker
-                win = {
-                    backdrop = false,
-                },
             },
         },
     },

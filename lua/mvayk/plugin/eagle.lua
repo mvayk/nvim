@@ -1,5 +1,6 @@
 return {
     "soulis-1256/eagle.nvim",
+    enabled = false,
     opts = {
         keyboard_mode = true,
     },

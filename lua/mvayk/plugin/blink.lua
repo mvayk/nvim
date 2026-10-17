@@ -67,7 +67,7 @@ if settings.lsp_enabled then
                         border = settings.border,
                         -- winblend = 0,
                         -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-                        max_width = 90,
+                        max_width = 40,
                     },
                 },
                 menu = {
@@ -80,11 +80,11 @@ if settings.lsp_enabled then
                     -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                     auto_show_delay_ms = 0,
                     draw = {
-                        -- padding = 1,
-                        -- gap = 1,
+                        padding = 1,
+                        gap = 1,
                         columns = {
-                            --{ "kind_icon" },
                             { "label", "label_description", gap = 1 },
+                            { "kind_icon" },
                             { "kind" },
                         },
                     },
