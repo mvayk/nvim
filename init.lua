@@ -20,7 +20,6 @@ require("lazy").setup({
 })
 
 local settings = require("mvayk.settings")
-
 local ok, _ = pcall(dofile, settings.theme_file)
 if not ok then
     print("Creating theme file")
