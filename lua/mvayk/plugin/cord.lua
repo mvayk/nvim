@@ -2,5 +2,11 @@ return {
     "vyfor/cord.nvim",
     enabled = true,
     build = ":Cord update",
-    -- opts = {}
+
+    config = function()
+        display = {
+            theme = "minecraft",
+            flavour = "dark",
+        }
+    end,
 }
