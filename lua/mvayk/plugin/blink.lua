@@ -12,8 +12,8 @@ if settings.lsp_enabled then
         opts = {
             keymap = {
                 preset = "default",
-                ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-                ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+                ["<C-S-j>"] = { "scroll_documentation_down", "fallback" },
+                ["<C-S-k>"] = { "scroll_documentation_up", "fallback" },
                 ["<C-j>"] = { "select_next", "fallback" },
                 ["<C-k>"] = { "select_prev", "fallback" },
                 --["<Tab>"] = { "select_next", "fallback" },
@@ -26,7 +26,7 @@ if settings.lsp_enabled then
                 ["<CR>"] = { "fallback" },
             },
             appearance = {
-                use_nvim_cmp_as_default = false,
+                use_nvim_cmp_as_default = true,
                 --nerd_font_variant = "mono",
             },
             signature = {
@@ -36,7 +36,7 @@ if settings.lsp_enabled then
                 },
                 window = {
                     border = settings.border,
-                    show_documentation = false,
+                    show_documentation = settings.show_blink_documentation,
                 },
             },
             completion = {
@@ -53,7 +53,7 @@ if settings.lsp_enabled then
                         auto_insert = false,
                         preselect = true,
                     },
-                    max_items = 200,
+                    max_items = 2000,
                 },
                 accept = {
                     auto_brackets = {
@@ -61,13 +61,13 @@ if settings.lsp_enabled then
                     },
                 },
                 documentation = {
-                    auto_show = false,
+                    auto_show = settings.show_blink_documentation, --false
                     auto_show_delay_ms = 0,
                     window = {
                         border = settings.border,
-                        winblend = 0,
-                        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-                        max_width = 90,
+                        -- winblend = 0,
+                        -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        max_width = 40,
                     },
                 },
                 menu = {
@@ -76,15 +76,15 @@ if settings.lsp_enabled then
                     end,
                     max_height = 15,
                     border = settings.border,
-                    winblend = 0,
-                    winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                    -- winblend = 0,
+                    -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                     auto_show_delay_ms = 0,
                     draw = {
                         padding = 1,
                         gap = 1,
                         columns = {
-                            { "kind_icon" },
                             { "label", "label_description", gap = 1 },
+                            { "kind_icon" },
                             { "kind" },
                         },
                     },

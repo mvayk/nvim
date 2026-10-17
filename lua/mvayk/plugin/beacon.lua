@@ -1,5 +1,6 @@
 return {
     "danilamihailov/beacon.nvim",
+    enabled = false,
     lazy = true,
 
     config = function()

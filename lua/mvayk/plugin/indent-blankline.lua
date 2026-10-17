@@ -1,7 +1,7 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
-    lazy = false,
+    enabled = true,
+    lazy = true,
     event = "VeryLazy",
     main = "ibl",
     ---@module "ibl"
