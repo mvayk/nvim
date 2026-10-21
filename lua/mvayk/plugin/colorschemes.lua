@@ -69,6 +69,7 @@ local function install_colorschemes()
         { "xiantang/darcula-dark.nvim", lazy = q },
         { "nvimdev/oxocarbon.nvim", lazy = q },
         { "chip0tle/nvim-occult-umbral", lazy = q },
+        { "fzdwx/aura.nvim", lazy = q },
     }
 end
 

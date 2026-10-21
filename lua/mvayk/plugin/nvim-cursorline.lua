@@ -1,6 +1,6 @@
 return {
     "ya2s/nvim-cursorline",
-    enabled = true,
+    enabled = false,
     lazy = true,
     event = "VeryLazy",
     config = function()
