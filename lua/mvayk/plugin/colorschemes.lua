@@ -5,7 +5,7 @@ local settings = require("mvayk.settings")
 
 local function install_colorschemes()
     local q = false
-    return {
+    local colorschemes = {
         { "rktjmp/lush.nvim", lazy = q },
         { "folke/tokyonight.nvim", lazy = q },
         { "rebelot/kanagawa.nvim", lazy = q },
@@ -34,7 +34,7 @@ local function install_colorschemes()
         { "luisiacc/gruvbox-baby", lazy = q },
         { "catppuccin/nvim", name = "catppuccin", lazy = q },
         { "rose-pine/neovim", name = "rose-pine", lazy = q },
-        { "nyoom-engineering/oxocarbon.nvim", lazy = q },
+        --{ "nyoom-engineering/oxocarbon.nvim", lazy = q },
         { "bluz71/vim-moonfly-colors", lazy = q },
         { "bluz71/vim-nightfly-colors", lazy = q },
         { "jacoborus/tender.vim", lazy = q },
@@ -67,10 +67,18 @@ local function install_colorschemes()
         { "Mofiqul/vscode.nvim", lazy = q },
         { "Mofiqul/dracula.nvim", lazy = q },
         { "xiantang/darcula-dark.nvim", lazy = q },
-        { "nvimdev/oxocarbon.nvim", lazy = q },
+        --{ "nvimdev/oxocarbon.nvim", lazy = q },
         { "chip0tle/nvim-occult-umbral", lazy = q },
         { "fzdwx/aura.nvim", lazy = q },
     }
+
+    local vimcolorschemesdotcom = require("colors.vimcolorschemesdotcom").get_schemes(q, 20)
+
+    for _, v in pairs(vimcolorschemesdotcom) do
+        table.insert(colorschemes, v)
+    end
+
+    return colorschemes
 end
 
 if settings.use_base16_colorscheme then
