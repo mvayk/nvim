@@ -5,8 +5,7 @@ return {
     ---@type CordConfig
     opts = {
         display = {
-            theme = "minecraft",
             flavor = "dark",
-        }
-    }
+        },
+    },
 }
