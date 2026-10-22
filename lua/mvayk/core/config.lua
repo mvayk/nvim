@@ -249,18 +249,6 @@ local function anti_background()
         "StatusLine",
         "StatusLineNC",
 
-        "NeoTreeNormal",
-        "NeoTreeNormalNC",
-        "NeoTreeEndOfBuffer",
-        "NeoTreeFloatBorder",
-        "NeoTreeTitleBar",
-        "NeoTreeWinSeparator",
-        "NeoTreeFileName",
-        "NeoTreeDirectoryName",
-        "NeoTreeRootName",
-        "NeoTreeGitUntracked",
-        "NeoTreeGitModified",
-
         --[[ "lualine_a_normal",
             "lualine_b_normal",
             "lualine_c_normal",
@@ -298,10 +286,62 @@ local function anti_background()
         "SnacksNotifierDebug",
         "SnacksNotifierTrace",
         "SnacksNotifierBorder",
+
+        "DropBarHover",
+        "DropBarCurrentContext",
+        "DropBarMenuCurrentContext",
+        "DropBarMenuFloatBorder",
+        "DropBarMenuHoverEntry",
+        "DropBarMenuHoverIcon",
+        "DropBarMenuHoverSymbol",
+        "DropBarMenuSbar",
+
+        "CursorLine",
+        "ColorColumn",
+        "Folded",
+        "VertSplit",
+        "TabLine",
+        "TabLineFill",
+        "TabLineSel",
+        "MsgArea",
+        "WinBar",
+        "WinBarNC",
+        "NormalSB",
+        "TelescopeNormal",
+        "TelescopeBorder",
+        "NeoTreeStatusLine",
+        "NeoTreeStatusLineNC",
+        "SnacksNormal",
+        "SnacksNormalNC",
+        "SnacksWinBar",
+        "LualineNormal",
+
+        "NeoTreeNormal",
+        "NeoTreeNormalNC",
+        "NeoTreeEndOfBuffer",
+        "NeoTreeFloatBorder",
+        "NeoTreeTitleBar",
+        "NeoTreeWinSeparator",
+        "NeoTreeFileName",
+        "NeoTreeDirectoryName",
+        "NeoTreeRootName",
+        "NeoTreeGitUntracked",
+        "NeoTreeGitModified",
+
+        "NeoTreeTabInactive",
+        "NeoTreeTabActive",
+        "NeoTreeTabInactive",
+        "NeoTreeTabSeparatorInactive",
+        "NeoTreeTabSeparatorActive",
     }
 
     for _, group in ipairs(groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
+        -- local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+        -- hl.bg, hl.ctermbg = nil, nil
+        --
+        -- vim.api.nvim_set_hl(0, group, hl)
+        local g = group
+        vim.cmd(("hi %s guibg=NONE ctermbg=NONE"):format(g))
     end
 
     vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" })
@@ -341,7 +381,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
             file:close()
         end
         if settings.transparent_background then
-            anti_background()
+            vim.schedule(anti_background)
         end
     end,
 })
