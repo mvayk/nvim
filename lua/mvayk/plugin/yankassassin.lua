@@ -1,6 +1,6 @@
 return {
     "svban/YankAssassin.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     event = "VeryLazy",
     config = function()

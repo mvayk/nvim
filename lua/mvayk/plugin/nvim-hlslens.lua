@@ -1,7 +1,7 @@
 return {
     "kevinhwang91/nvim-hlslens",
     enabled = true,
-    lazy = true,
+    lazy = false,
     event = "VeryLazy",
 
     config = function()

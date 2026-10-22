@@ -10,10 +10,10 @@ return {
             enable_moveright = true,
             enable_afterquote = true,
         })
-
         local rule = require("nvim-autopairs.rule")
         local npairs = require("nvim-autopairs")
 
         npairs.add_rule(rule("/*", "*/"))
+        npairs.add_rule(rule("<", ">"))
     end,
 }
