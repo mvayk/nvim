@@ -1,5 +1,3 @@
-local anti_background = require("transparency")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -27,15 +25,12 @@ if not ok then
     vim.cmd([[colorscheme rose-pine]])
 end
 
-vim.api.nvim_create_autocmd("User", {
-    pattern = "VeryLazy",
+local anti_background = require("transparency")
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = vim.api.nvim_create_augroup("UserTransparency", { clear = true }),
     callback = function()
         if settings.transparent_background then
             vim.schedule(anti_background)
         end
     end,
 })
-
-if settings.use_matugen then
-    require("matugen").setup()
-end

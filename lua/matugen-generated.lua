@@ -1,0 +1,25 @@
+local colors = {
+    primary = "#ebbf81",
+    on_primary = "#442b00",
+    primary_container = "#b18a51",
+    on_primary_container = "#1e1000",
+    secondary = "#dbc3a5",
+    on_secondary = "#3c2e19",
+    secondary_container = "#54442d",
+    tertiary = "#c2cc8e",
+    on_tertiary = "#2c3405",
+    error = "#ffb4ab",
+    on_error = "#690005",
+    background = "#16130f",
+    on_background = "#eae1da",
+    surface = "#16130f",
+    on_surface = "#eae1da",
+    surface_variant = "#4f453a",
+    on_surface_variant = "#d2c4b5",
+    surface_container = "#231f1b",
+    surface_container_high = "#2d2925",
+    outline = "#9b8f81",
+    outline_variant = "#4f453a",
+}
+
+return colors
