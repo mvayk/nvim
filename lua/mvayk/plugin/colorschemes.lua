@@ -368,7 +368,7 @@ local function get_schemes(lazyloaded, top)
         { "daaanny90/iterm2-dark-background.nvim", lazy = lazyloaded },
         { "daaanny90/zed.nvim", lazy = lazyloaded },
         { "daddye/soda.vim", lazy = lazyloaded },
-        { "daedlock/matugen.nvim", lazy = lazyloaded },
+        --{ "daedlock/matugen.nvim", lazy = lazyloaded },
         { "daenuprobst/lcarsoft", lazy = lazyloaded },
         { "daiki48/coolnessflair.vim", lazy = lazyloaded },
         { "daiki48/sakurajima.nvim", lazy = lazyloaded },
@@ -1521,7 +1521,7 @@ local function get_schemes(lazyloaded, top)
         { "sefidel/avalanche.nvim", lazy = lazyloaded },
         { "sektant1/naysayer-colors.nvim", lazy = lazyloaded },
         { "semibran/vim-colors-synthetic", lazy = lazyloaded },
-        { "senal-d-a-gunaratna/matugen.nvim", lazy = lazyloaded },
+        --{ "senal-d-a-gunaratna/matugen.nvim", lazy = lazyloaded },
         { "senran101604/neotrix.vim", lazy = lazyloaded },
         { "sequoia-theme/neovim", lazy = lazyloaded },
         { "severij/vadelma", lazy = lazyloaded },
@@ -2014,9 +2014,6 @@ if settings.use_base16_colorscheme then
     return {
         install_colorschemes(),
         "RRethy/base16-nvim",
-        config = function()
-            require("matugen").setup()
-        end,
     }
 else
     return install_colorschemes()
