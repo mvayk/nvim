@@ -1,4 +1,4 @@
-local settings = require("mvayk.settings")
+local settings = require("settings")
 
 if settings.lsp_enabled then
     return {

@@ -1,7 +1,7 @@
 -- vim.cmd[[highpight Pmenu ctermbg=black guibg=black]]
 --// vim.g.material_style = "deep ocean"
 
-local settings = require("mvayk.settings")
+local settings = require("settings")
 
 local function get_schemes(lazyloaded, top)
     local urls = {
@@ -2010,11 +2010,4 @@ local function install_colorschemes()
     return colorschemes
 end
 
-if settings.use_base16_colorscheme then
-    return {
-        install_colorschemes(),
-        "RRethy/base16-nvim",
-    }
-else
-    return install_colorschemes()
-end
+return install_colorschemes()

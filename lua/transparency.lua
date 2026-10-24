@@ -135,7 +135,7 @@ local function anti_background()
 
     vim.api.nvim_set_hl(0, "IblScope", { link = "LineNr" })
 
-    if require("mvayk.plugin.neo-tree").enabled then
+    if require("plugins.neo-tree").enabled then
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "neo-tree",
             callback = function()

@@ -1,6 +1,4 @@
-require("mvayk.core")
-
-local anti_background = require("mvayk.transparency")
+local anti_background = require("transparency")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,13 +13,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("mvayk.core.config")
+require("core.config")
 
 require("lazy").setup({
-    import = "mvayk.plugin",
+    import = "plugins",
 })
 
-local settings = require("mvayk.settings")
+local settings = require("settings")
 local ok, _ = pcall(dofile, settings.theme_file)
 if not ok then
     print("Creating theme file")

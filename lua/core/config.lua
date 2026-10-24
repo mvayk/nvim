@@ -1,6 +1,6 @@
-local settings = require("mvayk.settings")
+local settings = require("settings")
 
-local anti_background = require("mvayk.transparency")
+local anti_background = require("transparency")
 
 vim.o.updatetime = 0
 --vim.o.laststatus = 3

@@ -6,7 +6,7 @@ return {
     dependencies = {
         "craftzdog/solarized-osaka.nvim",
         {
-            require("mvayk.settings").icon_theme_package,
+            require("settings").icon_theme_package,
             lazy = false,
         },
     },
@@ -22,7 +22,7 @@ return {
                 -- if vim.bo[props.buf].modified then
                 --     filename = "[+] " .. filename
                 -- end
-                local ok, devicons = pcall(require, require("mvayk.settings").icon_theme_package)
+                local ok, devicons = pcall(require, require("settings").icon_theme_package)
                 local icon, color = "", nil
                 if ok then
                     icon, color = devicons.get_icon_color(filename)

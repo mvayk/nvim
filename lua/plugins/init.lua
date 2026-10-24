@@ -1,6 +1,6 @@
 local plugins = {}
 
-local plugin_path = vim.fn.stdpath("config") .. "/lua/mvayk/plugin"
+local plugin_path = vim.fn.stdpath("config") .. "/lua/plugins"
 
 local uv = vim.loop
 local handle = uv.fs_scandir(plugin_path)
@@ -13,7 +13,7 @@ if handle then
         end
         if type == "file" and name:match("%.lua$") and name ~= "init.lua" then
             local mod_name = name:gsub("%.lua$", "")
-            local ok, plugin = pcall(require, "mvayk.plugin." .. mod_name)
+            local ok, plugin = pcall(require, "plugins." .. mod_name)
             if ok and plugin then
                 vim.list_extend(plugins, plugin)
             else

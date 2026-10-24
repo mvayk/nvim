@@ -6,7 +6,7 @@ return {
     branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        require("mvayk.settings").icon_theme_package,
+        require("settings").icon_theme_package,
         "MunifTanjim/nui.nvim",
     },
     ---@module "neo-tree"

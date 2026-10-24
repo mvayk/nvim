@@ -14,7 +14,6 @@ return {
     neovide_line_modes = false,
     icon_theme_package = "nvim-tree/nvim-web-devicons",
     --icon_theme_package = "nvim-tree/nvim-material-icon",
-    use_base16_colorscheme = true,
     lsp_enabled = true,
     --lsp_system = "blink", --[[ blink, cmp ]]
     show_blink_documentation = true,

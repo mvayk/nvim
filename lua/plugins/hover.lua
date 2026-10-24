@@ -1,4 +1,4 @@
-local settings = require("mvayk.settings")
+local settings = require("settings")
 return {
     "lewis6991/hover.nvim",
     enabled = false,

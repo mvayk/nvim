@@ -15,7 +15,7 @@ if enabled then
             dependencies = { "nvim-tree/nvim-web-devicons" },
 
             config = function()
-                require("mvayk.plugin.lualine_themes.personal").load()
+                require("plugins.lualine_themes.personal").load()
             end,
         }
     elseif theme == "slanted-gaps" then
@@ -25,7 +25,7 @@ if enabled then
             dependencies = { "nvim-tree/nvim-web-devicons" },
 
             config = function()
-                require("mvayk.plugin.lualine_themes.slanted-gaps").load()
+                require("plugins.lualine_themes.slanted-gaps").load()
             end,
         }
     elseif theme == "block" then
@@ -224,7 +224,7 @@ if enabled then
             dependencies = { "nvim-tree/nvim-web-devicons" },
 
             config = function()
-                require("mvayk.plugin.lualine_themes.evil").load()
+                require("plugins.lualine_themes.evil").load()
             end,
         }
     elseif theme == "cosmicink" then
@@ -234,7 +234,7 @@ if enabled then
             dependencies = { "nvim-tree/nvim-web-devicons" },
 
             config = function()
-                require("mvayk.plugin.lualine_themes.cosmicink").load()
+                require("plugins.lualine_themes.cosmicink").load()
             end,
         }
     end

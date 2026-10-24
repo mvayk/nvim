@@ -1,5 +1,5 @@
 -- cmp
-local config = require("mvayk.settings")
+local config = require("settings")
 local enabled = false
 
 local servers = {
@@ -51,7 +51,8 @@ if enabled then
         { "williamboman/mason-lspconfig.nvim" },
         { "lopi-py/luau-lsp.nvim" },
         { "mfussenegger/nvim-lint" },
-        { "L3MON4D3/LuaSnip",
+        {
+            "L3MON4D3/LuaSnip",
             dependencies = { "rafamadriz/friendly-snippets", "molleweide/LuaSnip-snippets.nvim" },
             config = function()
                 require("luasnip.loaders.from_vscode").lazy_load()

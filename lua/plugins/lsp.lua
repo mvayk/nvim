@@ -1,6 +1,6 @@
 --big thanks to big baby girl claude
 -- blink
-local config = require("mvayk.settings")
+local config = require("settings")
 local enabled = config.lsp_enabled
 
 local is_nixos = vim.fn.executable("nix-store") == 1

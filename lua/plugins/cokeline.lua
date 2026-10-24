@@ -3,7 +3,7 @@ return {
     enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim", -- Required for v0.4.0+
-        require("mvayk.settings").icon_theme_package,
+        require("settings").icon_theme_package,
         "stevearc/resession.nvim", -- Optional, for persistent history
     },
     config = function()

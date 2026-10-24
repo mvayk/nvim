@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup()
+if require("settings").use_matugen then
     require("base16-colorscheme").setup({
         -- Background tones
         base00 = "{{colors.surface.default.hex}}", -- Default Background
