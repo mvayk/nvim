@@ -32,8 +32,8 @@ if vim.g.neovide == true then
     vim.o.cursorcolumn = false
 
     if settings.neovide_line_modes == true then
-        vim.o.cursorline = false
-        vim.o.cursorcolumn = true
+        vim.o.cursorline = true
+        vim.o.cursorcolumn = false
 
         vim.api.nvim_create_autocmd("InsertEnter", {
             callback = function()
@@ -44,8 +44,8 @@ if vim.g.neovide == true then
 
         vim.api.nvim_create_autocmd("InsertLeave", {
             callback = function()
-                vim.o.cursorline = false
-                vim.o.cursorcolumn = true
+                vim.o.cursorline = true
+                vim.o.cursorcolumn = false
             end,
         })
     end

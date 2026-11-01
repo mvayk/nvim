@@ -2,7 +2,7 @@ local solarized_osaka = false
 return {
     --[[ https://github.com/Fadilix/dotfiles/blob/main/nvim/lua/plugins/ui.lua ]]
     "b0o/incline.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = {
         "craftzdog/solarized-osaka.nvim",
         {
@@ -16,7 +16,7 @@ return {
     config = function()
         local opts = {
             window = { margin = { vertical = 2, horizontal = 2 } },
-            hide = { cursorline = false },
+            hide = { cursorline = true },
             render = function(props)
                 local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
                 -- if vim.bo[props.buf].modified then
