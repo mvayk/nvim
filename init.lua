@@ -29,6 +29,7 @@ local anti_background = require("transparency")
 vim.api.nvim_create_autocmd("ColorScheme", {
     group = vim.api.nvim_create_augroup("UserTransparency", { clear = true }),
     callback = function()
+        vim.api.nvim_set_hl(0, "CursorLineSign", { link = "CursorLine" })
         if settings.transparent_background then
             vim.schedule(anti_background)
         end

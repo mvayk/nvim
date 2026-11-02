@@ -27,6 +27,9 @@ vim.opt.termguicolors = true
 --// vim.api.nvim_set_option("clipboard", "unnamedplus")
 vim.o.exrc = true
 
+vim.o.mouse = "a"
+vim.o.mousemodel = "popup"
+
 if vim.g.neovide == true then
     vim.o.cursorline = true
     vim.o.cursorcolumn = false
@@ -114,8 +117,6 @@ end, { nargs = "?" })
 map("n", "<C-n>", ":bnext<CR>", { desc = "Goto next buffer" })
 map("n", "<C-p>", ":bprev<CR>", { desc = "Goto previous buffer" })
 map("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
-map("n", "<leader>w", ":w<CR>", { desc = "Write file" })
-map("n", "<leader>q", ":q!<CR>", { desc = "Force quit" })
 map({ "n", "x", "o" }, "<C-x>", "/\\s<CR>", { desc = "Jump to next space", silent = true })
 map({ "n", "x", "o" }, "<C-a>", "?\\s<CR>", { desc = "Jump to previous space", silent = true })
 map("n", "<leader>bq", ":bd!<CR>", { desc = "Force delete buffer", silent = true })
@@ -136,6 +137,14 @@ vim.keymap.set("n", "<leader>tn", function()
 end, { desc = "Open terminal in bottom third" })
 
 --// LSP Related
+if not vim.g.neovide then
+    map("n", "<leader>q", ":q!<CR>", { desc = "Force quit" })
+else
+    vim.lsp.inlay_hint.enable(true)
+end
+
+map("n", "<leader>w", ":w<CR>", { desc = "Write file" })
+
 map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader>ld", function()
     Snacks.picker.lsp_definitions()
@@ -360,6 +369,13 @@ vim.api.nvim_create_autocmd("FileType", {
         end, { buffer = true, desc = "Run Python file" })
     end,
 })
+
+--[[ deleting overriding clipboard fix]]
+vim.keymap.set({ "n", "x" }, "x", '"_x')
+vim.keymap.set({ "n", "x" }, "X", '"_X')
+vim.keymap.set({ "n", "x" }, "c", '"_c')
+vim.keymap.set({ "n", "x" }, "C", '"_C')
+vim.keymap.set("x", "p", "P")
 
 --[[
     vim.api.nvim_create_autocmd("User", {

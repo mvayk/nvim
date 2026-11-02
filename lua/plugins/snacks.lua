@@ -1,4 +1,9 @@
 -- oh for fuck sakes!
+local preset = "ivy_split"
+if vim.g.neovide then
+    preset = "vscode"
+end
+
 return {
     "folke/snacks.nvim",
     enabled = true,
@@ -24,15 +29,12 @@ return {
         picker = {
             enabled = true,
             layout = {
-                preset = "ivy_split",
-                backdrop = false,
-                -- layout = {
-                --     position = "top",
-                -- },
+                preset = preset,
+                layout = {
+                    border = "none",
+                    backdrop = false,
+                },
             },
-            -- win = {
-            --     backdrop = false,
-            -- },
             sources = {
                 explorer = {
                     tree = true,

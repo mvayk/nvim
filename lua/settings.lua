@@ -11,7 +11,7 @@ return {
     use_matugen = false,
     neovide_transparency = false,
     neovide_animations = true,
-    neovide_line_modes = true,
+    neovide_line_modes = false,
     icon_theme_package = "nvim-tree/nvim-web-devicons",
     --icon_theme_package = "nvim-tree/nvim-material-icon",
     lsp_enabled = true,

@@ -20,6 +20,8 @@ VictorMono Nerd Font Mono:h15
 
     settings.transparent_background = settings.neovide_transparency
 
+    vim.g.neovide_cursor_vfx_mode = "sonicboom"
+
     if not settings.neovide_animations then
         vim.g.neovide_cursor_animation_length = 0.00
         vim.g.neovide_cursor_trail_size = 0
