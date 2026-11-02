@@ -39,8 +39,12 @@ local function get_opts(preset)
     end
 end
 
-return {
-    "sschleemilch/slimline.nvim",
-    enabled = true,
-    opts = get_opts(preset),
-}
+if vim.g.neovide then
+    return {
+        "sschleemilch/slimline.nvim",
+        enabled = true,
+        opts = get_opts(preset),
+    }
+else
+    return {}
+end

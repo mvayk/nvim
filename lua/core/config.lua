@@ -73,17 +73,32 @@ vim.g.loaded_lua_indent = 1
 -- vim.opt.timeoutlen = 300
 
 vim.o.list = true
-vim.opt.listchars = {
-    --space = "⋅",
-    --eol = "↴",
-    --lead = "⋅",
-    --tab = "▎_",
-    tab = "󰄾 ",
-    trail = "•",
-    extends = "❯",
-    precedes = "❮",
-    nbsp = "",
-}
+
+--space = "⋅",
+--eol = "↴",
+--lead = "⋅",
+--tab = "▎_",
+local function get_listchars()
+    if vim.g.neovide then
+        return {
+            tab = "󰄾 ",
+            trail = "•",
+            extends = "❯",
+            precedes = "❮",
+            nbsp = "",
+        }
+    else
+        return {
+            tab = ">>",
+            trail = ".",
+            extends = ">",
+            precedes = "<",
+            nbsp = "x",
+        }
+    end
+end
+
+vim.opt.listchars = get_listchars()
 -- vim.opt.fillchars = {
 --     fold = " ",
 --     foldsep = " ",

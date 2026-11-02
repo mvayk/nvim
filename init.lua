@@ -25,13 +25,51 @@ if not ok then
     vim.cmd([[colorscheme rose-pine]])
 end
 
+--[[ just in case ]]
+vim.api.nvim_create_autocmd("ColorSchemePre", {
+    callback = function()
+        vim.cmd("highlight clear")
+        if vim.fn.exists("syntax_on") == 1 then
+            vim.cmd("syntax reset")
+        end
+    end,
+})
+
 local anti_background = require("transparency")
 vim.api.nvim_create_autocmd("ColorScheme", {
-    group = vim.api.nvim_create_augroup("UserTransparency", { clear = true }),
     callback = function()
         vim.api.nvim_set_hl(0, "CursorLineSign", { link = "CursorLine" })
         if settings.transparent_background then
             vim.schedule(anti_background)
+        end
+
+        -- if it works its a good code ok
+        if vim.g.neovide == true then
+            vim.o.cursorline = false
+            vim.o.cursorcolumn = false
+
+            if settings.neovide_line_modes == true then
+                vim.o.cursorline = true
+                vim.o.cursorcolumn = false
+
+                vim.api.nvim_create_autocmd("InsertEnter", {
+                    callback = function()
+                        vim.o.cursorline = true
+                        vim.o.cursorcolumn = false
+                    end,
+                })
+
+                vim.api.nvim_create_autocmd("InsertLeave", {
+                    callback = function()
+                        vim.o.cursorline = true
+                        vim.o.cursorcolumn = false
+                    end,
+                })
+            end
+        else
+            vim.o.cursorline = false
+            vim.o.cursorcolumn = false
+            vim.opt["guicursor"] = "i:block"
         end
     end,
 })

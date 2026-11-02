@@ -5,6 +5,24 @@ local enabled = config.lsp_enabled
 
 local is_nixos = vim.fn.executable("nix-store") == 1
 
+local function get_diagnostics()
+    if vim.g.neovide then
+        return {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        }
+    else
+        return {
+            [vim.diagnostic.severity.ERROR] = "E",
+            [vim.diagnostic.severity.WARN] = "W",
+            [vim.diagnostic.severity.INFO] = "I",
+            [vim.diagnostic.severity.HINT] = "H",
+        }
+    end
+end
+
 local servers = {
     "lua_ls",
     "clangd",
@@ -90,12 +108,7 @@ if enabled then
                     prefix = "",
                 },
                 signs = {
-                    text = {
-                        [vim.diagnostic.severity.ERROR] = "",
-                        [vim.diagnostic.severity.WARN] = "",
-                        [vim.diagnostic.severity.INFO] = "",
-                        [vim.diagnostic.severity.HINT] = "",
-                    },
+                    text = get_diagnostics(),
                 },
                 float = {
                     border = config.border,
