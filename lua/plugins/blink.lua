@@ -3,12 +3,22 @@ local settings = require("settings")
 if settings.lsp_enabled then
     return {
         "saghen/blink.cmp",
-        version = "1.*",
+        --version = "1.*",
         dependencies = {
+            "saghen/blink.lib", -- required only for blink.cmp v2 users
             "rafamadriz/friendly-snippets",
-            "saghen/blink.compat",
             "molleweide/LuaSnip-snippets.nvim",
+            "saghen/blink.compat",
+            -- "Kaiser-Yang/blink-cmp-git",
+            -- "mikavilpas/blink-ripgrep.nvim",
+            -- "bydlw98/blink-cmp-env",
+            -- "xieyonn/blink-cmp-dat-word",
         },
+        build = function()
+            -- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
+            -- you can use `gb` in `:Lazy` to rebuild the plugin as needed
+            require("blink.cmp").build():pwait()
+        end,
         opts = {
             keymap = {
                 preset = "default",

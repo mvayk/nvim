@@ -1,7 +1,7 @@
 -- oh for fuck sakes!
 local preset = "ivy_split"
 if vim.g.neovide then
-    preset = "vscode"
+    preset = "select"
 end
 
 return {
