@@ -24,11 +24,11 @@ VictorMono Nerd Font Mono:h15
 
     if not settings.neovide_animations then
         vim.g.neovide_cursor_animation_length = 0.00
-        vim.g.neovide_cursor_trail_size = 0
+        vim.g.neovide_cursor_trail_size = 9
         vim.g.neovide_scroll_animation_length = 0.00
-        vim.g.neovide_position_animation_length = 0
-        vim.g.neovide_cursor_animate_in_insert_mode = false
-        vim.g.neovide_cursor_animate_command_line = false
+        vim.g.neovide_position_animation_length = 5
+        vim.g.neovide_cursor_animate_in_insert_mode = true
+        vim.g.neovide_cursor_animate_command_line = true
     end
 
     if settings.neovide_transparency then

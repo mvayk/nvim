@@ -71,7 +71,6 @@ if enabled then
                     end
                     resession.load(vim.fn.getcwd(), { dir = dir, silence_errors = true })
 
-                    -- NEW: nothing restored? show the dashboard
                     if real_buffers() == 0 then
                         Snacks.dashboard()
                     end
@@ -80,15 +79,35 @@ if enabled then
 
             vim.api.nvim_create_autocmd("VimLeavePre", { callback = save_current })
 
+            -- NEW: wipe buffers one at a time so one failure doesn't stop the rest
+            local function wipe_all_buffers()
+                pcall(vim.cmd, "tabonly")
+                pcall(vim.cmd, "only")
+
+                local scratch = vim.api.nvim_create_buf(true, true)
+                vim.api.nvim_win_set_buf(0, scratch)
+
+                for _, b in ipairs(vim.api.nvim_list_bufs()) do
+                    if b ~= scratch and vim.api.nvim_buf_is_valid(b) then
+                        pcall(vim.api.nvim_buf_delete, b, { force = true })
+                    end
+                end
+            end
+
+            -- REPLACED
             local function switch_project(path)
                 vim.g.switching_project = true
                 save_current()
+                resession.detach()
+
                 for _, c in ipairs(vim.lsp.get_clients()) do
                     c:stop(true)
                 end
-                vim.cmd("silent! %bwipeout!")
+
+                wipe_all_buffers()
                 vim.cmd.cd(vim.fn.fnameescape(path))
-                resession.load(path, { dir = dir, silence_errors = true })
+
+                pcall(resession.load, path, { dir = dir, silence_errors = true, reset = false })
 
                 vim.schedule(function()
                     vim.g.switching_project = false

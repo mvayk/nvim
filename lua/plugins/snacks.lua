@@ -1,5 +1,6 @@
 -- oh for fuck sakes!
 local preset = "ivy_split"
+
 if vim.g.neovide then
     preset = "select"
 end
@@ -11,7 +12,7 @@ return {
     lazy = false, -- important for picker/explorer availability
     opts = {
         dashboard = {
-            enabled = true,
+            enabled = vim.g.neovide or false,
             sections = {
                 { padding = 1 },
                 { section = "header" },
