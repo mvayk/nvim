@@ -36,14 +36,16 @@ vim.api.nvim_create_autocmd("ColorSchemePre", {
 })
 
 local anti_background = require("transparency")
+vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
         vim.api.nvim_set_hl(0, "CursorLineSign", { link = "CursorLine" })
+        vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
 
-        local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
-        vim.api.nvim_set_hl(0, "LspInlayHint", {
-            bg = normal.bg or "NONE",
-        })
+        -- local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+        -- vim.api.nvim_set_hl(0, "LspInlayHint", {
+        --     bg = normal.bg or "NONE",
+        -- })
         if settings.transparent_background then
             vim.schedule(anti_background)
         end
