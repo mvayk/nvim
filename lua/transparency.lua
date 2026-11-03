@@ -118,20 +118,20 @@ local function anti_background()
         vim.cmd(("hi %s guibg=NONE ctermbg=NONE"):format(g))
     end
 
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffaa00" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#cccccc" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#cccccc" })
-
-    vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ff5555" })
-    vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#ffaa00" })
-    vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#cccccc" })
-    vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#cccccc" })
-
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff5555" })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#ffaa00" })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#cccccc" })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#cccccc" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffaa00" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#cccccc" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#cccccc" })
+    --
+    -- vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ff5555" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#ffaa00" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#cccccc" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#cccccc" })
+    --
+    -- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff5555" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#ffaa00" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#cccccc" })
+    -- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#cccccc" })
 
     vim.api.nvim_set_hl(0, "IblScope", { link = "LineNr" })
 

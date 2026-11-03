@@ -143,6 +143,12 @@ map("v", "k", "gk", { buffer = true, noremap = true, silent = true })
 map("n", "<C-j>", "o<Esc>", { desc = "Insert line below" })
 map("n", "<C-k>", "O<Esc>", { desc = "Insert line above" })
 
+vim.keymap.set("n", "<tab>n", "<cmd>tabnew<cr>", { desc = "New tab" })
+vim.keymap.set("n", "<tab>c", "<cmd>tabclose<cr>", { desc = "Close tab" })
+vim.keymap.set("n", "<tab>l", "<cmd>ProjectTabs<cr>", { desc = "List project tabs" })
+vim.keymap.set("n", "<tab>n", "<cmd>tabmove +1<cr>", { desc = "Move tab right" })
+vim.keymap.set("n", "<tab>p", "<cmd>tabmove -1<cr>", { desc = "Move tab left" })
+
 --// Terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>tn", function()
@@ -375,15 +381,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    callback = function()
-        vim.keymap.set("n", "<leader>r", function()
-            vim.cmd("w")
-            vim.cmd("split | terminal python3 %")
-        end, { buffer = true, desc = "Run Python file" })
-    end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "python",
+--     callback = function()
+--         vim.keymap.set("n", "<leader>r", function()
+--             vim.cmd("w")
+--             vim.cmd("split | terminal python3 %")
+--         end, { buffer = true, desc = "Run Python file" })
+--     end,
+-- })
 
 --[[ deleting overriding clipboard fix]]
 vim.keymap.set({ "n", "x" }, "x", '"_x')
