@@ -143,11 +143,13 @@ map("v", "k", "gk", { buffer = true, noremap = true, silent = true })
 map("n", "<C-j>", "o<Esc>", { desc = "Insert line below" })
 map("n", "<C-k>", "O<Esc>", { desc = "Insert line above" })
 
-vim.keymap.set("n", "<tab>n", "<cmd>tabnew<cr>", { desc = "New tab" })
-vim.keymap.set("n", "<tab>c", "<cmd>tabclose<cr>", { desc = "Close tab" })
+vim.keymap.set("n", "<tab>n", "<cmd>tabnext<cr>", { desc = "Next tab" })
+vim.keymap.set("n", "<tab>p", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+vim.keymap.set("n", "<tab>c", "<cmd>tabnew<cr>", { desc = "New tab" })
+vim.keymap.set("n", "<tab>q", "<cmd>tabclose<cr>", { desc = "Close tab" })
 vim.keymap.set("n", "<tab>l", "<cmd>ProjectTabs<cr>", { desc = "List project tabs" })
-vim.keymap.set("n", "<tab>n", "<cmd>tabmove +1<cr>", { desc = "Move tab right" })
-vim.keymap.set("n", "<tab>p", "<cmd>tabmove -1<cr>", { desc = "Move tab left" })
+vim.keymap.set("n", "<tab>N", "<cmd>tabmove +1<cr>", { desc = "Move tab right" })
+vim.keymap.set("n", "<tab>P", "<cmd>tabmove -1<cr>", { desc = "Move tab left" })
 
 --// Terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
