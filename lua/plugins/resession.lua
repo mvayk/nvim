@@ -61,7 +61,7 @@ return {
 
         -- declared projects (same definition as the <leader>fp picker)
         local project_parents = { norm(home .. "/projects") } -- every subfolder is a project
-        local project_dirs = { norm(home .. "/.config/nvim") } -- single folders that are projects
+        local project_dirs = { norm(home .. "/.config/nvim"), norm("/etc/nixos") } -- single folders that are projects
 
         ---------------------------------------------------------------------------
         -- tab identity: t:project_root, falling back to the tab's cwd
