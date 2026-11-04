@@ -14,6 +14,5 @@ return {
         local npairs = require("nvim-autopairs")
 
         npairs.add_rule(rule("/*", "*/"))
-        npairs.add_rule(rule("<", ">"))
     end,
 }

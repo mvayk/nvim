@@ -5,6 +5,8 @@ local settings = require("settings")
 
 local function get_schemes(lazyloaded, top)
     local urls = {
+        { "ellisonleao/gruvbox.nvim", lazy = lazyloaded },
+        { "almo7aya/neogruvbox.nvim", lazy = lazyloaded },
         { "0mp/vim-robpike", lazy = lazyloaded },
         { "0risotto/rainbow12", lazy = lazyloaded },
         { "0x96f-org/0x96f.nvim", lazy = lazyloaded },
@@ -498,7 +500,6 @@ local function get_schemes(lazyloaded, top)
         { "elianiva/icy.nvim", lazy = lazyloaded },
         { "elliotekj/enough.vim", lazy = lazyloaded },
         { "elliothatch/burgundy.vim", lazy = lazyloaded },
-        { "ellisonleao/gruvbox.nvim", lazy = lazyloaded },
         { "elmindreda/vimcolors", lazy = lazyloaded },
         { "elvessousa/elf-monokai-pro", lazy = lazyloaded },
         { "elvessousa/sobrio", lazy = lazyloaded },

@@ -1,6 +1,6 @@
 return {
     "zeioth/garbage-day.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     opts = {},
 }
