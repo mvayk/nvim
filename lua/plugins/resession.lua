@@ -60,7 +60,7 @@ return {
         scratch_dir = norm(scratch_dir)
 
         -- declared projects (same definition as the <leader>fp picker)
-        local project_parents = { norm(home .. "/projects") } -- every subfolder is a project
+        local project_parents = { norm(home .. "/projects"), norm(home .. "/Documents/sync/projects") } -- every subfolder is a project
         local project_dirs = { norm(home .. "/.config/nvim"), norm("/etc/nixos") } -- single folders that are projects
 
         ---------------------------------------------------------------------------
