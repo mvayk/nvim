@@ -38,9 +38,9 @@ M = {
     icon_theme_package = web_icons,
 
     neovide_transparency = false,
-    neovide_animations = true,
-    neovide_line_modes = false,
-    neovide_ancient = false,
+    neovide_animations = false,
+    neovide_line_modes = true,
+    neovide_ancient = true,
 
     --icon_theme_package = "nvim-tree/nvim-material-icon",
     lsp_enabled = true,

@@ -21,6 +21,12 @@ function M.setup()
     vim.g.neovide_light_angle_degrees = 45
 
     vim.o.guicursor = "n-v-c:block-blinkon500-blinkoff500,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20"
+    vim.g.neovide_cursor_smooth_blink = true
+
+    vim.g.neovide_cursor_animate_in_insert_mode = false
+    vim.g.neovide_cursor_animate_command_line = false
+
+    vim.o.guifont = default_font .. ":#e-subpixelantialias"
 
     if settings.neovide_ancient then
         default_font = "Fixedsys Excelsior 3.01:h16:#e-alias:#h-full"
@@ -48,19 +54,15 @@ function M.setup()
         vim.g.neovide_scroll_animation_far_lines = 0
         vim.g.neovide_cursor_smooth_blink = false
 
+        vim.o.cursorline = true
         vim.o.winbar = " File  Edit  Search  View  Help"
 
         vim.cmd.colorscheme("win95")
+        vim.o.guifont = default_font
         require("lualine.win95").setup()
     end
 
-    vim.g.neovide_cursor_smooth_blink = true
-
     vim.g.neovide_pixel_geometry = "RGBH"
-    vim.o.guifont = default_font .. ":#e-subpixelantialias"
-
-    vim.g.neovide_cursor_animate_in_insert_mode = true
-    vim.g.neovide_cursor_animate_command_line = false
 
     settings.transparent_background = settings.neovide_transparency
     if not settings.neovide_animations then

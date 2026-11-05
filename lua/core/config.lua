@@ -37,7 +37,7 @@ vim.o.mousemodel = "popup"
 vim.o.mousescroll = "ver:3,hor:6"
 
 if vim.g.neovide == true then
-    vim.o.cursorline = true
+    vim.o.cursorline = false
     vim.o.cursorcolumn = false
 
     if settings.neovide_line_modes == true then
@@ -59,7 +59,7 @@ if vim.g.neovide == true then
         })
     end
 else
-    vim.o.cursorline = true
+    vim.o.cursorline = false
     vim.o.cursorcolumn = false
     vim.opt["guicursor"] = "i:block"
 end
@@ -92,6 +92,14 @@ local function get_listchars()
             extends = "❯",
             precedes = "❮",
             nbsp = "",
+        }
+    elseif vim.g.neovide and settings.neovide_ancient then
+        return {
+            tab = ">>",
+            trail = "*",
+            extends = ">",
+            precedes = "<",
+            nbsp = "x",
         }
     else
         return {
@@ -480,3 +488,39 @@ vim.keymap.set("x", "p", "P")
         end
     })
     ]]
+
+local wheel_keys = {
+    [vim.keycode("<ScrollWheelUp>")] = true,
+    [vim.keycode("<ScrollWheelDown>")] = true,
+    [vim.keycode("<ScrollWheelLeft>")] = true,
+    [vim.keycode("<ScrollWheelRight>")] = true,
+}
+
+local original = vim.o.scrolloff
+local wheeling = false
+
+local function start_wheeling()
+    if not wheeling then
+        original = vim.o.scrolloff
+        wheeling = true
+        vim.o.scrolloff = 0
+    end
+end
+
+for _, key in ipairs({ "<ScrollWheelUp>", "<ScrollWheelDown>", "<ScrollWheelLeft>", "<ScrollWheelRight>" }) do
+    vim.keymap.set({ "n", "v", "i" }, key, function()
+        start_wheeling()
+        return key
+    end, { expr = true, silent = true })
+end
+
+vim.on_key(function(_, typed)
+    if wheeling and typed and typed ~= "" and not wheel_keys[typed] then
+        wheeling = false
+        vim.schedule(function()
+            if not wheeling then
+                vim.o.scrolloff = original
+            end
+        end)
+    end
+end, vim.api.nvim_create_namespace("scrolloff_on_wheel"))
