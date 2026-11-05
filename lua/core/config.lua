@@ -8,6 +8,7 @@ vim.o.cmdheight = 0
 vim.o.showcmd = true
 vim.o.showmode = true
 vim.o.ruler = false
+vim.opt.fillchars:append({ eob = " " })
 vim.opt.nu = true
 vim.opt.fileformats = { "unix", "dos" } --// fixes windows line endings
 vim.opt.relativenumber = true
