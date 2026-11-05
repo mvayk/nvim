@@ -10,7 +10,7 @@ return {
             ft_ignore = { "neo-tree", "NvimTree" },
             bt_ignore = { "terminal", "nofile", "prompt" },
             segments = {
-                { text = { "1", maxwidth = 1 } },
+                { text = { " ", maxwidth = 1 } },
                 { sign = { namespace = { ".*diagnostic.*" }, maxwidth = 1 } },
                 { text = { builtin.lnumfunc, " " } },
             },

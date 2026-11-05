@@ -7,7 +7,7 @@ function M.setup()
 
     require("lualine").setup({
         options = {
-            theme = "win95",
+            theme = "auto", --// win95
             icons_enabled = true,
             globalstatus = false,
             section_separators = { left = "", right = "" },
