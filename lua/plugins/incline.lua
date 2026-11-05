@@ -3,7 +3,7 @@ local solarized_osaka = false
 return {
     --[[ https://github.com/Fadilix/dotfiles/blob/main/nvim/lua/plugins/ui.lua ]]
     "b0o/incline.nvim",
-    enabled = true,
+    enabled = not require("settings").neovide_ancient,
     dependencies = {
         "craftzdog/solarized-osaka.nvim",
         {
