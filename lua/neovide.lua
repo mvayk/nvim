@@ -12,16 +12,52 @@ SpaceMono Nerd Font Mono:h17
 BigBlueTermPlus Nerd Font Mono:h15
 VictorMono Nerd Font Mono:h15
 ]]
-    --local default_font = "JetBrainsMono Nerd Font Mono:h12"
-    --local default_font = "VictorMono Nerd Font Mono:h12"
-    local default_font = "Iosevka Nerd Font Mono:h16"
 
-    vim.o.guifont = default_font
+    --local default_font = "JetBrainsMono Nerd Font Mono:h12"
+    local default_font = "Iosevka Nerd Font Mono:h12"
     vim.o.linespace = 10
 
-    settings.transparent_background = settings.neovide_transparency
-
     vim.g.neovide_cursor_vfx_mode = "sonicboom"
+    vim.g.neovide_refresh_rate = 240
+    vim.g.neovide_remember_window_size = true
+
+    if settings.neovide_ancient then
+        default_font = "Fixedsys Excelsior 3.01:h16:#e-alias:#h-full"
+        vim.o.linespace = 0
+        vim.g.neovide_scale_factor = 1.0
+
+        settings.neovide_animations = false
+        vim.g.neovide_cursor_vfx_mode = "none"
+
+        vim.g.neovide_floating_corner_radius = 0.0
+        vim.g.neovide_floating_shadow = false
+        vim.g.neovide_floating_z_height = 10
+        vim.g.neovide_light_angle_degrees = 45
+        vim.g.neovide_light_radius = 5
+
+        vim.g.neovide_progress_bar_enabled = false
+        vim.g.neovide_hide_mouse_when_typing = true
+        vim.g.neovide_cursor_antialiasing = false
+        vim.g.neovide_pixel_geometry = "RGBV"
+
+        vim.g.neovide_opacity = 1.0
+        vim.g.neovide_floating_blur_amount_x = 0.0
+        vim.g.neovide_floating_blur_amount_y = 0.0
+        vim.g.neovide_scroll_animation_length = 0
+        vim.g.neovide_scroll_animation_far_lines = 0
+        vim.g.neovide_cursor_smooth_blink = false
+
+        vim.o.winbar = " File  Edit  Search  View  Help"
+
+        vim.o.guicursor = "n-v-c:block-blinkon500-blinkoff500,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20"
+
+        vim.cmd.colorscheme("win95")
+        require("lualine.win95").setup()
+    end
+
+    vim.o.guifont = default_font
+
+    settings.transparent_background = settings.neovide_transparency
 
     if not settings.neovide_animations then
         vim.g.neovide_cursor_animation_length = 0.00
@@ -36,17 +72,11 @@ VictorMono Nerd Font Mono:h15
         vim.g.neovide_opacity = 0.7
     end
 
-    --[[ vim.g.neovide_padding_top = 16
-vim.g.neovide_padding_bottom = 16
-vim.g.neovide_padding_left = 20
-vim.g.neovide_padding_right = 20 ]]
-
     local function change_font_size(delta)
         local font = vim.o.guifont
-        local name = font:match("(.+:h)%d+")
         local size = tonumber(font:match(":h(%d+)"))
         local new_size = math.max(6, size + delta)
-        vim.o.guifont = name .. new_size
+        vim.o.guifont = font:gsub(":h%d+", ":h" .. new_size)
     end
 
     vim.keymap.set("n", "<C-=>", function()
@@ -54,9 +84,6 @@ vim.g.neovide_padding_right = 20 ]]
     end)
     vim.keymap.set("n", "<C-->", function()
         change_font_size(-1)
-    end)
-    vim.keymap.set("n", "<C-0>", function()
-        vim.o.guifont = "VictorMono Nerd Font Mono:h15"
     end)
 end
 

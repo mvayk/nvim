@@ -1,6 +1,14 @@
+local icon_package = require("settings").icon_theme_package
+
+if not icon_package then
+    return {}
+end
+
 return {
-    require("settings").icon_theme_package,
-    enabled = true,
+    icon_package.git,
     lazy = false,
-    config = function() end,
+    priority = 1000,
+    config = function()
+        icon_package:setup()
+    end,
 }

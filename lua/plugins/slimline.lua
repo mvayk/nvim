@@ -42,7 +42,7 @@ end
 if vim.g.neovide then
     return {
         "sschleemilch/slimline.nvim",
-        enabled = true,
+        enabled = false,
         opts = get_opts(preset),
     }
 else

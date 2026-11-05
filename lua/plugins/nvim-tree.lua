@@ -4,7 +4,7 @@ return {
     version = "*",
     lazy = false,
     dependencies = {
-        require("settings").icon_theme_package,
+        require("settings").icon_theme_package.git,
     },
     config = function()
         vim.keymap.set("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", { desc = "Open NvimTree" })

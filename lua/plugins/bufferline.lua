@@ -2,7 +2,7 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
     version = "*",
-    dependencies = require("settings").icon_theme_package,
+    dependencies = require("settings").icon_theme_package.git,
     config = function()
         require("bufferline").setup({
             options = {
