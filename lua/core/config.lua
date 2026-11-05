@@ -489,13 +489,6 @@ vim.keymap.set("x", "p", "P")
     })
     ]]
 
-local wheel_keys = {
-    [vim.keycode("<ScrollWheelUp>")] = true,
-    [vim.keycode("<ScrollWheelDown>")] = true,
-    [vim.keycode("<ScrollWheelLeft>")] = true,
-    [vim.keycode("<ScrollWheelRight>")] = true,
-}
-
 local original = vim.o.scrolloff
 local wheeling = false
 
@@ -514,8 +507,13 @@ for _, key in ipairs({ "<ScrollWheelUp>", "<ScrollWheelDown>", "<ScrollWheelLeft
     end, { expr = true, silent = true })
 end
 
+local function is_mouse(typed)
+    local k = vim.fn.keytrans(typed)
+    return k:find("Mouse") or k:find("Drag") or k:find("Release") or k:find("ScrollWheel")
+end
+
 vim.on_key(function(_, typed)
-    if wheeling and typed and typed ~= "" and not wheel_keys[typed] then
+    if wheeling and typed and typed ~= "" and not is_mouse(typed) then
         wheeling = false
         vim.schedule(function()
             if not wheeling then
