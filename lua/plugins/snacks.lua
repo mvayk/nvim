@@ -1,4 +1,5 @@
 -- oh for fuck sakes!
+local settings = require("settings")
 local preset = "ivy_split"
 
 if vim.g.neovide then
@@ -12,7 +13,7 @@ return {
     lazy = false, -- important for picker/explorer availability
     opts = {
         dashboard = {
-            enabled = true,
+            enabled = false,
             sections = {
                 { padding = 1 },
                 { section = "header" },
@@ -32,7 +33,7 @@ return {
             layout = {
                 preset = preset,
                 layout = {
-                    border = "none",
+                    border = settings.border,
                     backdrop = false,
                 },
             },

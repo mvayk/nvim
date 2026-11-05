@@ -3,7 +3,11 @@ local settings = require("settings")
 local anti_background = require("transparency")
 
 vim.o.updatetime = 0
---vim.o.laststatus = 3
+vim.o.laststatus = 0
+vim.o.cmdheight = 0
+vim.o.showcmd = true
+vim.o.showmode = true
+vim.o.ruler = false
 vim.opt.nu = true
 vim.opt.fileformats = { "unix", "dos" } --// fixes windows line endings
 vim.opt.relativenumber = true
@@ -29,6 +33,7 @@ vim.o.exrc = true
 
 vim.o.mouse = "a"
 vim.o.mousemodel = "popup"
+vim.o.mousescroll = "ver:3,hor:6"
 
 if vim.g.neovide == true then
     vim.o.cursorline = true
@@ -53,7 +58,7 @@ if vim.g.neovide == true then
         })
     end
 else
-    vim.o.cursorline = false
+    vim.o.cursorline = true
     vim.o.cursorcolumn = false
     vim.opt["guicursor"] = "i:block"
 end

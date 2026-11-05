@@ -1268,7 +1268,7 @@ local function get_schemes(lazyloaded, top)
         { "nyanko-labs/nightcity.nvim", lazy = lazyloaded },
         { "nyngwang/memoonry.nvim", lazy = lazyloaded },
         { "nyomaszto/crayon", lazy = lazyloaded },
-        { "nyoom-engineering/oxocarbon.nvim", lazy = lazyloaded },
+        --{ "nyoom-engineering/oxocarbon.nvim", lazy = lazyloaded },
         { "nyvyme/naysayer.nvim", lazy = lazyloaded },
         { "nyvyme/qtcreator.nvim", lazy = lazyloaded },
         { "oahlen/aurora.nvim", lazy = lazyloaded },
@@ -2000,6 +2000,7 @@ local function install_colorschemes()
         --{ "nvimdev/oxocarbon.nvim", lazy = q },
         { "chip0tle/nvim-occult-umbral", lazy = q },
         { "fzdwx/aura.nvim", lazy = q },
+        { "askfiy/visual_studio_code", lazy = q },
     }
 
     local vimcolorschemesdotcom = get_schemes(q, 20)

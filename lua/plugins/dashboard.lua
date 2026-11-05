@@ -1,6 +1,6 @@
 return {
     "nvimdev/dashboard-nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     dependencies = { require("settings").icon_theme_package.git },
     config = function()

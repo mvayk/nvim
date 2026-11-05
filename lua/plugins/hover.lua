@@ -1,7 +1,7 @@
 local settings = require("settings")
 return {
     "lewis6991/hover.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     event = "VeryLazy",
     config = function()

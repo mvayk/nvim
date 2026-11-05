@@ -1,3 +1,4 @@
+local settings = require("settings")
 return {
     "stevearc/oil.nvim",
     enabled = true,
@@ -132,7 +133,7 @@ return {
                 -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
                 max_width = 0,
                 max_height = 0,
-                border = "rounded",
+                border = settings.border,
                 win_options = {
                     winblend = 0,
                 },
@@ -177,7 +178,7 @@ return {
                 min_height = { 5, 0.1 },
                 -- optionally define an integer/float for the exact height of the preview window
                 height = nil,
-                border = "none",
+                border = settings.border,
                 win_options = {
                     winblend = 0,
                 },
@@ -190,19 +191,19 @@ return {
                 max_height = { 10, 0.9 },
                 min_height = { 5, 0.1 },
                 height = nil,
-                border = "none",
-                minimized_border = "none",
+                border = settings.border,
+                minimized_border = settings.border,
                 win_options = {
                     winblend = 0,
                 },
             },
             -- Configuration for the floating SSH window
             ssh = {
-                border = "rounded",
+                border = settings.border,
             },
             -- Configuration for the floating keymaps help window
             keymaps_help = {
-                border = "rounded",
+                border = settings.border,
             },
         })
         vim.api.nvim_create_autocmd("BufEnter", {

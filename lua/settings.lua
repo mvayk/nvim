@@ -7,7 +7,7 @@ end
 local M = {}
 
 local mini_icons = {
-    name = "mini",
+    name = "mini.icons",
     git = "nvim-mini/mini.icons",
     conf = function()
         if M.neovide_ancient then
@@ -22,7 +22,7 @@ local mini_icons = {
 }
 
 local web_icons = {
-    name = "web-devicons",
+    name = "nvim-web-devicons",
     git = "nvim-tree/nvim-web-devicons",
     conf = {},
     setup = function(self)
@@ -35,12 +35,12 @@ M = {
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
     transparent_background = false,
     use_matugen = false,
-    icon_theme_package = mini_icons,
+    icon_theme_package = web_icons,
 
     neovide_transparency = false,
-    neovide_animations = false,
+    neovide_animations = true,
     neovide_line_modes = false,
-    neovide_ancient = true,
+    neovide_ancient = false,
 
     --icon_theme_package = "nvim-tree/nvim-material-icon",
     lsp_enabled = true,

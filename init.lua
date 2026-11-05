@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         -- vim.api.nvim_set_hl(0, "LspInlayHint", {
         --     bg = normal.bg or "NONE",
         -- })
+
         if settings.transparent_background then
             vim.schedule(anti_background)
         end

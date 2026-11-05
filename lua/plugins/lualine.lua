@@ -1,7 +1,12 @@
+local settings = require("settings")
 return {
     "nvim-lualine/lualine.nvim",
-    enabled = true,
+    enabled = settings.neovide_ancient,
     lazy = false,
     dependencies = { require("settings").icon_theme_package.git },
-    config = function() end,
+    config = function()
+        if not require("settings").neovide_ancient then
+            require("lualine").setup({})
+        end
+    end,
 }
