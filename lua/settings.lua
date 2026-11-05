@@ -10,7 +10,7 @@ local mini_icons = {
     name = "mini",
     git = "nvim-mini/mini.icons",
     conf = function()
-        if M.settings.neovide_ancient then
+        if M.neovide_ancient then
             return { style = "ascii" } -- or "ascii" for plain letters
         end
         return {}
@@ -30,7 +30,7 @@ local web_icons = {
     end,
 }
 
-M.settings = {
+M = {
     border = tborder,
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
     transparent_background = false,
@@ -49,4 +49,33 @@ M.settings = {
     float_diagnostic = false,
 }
 
-return M.settings
+function M.get_glyphs()
+    local glyphs = {
+        error = "",
+        warn = "",
+        info = "",
+        hint = "",
+    }
+
+    if M.neovide_ancient and vim.g.neovide then
+        glyphs = {
+            error = "X",
+            warn = "!",
+            info = "i",
+            hint = "?",
+        }
+    end
+
+    if not vim.g.neovide then
+        glyphs = {
+            error = "E",
+            warn = "W",
+            info = "I",
+            hint = "H",
+        }
+    end
+
+    return glyphs
+end
+
+return M

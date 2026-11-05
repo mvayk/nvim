@@ -6,19 +6,13 @@ local enabled = config.lsp_enabled
 local is_nixos = vim.fn.executable("nix-store") == 1
 
 local function get_diagnostics()
+    local s = config.get_glyphs()
     if vim.g.neovide then
         return {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.INFO] = "",
-            [vim.diagnostic.severity.HINT] = "",
-        }
-    else
-        return {
-            [vim.diagnostic.severity.ERROR] = "E",
-            [vim.diagnostic.severity.WARN] = "W",
-            [vim.diagnostic.severity.INFO] = "I",
-            [vim.diagnostic.severity.HINT] = "H",
+            [vim.diagnostic.severity.ERROR] = s.error,
+            [vim.diagnostic.severity.WARN] = s.warn,
+            [vim.diagnostic.severity.INFO] = s.info,
+            [vim.diagnostic.severity.HINT] = s.hint,
         }
     end
 end

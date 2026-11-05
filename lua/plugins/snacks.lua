@@ -12,7 +12,7 @@ return {
     lazy = false, -- important for picker/explorer availability
     opts = {
         dashboard = {
-            enabled = vim.g.neovide or false,
+            enabled = true,
             sections = {
                 { padding = 1 },
                 { section = "header" },
@@ -37,6 +37,7 @@ return {
                 },
             },
             sources = {
+                grep = { regex = false },
                 explorer = {
                     tree = true,
                     follow_file = false,
