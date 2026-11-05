@@ -41,12 +41,13 @@ M = {
     neovide_line_modes = true,
     neovide_ancient = true,
 
-    icon_theme_package = "web_icons",
+    icon_theme_package = web_icons,
 
     lsp_enabled = true,
     --lsp_system = "blink", --[[ blink, cmp ]]
     show_blink_documentation = true,
     float_diagnostic = false,
+    understyle = "undercurl", --"underline" | "undercurl" | "underdotted" | "underdashed" | "underdouble" | "none"
 }
 
 function M.get_glyphs()
@@ -79,5 +80,6 @@ function M.get_glyphs()
 end
 
 M.icon_theme_package = M.neovide_ancient and mini_icons or web_icons
+M.understyle = M.neovide_ancient and "undercurl" or "underline" -- gets overwritten anyway lel
 
 return M

@@ -35,6 +35,7 @@ vim.o.exrc = true
 vim.o.mouse = "a"
 vim.o.mousemodel = "popup"
 vim.o.mousescroll = "ver:3,hor:6"
+vim.o.mousemoveevent = true
 
 if vim.g.neovide == true then
     vim.o.cursorline = false
@@ -207,17 +208,16 @@ map("n", "<leader>lj", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>l;", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
 
 local function toggle_completion()
-    -- treat nil as true (enabled by default)
-    local current = vim.b.completion ~= false
-    vim.b.completion = not current
+    local enabled = vim.b.completion ~= false
+    vim.b.completion = not enabled
 
-    if vim.b.completion then
-        require("blink.cmp").show()
-    else
-        require("blink.cmp").hide()
+    if enabled then
+        vim.schedule(function()
+            require("blink.cmp").hide()
+        end)
     end
 
-    vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"), vim.log.levels.INFO)
+    vim.notify("Completion " .. (enabled and "disabled" or "enabled"), vim.log.levels.INFO)
 end
 
 vim.keymap.set({ "n" }, "<leader>lz", toggle_completion, { desc = "Toggle Completion in its entirety" })

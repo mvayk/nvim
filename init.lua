@@ -47,6 +47,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         --     bg = normal.bg or "NONE",
         -- })
 
+        require("underline").apply()
+
         if settings.transparent_background then
             vim.schedule(anti_background)
         end
