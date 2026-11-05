@@ -17,7 +17,7 @@ local mini_icons = {
     end,
     setup = function(self)
         require("mini.icons").setup(self.conf())
-        --MiniIcons.mock_nvim_web_devicons()
+        require("mini.icons").mock_nvim_web_devicons()
     end,
 }
 
@@ -35,14 +35,14 @@ M = {
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
     transparent_background = false,
     use_matugen = false,
-    icon_theme_package = web_icons,
 
     neovide_transparency = false,
-    neovide_animations = false,
+    neovide_animations = true,
     neovide_line_modes = true,
     neovide_ancient = true,
 
-    --icon_theme_package = "nvim-tree/nvim-material-icon",
+    icon_theme_package = "web_icons",
+
     lsp_enabled = true,
     --lsp_system = "blink", --[[ blink, cmp ]]
     show_blink_documentation = true,
@@ -77,5 +77,7 @@ function M.get_glyphs()
 
     return glyphs
 end
+
+M.icon_theme_package = M.neovide_ancient and mini_icons or web_icons
 
 return M

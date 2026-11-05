@@ -93,7 +93,9 @@ if settings.lsp_enabled then
                     draw = {
                         -- padding = 1,
                         -- gap = 1,
-                        columns = vim.g.neovide and { { "label", gap = 1 }, { "kind_icon" }, { "kind" } }
+                        columns = vim.g.neovide
+                                and not settings.neovide_ancient
+                                and { { "label", gap = 1 }, { "kind_icon" }, { "kind" } }
                             or { { "label", gap = 1 }, { "kind" } },
                         components = {
                             label = {

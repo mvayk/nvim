@@ -65,7 +65,7 @@ function M.setup()
     vim.g.neovide_pixel_geometry = "RGBH"
 
     settings.transparent_background = settings.neovide_transparency
-    if not settings.neovide_animations then
+    if not settings.neovide_animations or settings.neovide_ancient then
         vim.g.neovide_cursor_animation_length = 0.00
         vim.g.neovide_cursor_trail_size = 0
         vim.g.neovide_scroll_animation_length = 0.00
