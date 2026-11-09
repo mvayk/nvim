@@ -33,11 +33,11 @@ local web_icons = {
 M = {
     border = tborder,
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
-    transparent_background = false,
+    transparent_background = true,
     use_matugen = false,
 
     neovide_transparency = true,
-    neovide_animations = true,
+    neovide_animations = false,
     neovide_line_modes = true,
     neovide_ancient = false,
 
@@ -46,7 +46,7 @@ M = {
     lsp_enabled = true,
     --lsp_system = "blink", --[[ blink, cmp ]]
     show_blink_documentation = true,
-    float_diagnostic = true,
+    float_diagnostic = false,
     understyle = "undercurl", --"underline" | "undercurl" | "underdotted" | "underdashed" | "underdouble" | "none"
 }
 

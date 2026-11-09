@@ -20,7 +20,7 @@ function M.setup()
     vim.g.neovide_light_radius = 1
     vim.g.neovide_light_angle_degrees = 45
 
-    vim.o.guicursor = "n-v-c:block-blinkon500-blinkoff500,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20"
+    vim.o.guicursor = "a:block-blinkon500-blinkoff500"
     vim.g.neovide_cursor_smooth_blink = true
 
     vim.g.neovide_cursor_animate_in_insert_mode = true
