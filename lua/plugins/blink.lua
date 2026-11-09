@@ -111,7 +111,7 @@ if settings.lsp_enabled then
                 },
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer", "omni" },
+                default = { "lsp", "path", "snippets", "buffer" },
             },
         },
     }

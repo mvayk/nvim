@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd("ColorSchemePre", {
 })
 
 local anti_background = require("transparency")
+require("underline").apply()
 vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()

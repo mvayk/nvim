@@ -36,17 +36,17 @@ M = {
     transparent_background = false,
     use_matugen = false,
 
-    neovide_transparency = false,
+    neovide_transparency = true,
     neovide_animations = true,
     neovide_line_modes = true,
-    neovide_ancient = true,
+    neovide_ancient = false,
 
     icon_theme_package = web_icons,
 
     lsp_enabled = true,
     --lsp_system = "blink", --[[ blink, cmp ]]
     show_blink_documentation = true,
-    float_diagnostic = false,
+    float_diagnostic = true,
     understyle = "undercurl", --"underline" | "undercurl" | "underdotted" | "underdashed" | "underdouble" | "none"
 }
 
