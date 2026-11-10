@@ -37,7 +37,7 @@ M = {
     use_matugen = false,
 
     neovide_transparency = true,
-    neovide_animations = false,
+    neovide_animations = true,
     neovide_line_modes = true,
     neovide_ancient = false,
 

@@ -82,6 +82,7 @@
   "neogruvbox.nvim": { "branch": "master", "commit": "f7818c9f7c0ee7f2c1ec74a98983a1c8b4364908" },
   "neomodern.nvim": { "branch": "main", "commit": "d41469578922a23d75a0d9e8deef1e34837230a6" },
   "neopywal": { "branch": "master", "commit": "95425eea6411eebc17c2fcdc46d1c45e57d99205" },
+  "neoscroll.nvim": { "branch": "master", "commit": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8" },
   "neotypist.nvim": { "branch": "master", "commit": "23570aedca4bb4d92967ac82e053cf4d4903abe9" },
   "night-owl.nvim": { "branch": "main", "commit": "86ed124c2f7e118670649701288e024444bf91e5" },
   "nightfall.nvim": { "branch": "main", "commit": "80be654951c494c97122d8d1d94b8f2687175607" },
