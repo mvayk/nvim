@@ -500,7 +500,14 @@ local function start_wheeling()
     end
 end
 
-for _, key in ipairs({ "<ScrollWheelUp>", "<ScrollWheelDown>", "<ScrollWheelLeft>", "<ScrollWheelRight>" }) do
+for _, key in ipairs({
+    "<ScrollWheelUp>",
+    "<ScrollWheelDown>",
+    "<ScrollWheelLeft>",
+    "<ScrollWheelRight>",
+    "<LeftMouse>",
+    "<RightMouse>",
+}) do
     vim.keymap.set({ "n", "v", "i" }, key, function()
         start_wheeling()
         return key

@@ -109,13 +109,12 @@ local function anti_background()
         "NeoTreeTabSeparatorActive",
     }
 
+    local keep_in_neovide = { Normal = true, NormalNC = true }
+
     for _, group in ipairs(groups) do
-        -- local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
-        -- hl.bg, hl.ctermbg = nil, nil
-        --
-        -- vim.api.nvim_set_hl(0, group, hl)
-        local g = group
-        vim.cmd(("hi %s guibg=NONE ctermbg=NONE"):format(g))
+        if not (vim.g.neovide and keep_in_neovide[group]) then
+            vim.cmd(("hi %s guibg=NONE ctermbg=NONE"):format(group))
+        end
     end
 
     -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" })
