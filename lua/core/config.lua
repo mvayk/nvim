@@ -341,7 +341,9 @@ if settings.float_diagnostic then
         diag_float_win = win
     end
 
-    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+    vim.api.nvim_create_autocmd({
+        "CursorMoved", --[["CursorMovedI"]]
+    }, {
         callback = update_float,
     })
 

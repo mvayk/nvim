@@ -34,10 +34,10 @@ M = {
     border = tborder,
     theme_file = vim.fn.stdpath("data") .. "/last_theme.lua",
     transparent_background = true,
-    use_matugen = false,
+    --use_matugen = false,
 
-    neovide_transparency = true,
-    neovide_animations = true,
+    neovide_transparency = false,
+    neovide_animations = false,
     neovide_line_modes = true,
     neovide_ancient = false,
 
