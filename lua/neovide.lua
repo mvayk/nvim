@@ -28,6 +28,22 @@ function M.setup()
 
     vim.o.guifont = default_font .. ":#e-subpixelantialias"
 
+    vim.g.neovide_cursor_animation_length = 0.06 -- default 0.15; lower = snappier
+    vim.g.neovide_cursor_trail_size = 0.4 -- default 0.7; shorter trail feels faster
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_animate_command_line = true
+    vim.g.neovide_cursor_short_animation_length = 0.04 -- for small moves (e.g. typing)
+
+    -- Scrolling: smooth but quick
+    vim.g.neovide_scroll_animation_length = 0.15 -- default 0.3
+    vim.g.neovide_scroll_animation_far_lines = 1 -- animate even long jumps (set 0 to skip them)
+
+    -- Window/split movement
+    vim.g.neovide_position_animation_length = 0.1 -- default 0.15
+
+    -- Optional: remove the cursor "vfx" if you want it clean
+    vim.g.neovide_cursor_vfx_mode = "" -- or "railgun", "torpedo", "pixiedust", "sonicboom", "ripple", "wireframe"
+
     if settings.neovide_ancient then
         vim.g.neovide_cursor_animate_in_insert_mode = false
         vim.g.neovide_cursor_animate_in_insert_mode = false
@@ -74,6 +90,33 @@ function M.setup()
         vim.g.neovide_position_animation_length = 0
         vim.g.neovide_cursor_animate_in_insert_mode = false
         vim.g.neovide_cursor_animate_command_line = false
+    end
+
+    if settings.neovide_animations and not settings.neovide_ancient then
+        local fast = { length = 0.06, short = 0.04, trail = 0.4 }
+        local slow = { length = 0.25, short = 0.12, trail = 0.8 }
+
+        local function apply(p)
+            vim.g.neovide_cursor_animation_length = p.length
+            vim.g.neovide_cursor_short_animation_length = p.short
+            vim.g.neovide_cursor_trail_size = p.trail
+        end
+
+        apply(fast)
+
+        local group = vim.api.nvim_create_augroup("NeovideInsertCursor", { clear = true })
+        vim.api.nvim_create_autocmd("InsertEnter", {
+            group = group,
+            callback = function()
+                apply(slow)
+            end,
+        })
+        vim.api.nvim_create_autocmd("InsertLeave", {
+            group = group,
+            callback = function()
+                apply(fast)
+            end,
+        })
     end
 
     if settings.neovide_transparency then
