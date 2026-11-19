@@ -99,7 +99,7 @@ if enabled then
                 virtual_text = {
                     true,
                     spacing = 25,
-                    prefix = "",
+                    prefix = vim.g.neovide == "" or "!",
                 },
                 signs = {
                     text = get_diagnostics(),
